@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="model.User" table="user" schema="scm">
+        <id name="userId">
+            <column name="user_id" sql-type="int(5)"/>
+        </id>
+        <property name="userLogin">
+            <column name="user_login" sql-type="varchar(25)" length="25"/>
+        </property>
+        <property name="userPassword">
+            <column name="user_password" sql-type="varchar(25)" length="25"/>
+        </property>
+        <property name="userRole">
+            <column name="user_role" sql-type="varchar(2)" length="2" not-null="true"/>
+        </property>
+        <set name="cargoOwnersByUserId" inverse="true">
+            <key>
+                <column name="user_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="model.CargoOwner"/>
+        </set>
+        <set name="carriersByUserId" inverse="true">
+            <key>
+                <column name="user_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="model.Carrier"/>
+        </set>
+    </class>
+</hibernate-mapping>

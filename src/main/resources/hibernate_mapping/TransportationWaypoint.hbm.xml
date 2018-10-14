@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="model.TransportationWaypoint" table="transportation_waypoint" schema="scm">
+        <id name="transportationWaypointId">
+            <column name="transportation_waypoint_id" sql-type="int(5)"/>
+        </id>
+        <property name="transportationId">
+            <column name="transportation_id" sql-type="int(5)"/>
+        </property>
+        <property name="waypointId">
+            <column name="waypoint_id" sql-type="int(5)"/>
+        </property>
+        <many-to-one name="transportationByTransportationId" class="model.Transportation">
+            <column name="transportation_id"/>
+        </many-to-one>
+        <many-to-one name="waypointByWaypointId" class="model.Waypoint">
+            <column name="waypoint_id"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

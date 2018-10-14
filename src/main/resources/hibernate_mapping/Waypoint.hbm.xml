@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="model.Waypoint" table="waypoint" schema="scm">
+        <id name="waypointId">
+            <column name="waypoint_id" sql-type="int(5)"/>
+        </id>
+        <property name="routeId">
+            <column name="route_id" sql-type="int(5)"/>
+        </property>
+        <property name="rateId">
+            <column name="rate_id" sql-type="int(5)" not-null="true"/>
+        </property>
+        <property name="fromLocalityId">
+            <column name="from_locality_id" sql-type="int(5)"/>
+        </property>
+        <property name="toLacalityId">
+            <column name="to_lacality_id" sql-type="int(5)"/>
+        </property>
+        <property name="backward">
+            <column name="backward" sql-type="tinyint(4)" not-null="true"/>
+        </property>
+        <many-to-one name="routeByRouteId" class="model.Route">
+            <column name="route_id"/>
+        </many-to-one>
+        <many-to-one name="rateByRateId" class="model.Rate">
+            <column name="rate_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="localityByFromLocalityId" class="model.Locality">
+            <column name="from_locality_id"/>
+        </many-to-one>
+        <many-to-one name="localityByToLacalityId" class="model.Locality">
+            <column name="to_lacality_id"/>
+        </many-to-one>
+        <set name="transportationWaypointsByWaypointId" inverse="true">
+            <key>
+                <column name="waypoint_id"/>
+            </key>
+            <one-to-many not-found="ignore" class="model.TransportationWaypoint"/>
+        </set>
+    </class>
+</hibernate-mapping>
