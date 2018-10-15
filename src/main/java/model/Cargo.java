@@ -17,6 +17,7 @@ public class Cargo {
 
     @Id
     @Column(name = "cargo_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getCargoId() {
         return cargoId;
     }
@@ -95,6 +96,15 @@ public class Cargo {
         this.cargoFragile = cargoFragile;
     }
 
+    @OneToMany(mappedBy = "cargoByCargoId")
+    public Collection<Ticket> getTicketsByCargoId() {
+        return ticketsByCargoId;
+    }
+
+    public void setTicketsByCargoId(Collection<Ticket> ticketsByCargoId) {
+        this.ticketsByCargoId = ticketsByCargoId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -126,14 +136,5 @@ public class Cargo {
         result = 31 * result + (cargoDangerous != null ? cargoDangerous.hashCode() : 0);
         result = 31 * result + (cargoFragile != null ? cargoFragile.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "cargoByCargoId")
-    public Collection<Ticket> getTicketsByCargoId() {
-        return ticketsByCargoId;
-    }
-
-    public void setTicketsByCargoId(Collection<Ticket> ticketsByCargoId) {
-        this.ticketsByCargoId = ticketsByCargoId;
     }
 }

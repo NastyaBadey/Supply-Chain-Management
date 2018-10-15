@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name = "delivery_method", schema = "scm", catalog = "")
+@Table(name = "delivery_method", schema = "scm")
 public class DeliveryMethod {
     private Integer deliveryMethodId;
     private String deliveryMethodName;
@@ -13,6 +13,7 @@ public class DeliveryMethod {
 
     @Id
     @Column(name = "delivery_method_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getDeliveryMethodId() {
         return deliveryMethodId;
     }
@@ -41,6 +42,15 @@ public class DeliveryMethod {
         this.deliveryMethodDesc = deliveryMethodDesc;
     }
 
+    @OneToMany(mappedBy = "deliveryMethodByDeliveryMethodId")
+    public Collection<RateDeliveryMethod> getRateDeliveryMethodsByDeliveryMethodId() {
+        return rateDeliveryMethodsByDeliveryMethodId;
+    }
+
+    public void setRateDeliveryMethodsByDeliveryMethodId(Collection<RateDeliveryMethod> rateDeliveryMethodsByDeliveryMethodId) {
+        this.rateDeliveryMethodsByDeliveryMethodId = rateDeliveryMethodsByDeliveryMethodId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -64,14 +74,5 @@ public class DeliveryMethod {
         result = 31 * result + (deliveryMethodName != null ? deliveryMethodName.hashCode() : 0);
         result = 31 * result + (deliveryMethodDesc != null ? deliveryMethodDesc.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "deliveryMethodByDeliveryMethodId")
-    public Collection<RateDeliveryMethod> getRateDeliveryMethodsByDeliveryMethodId() {
-        return rateDeliveryMethodsByDeliveryMethodId;
-    }
-
-    public void setRateDeliveryMethodsByDeliveryMethodId(Collection<RateDeliveryMethod> rateDeliveryMethodsByDeliveryMethodId) {
-        this.rateDeliveryMethodsByDeliveryMethodId = rateDeliveryMethodsByDeliveryMethodId;
     }
 }

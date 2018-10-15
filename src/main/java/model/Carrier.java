@@ -16,6 +16,7 @@ public class Carrier {
 
     @Id
     @Column(name = "carrier_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getCarrierId() {
         return carrierId;
     }
@@ -64,33 +65,6 @@ public class Carrier {
         this.userId = userId;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Carrier carrier = (Carrier) o;
-
-        if (carrierId != null ? !carrierId.equals(carrier.carrierId) : carrier.carrierId != null) return false;
-        if (carrierName != null ? !carrierName.equals(carrier.carrierName) : carrier.carrierName != null) return false;
-        if (carrierDesc != null ? !carrierDesc.equals(carrier.carrierDesc) : carrier.carrierDesc != null) return false;
-        if (carrierPhone != null ? !carrierPhone.equals(carrier.carrierPhone) : carrier.carrierPhone != null)
-            return false;
-        if (userId != null ? !userId.equals(carrier.userId) : carrier.userId != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = carrierId != null ? carrierId.hashCode() : 0;
-        result = 31 * result + (carrierName != null ? carrierName.hashCode() : 0);
-        result = 31 * result + (carrierDesc != null ? carrierDesc.hashCode() : 0);
-        result = 31 * result + (carrierPhone != null ? carrierPhone.hashCode() : 0);
-        result = 31 * result + (userId != null ? userId.hashCode() : 0);
-        return result;
-    }
-
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
     public User getUserByUserId() {
@@ -117,5 +91,32 @@ public class Carrier {
 
     public void setTransportationByCarrierId(Collection<Transportation> transportationByCarrierId) {
         this.transportationByCarrierId = transportationByCarrierId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Carrier carrier = (Carrier) o;
+
+        if (carrierId != null ? !carrierId.equals(carrier.carrierId) : carrier.carrierId != null) return false;
+        if (carrierName != null ? !carrierName.equals(carrier.carrierName) : carrier.carrierName != null) return false;
+        if (carrierDesc != null ? !carrierDesc.equals(carrier.carrierDesc) : carrier.carrierDesc != null) return false;
+        if (carrierPhone != null ? !carrierPhone.equals(carrier.carrierPhone) : carrier.carrierPhone != null)
+            return false;
+        if (userId != null ? !userId.equals(carrier.userId) : carrier.userId != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = carrierId != null ? carrierId.hashCode() : 0;
+        result = 31 * result + (carrierName != null ? carrierName.hashCode() : 0);
+        result = 31 * result + (carrierDesc != null ? carrierDesc.hashCode() : 0);
+        result = 31 * result + (carrierPhone != null ? carrierPhone.hashCode() : 0);
+        result = 31 * result + (userId != null ? userId.hashCode() : 0);
+        return result;
     }
 }

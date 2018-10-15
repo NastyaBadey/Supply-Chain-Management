@@ -3,7 +3,7 @@ package model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "rate_delivery_method", schema = "scm", catalog = "")
+@Table(name = "rate_delivery_method", schema = "scm")
 public class RateDeliveryMethod {
     private Integer rateDeliveryMethodId;
     private Integer rateId;
@@ -13,6 +13,7 @@ public class RateDeliveryMethod {
 
     @Id
     @Column(name = "rate_delivery_method_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getRateDeliveryMethodId() {
         return rateDeliveryMethodId;
     }
@@ -41,6 +42,26 @@ public class RateDeliveryMethod {
         this.deliveryMethodId = deliveryMethodId;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "rate_id", referencedColumnName = "rate_id", nullable = false)
+    public Rate getRateByRateId() {
+        return rateByRateId;
+    }
+
+    public void setRateByRateId(Rate rateByRateId) {
+        this.rateByRateId = rateByRateId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "delivery_method_id", referencedColumnName = "delivery_method_id", nullable = false)
+    public DeliveryMethod getDeliveryMethodByDeliveryMethodId() {
+        return deliveryMethodByDeliveryMethodId;
+    }
+
+    public void setDeliveryMethodByDeliveryMethodId(DeliveryMethod deliveryMethodByDeliveryMethodId) {
+        this.deliveryMethodByDeliveryMethodId = deliveryMethodByDeliveryMethodId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -63,25 +84,5 @@ public class RateDeliveryMethod {
         result = 31 * result + (rateId != null ? rateId.hashCode() : 0);
         result = 31 * result + (deliveryMethodId != null ? deliveryMethodId.hashCode() : 0);
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "rate_id", referencedColumnName = "rate_id", nullable = false)
-    public Rate getRateByRateId() {
-        return rateByRateId;
-    }
-
-    public void setRateByRateId(Rate rateByRateId) {
-        this.rateByRateId = rateByRateId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "delivery_method_id", referencedColumnName = "delivery_method_id", nullable = false)
-    public DeliveryMethod getDeliveryMethodByDeliveryMethodId() {
-        return deliveryMethodByDeliveryMethodId;
-    }
-
-    public void setDeliveryMethodByDeliveryMethodId(DeliveryMethod deliveryMethodByDeliveryMethodId) {
-        this.deliveryMethodByDeliveryMethodId = deliveryMethodByDeliveryMethodId;
     }
 }

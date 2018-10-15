@@ -88,12 +88,12 @@
    route_id INT(5) NOT NULL,
    rate_id INT(5),
    from_locality_id INT(5) NOT NULL,
-   to_lacality_id INT(5) NOT NULL,
+   to_locality_id INT(5) NOT NULL,
    backward TINYINT,
    
    FOREIGN KEY (route_id) REFERENCES route(route_id),
    FOREIGN KEY (from_locality_id) REFERENCES locality(locality_id),
-   FOREIGN KEY (to_lacality_id) REFERENCES locality(locality_id),
+   FOREIGN KEY (to_locality_id) REFERENCES locality(locality_id),
    FOREIGN KEY (rate_id) REFERENCES rate(rate_id)
 );
 
@@ -117,7 +117,7 @@
    carrier_id INT(5) NOT NULL,
    status VARCHAR(30),
    departure_date DATETIME NOT NULL,
-   destinatio_date DATETIME NOT NULL,
+   destination_date DATETIME NOT NULL,
    total_cost FLOAT(10,2) NOT NULL,
    
    FOREIGN KEY (ticket_id) REFERENCES ticket(ticket_id), 

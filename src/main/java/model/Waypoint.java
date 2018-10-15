@@ -9,16 +9,17 @@ public class Waypoint {
     private Integer routeId;
     private Integer rateId;
     private Integer fromLocalityId;
-    private Integer toLacalityId;
+    private Integer toLocalityId;
     private Byte backward;
     private Collection<TransportationWaypoint> transportationWaypointsByWaypointId;
     private Route routeByRouteId;
     private Rate rateByRateId;
     private Locality localityByFromLocalityId;
-    private Locality localityByToLacalityId;
+    private Locality localityByToLocalityId;
 
     @Id
     @Column(name = "waypoint_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getWaypointId() {
         return waypointId;
     }
@@ -58,13 +59,13 @@ public class Waypoint {
     }
 
     @Basic
-    @Column(name = "to_lacality_id", nullable = false)
-    public Integer getToLacalityId() {
-        return toLacalityId;
+    @Column(name = "to_locality_id", nullable = false)
+    public Integer getToLocalityId() {
+        return toLocalityId;
     }
 
-    public void setToLacalityId(Integer toLacalityId) {
-        this.toLacalityId = toLacalityId;
+    public void setToLocalityId(Integer toLocalityId) {
+        this.toLocalityId = toLocalityId;
     }
 
     @Basic
@@ -75,36 +76,6 @@ public class Waypoint {
 
     public void setBackward(Byte backward) {
         this.backward = backward;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Waypoint waypoint = (Waypoint) o;
-
-        if (waypointId != null ? !waypointId.equals(waypoint.waypointId) : waypoint.waypointId != null) return false;
-        if (routeId != null ? !routeId.equals(waypoint.routeId) : waypoint.routeId != null) return false;
-        if (rateId != null ? !rateId.equals(waypoint.rateId) : waypoint.rateId != null) return false;
-        if (fromLocalityId != null ? !fromLocalityId.equals(waypoint.fromLocalityId) : waypoint.fromLocalityId != null)
-            return false;
-        if (toLacalityId != null ? !toLacalityId.equals(waypoint.toLacalityId) : waypoint.toLacalityId != null)
-            return false;
-        if (backward != null ? !backward.equals(waypoint.backward) : waypoint.backward != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = waypointId != null ? waypointId.hashCode() : 0;
-        result = 31 * result + (routeId != null ? routeId.hashCode() : 0);
-        result = 31 * result + (rateId != null ? rateId.hashCode() : 0);
-        result = 31 * result + (fromLocalityId != null ? fromLocalityId.hashCode() : 0);
-        result = 31 * result + (toLacalityId != null ? toLacalityId.hashCode() : 0);
-        result = 31 * result + (backward != null ? backward.hashCode() : 0);
-        return result;
     }
 
     @OneToMany(mappedBy = "waypointByWaypointId")
@@ -147,12 +118,42 @@ public class Waypoint {
     }
 
     @ManyToOne
-    @JoinColumn(name = "to_lacality_id", referencedColumnName = "locality_id", nullable = false)
-    public Locality getLocalityByToLacalityId() {
-        return localityByToLacalityId;
+    @JoinColumn(name = "to_locality_id", referencedColumnName = "locality_id", nullable = false)
+    public Locality getLocalityByToLocalityId() {
+        return localityByToLocalityId;
     }
 
-    public void setLocalityByToLacalityId(Locality localityByToLacalityId) {
-        this.localityByToLacalityId = localityByToLacalityId;
+    public void setLocalityByToLocalityId(Locality localityByToLocalityId) {
+        this.localityByToLocalityId = localityByToLocalityId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Waypoint waypoint = (Waypoint) o;
+
+        if (waypointId != null ? !waypointId.equals(waypoint.waypointId) : waypoint.waypointId != null) return false;
+        if (routeId != null ? !routeId.equals(waypoint.routeId) : waypoint.routeId != null) return false;
+        if (rateId != null ? !rateId.equals(waypoint.rateId) : waypoint.rateId != null) return false;
+        if (fromLocalityId != null ? !fromLocalityId.equals(waypoint.fromLocalityId) : waypoint.fromLocalityId != null)
+            return false;
+        if (toLocalityId != null ? !toLocalityId.equals(waypoint.toLocalityId) : waypoint.toLocalityId != null)
+            return false;
+        if (backward != null ? !backward.equals(waypoint.backward) : waypoint.backward != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = waypointId != null ? waypointId.hashCode() : 0;
+        result = 31 * result + (routeId != null ? routeId.hashCode() : 0);
+        result = 31 * result + (rateId != null ? rateId.hashCode() : 0);
+        result = 31 * result + (fromLocalityId != null ? fromLocalityId.hashCode() : 0);
+        result = 31 * result + (toLocalityId != null ? toLocalityId.hashCode() : 0);
+        result = 31 * result + (backward != null ? backward.hashCode() : 0);
+        return result;
     }
 }

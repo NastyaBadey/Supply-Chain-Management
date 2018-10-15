@@ -17,8 +17,8 @@
         <property name="fromLocalityId">
             <column name="from_locality_id" sql-type="int(5)"/>
         </property>
-        <property name="toLacalityId">
-            <column name="to_lacality_id" sql-type="int(5)"/>
+        <property name="toLocalityId">
+            <column name="to_locality_id" sql-type="int(5)"/>
         </property>
         <property name="backward">
             <column name="backward" sql-type="tinyint(4)" not-null="true"/>
@@ -32,8 +32,8 @@
         <many-to-one name="localityByFromLocalityId" class="model.Locality">
             <column name="from_locality_id"/>
         </many-to-one>
-        <many-to-one name="localityByToLacalityId" class="model.Locality">
-            <column name="to_lacality_id"/>
+        <many-to-one name="localityByToLocalityId" class="model.Locality">
+            <column name="to_locality_id"/>
         </many-to-one>
         <set name="transportationWaypointsByWaypointId" inverse="true">
             <key>

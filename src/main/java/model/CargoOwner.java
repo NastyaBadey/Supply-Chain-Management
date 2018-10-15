@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Table(name = "cargo_owner", schema = "scm", catalog = "")
+@Table(name = "cargo_owner", schema = "scm")
 public class CargoOwner {
     private Integer cargoOwnerId;
     private String cargoOwnerName;
@@ -16,6 +16,7 @@ public class CargoOwner {
 
     @Id
     @Column(name = "cargo_owner_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getCargoOwnerId() {
         return cargoOwnerId;
     }
@@ -64,6 +65,25 @@ public class CargoOwner {
         this.userId = userId;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
+    public User getUserByUserId() {
+        return userByUserId;
+    }
+
+    public void setUserByUserId(User userByUserId) {
+        this.userByUserId = userByUserId;
+    }
+
+    @OneToMany(mappedBy = "cargoOwnerByCargoOwnerId")
+    public Collection<Ticket> getTicketsByCargoOwnerId() {
+        return ticketsByCargoOwnerId;
+    }
+
+    public void setTicketsByCargoOwnerId(Collection<Ticket> ticketsByCargoOwnerId) {
+        this.ticketsByCargoOwnerId = ticketsByCargoOwnerId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -91,24 +111,5 @@ public class CargoOwner {
         result = 31 * result + (cargoOwnerPhone != null ? cargoOwnerPhone.hashCode() : 0);
         result = 31 * result + (userId != null ? userId.hashCode() : 0);
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
-    public User getUserByUserId() {
-        return userByUserId;
-    }
-
-    public void setUserByUserId(User userByUserId) {
-        this.userByUserId = userByUserId;
-    }
-
-    @OneToMany(mappedBy = "cargoOwnerByCargoOwnerId")
-    public Collection<Ticket> getTicketsByCargoOwnerId() {
-        return ticketsByCargoOwnerId;
-    }
-
-    public void setTicketsByCargoOwnerId(Collection<Ticket> ticketsByCargoOwnerId) {
-        this.ticketsByCargoOwnerId = ticketsByCargoOwnerId;
     }
 }

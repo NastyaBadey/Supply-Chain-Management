@@ -14,6 +14,7 @@ public class User {
 
     @Id
     @Column(name = "user_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getUserId() {
         return userId;
     }
@@ -52,6 +53,24 @@ public class User {
         this.userRole = userRole;
     }
 
+    @OneToMany(mappedBy = "userByUserId")
+    public Collection<CargoOwner> getCargoOwnersByUserId() {
+        return cargoOwnersByUserId;
+    }
+
+    public void setCargoOwnersByUserId(Collection<CargoOwner> cargoOwnersByUserId) {
+        this.cargoOwnersByUserId = cargoOwnersByUserId;
+    }
+
+    @OneToMany(mappedBy = "userByUserId")
+    public Collection<Carrier> getCarriersByUserId() {
+        return carriersByUserId;
+    }
+
+    public void setCarriersByUserId(Collection<Carrier> carriersByUserId) {
+        this.carriersByUserId = carriersByUserId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -74,23 +93,5 @@ public class User {
         result = 31 * result + (userPassword != null ? userPassword.hashCode() : 0);
         result = 31 * result + (userRole != null ? userRole.hashCode() : 0);
         return result;
-    }
-
-    @OneToMany(mappedBy = "userByUserId")
-    public Collection<CargoOwner> getCargoOwnersByUserId() {
-        return cargoOwnersByUserId;
-    }
-
-    public void setCargoOwnersByUserId(Collection<CargoOwner> cargoOwnersByUserId) {
-        this.cargoOwnersByUserId = cargoOwnersByUserId;
-    }
-
-    @OneToMany(mappedBy = "userByUserId")
-    public Collection<Carrier> getCarriersByUserId() {
-        return carriersByUserId;
-    }
-
-    public void setCarriersByUserId(Collection<Carrier> carriersByUserId) {
-        this.carriersByUserId = carriersByUserId;
     }
 }

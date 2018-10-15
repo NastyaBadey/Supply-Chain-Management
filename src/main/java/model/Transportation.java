@@ -11,7 +11,7 @@ public class Transportation {
     private Integer carrierId;
     private String status;
     private Timestamp departureDate;
-    private Timestamp destinatioDate;
+    private Timestamp destinationDate;
     private Double totalCost;
     private Ticket ticketByTicketId;
     private Carrier carrierByCarrierId;
@@ -19,6 +19,7 @@ public class Transportation {
 
     @Id
     @Column(name = "transportation_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getTransportationId() {
         return transportationId;
     }
@@ -68,13 +69,13 @@ public class Transportation {
     }
 
     @Basic
-    @Column(name = "destinatio_date", nullable = false)
-    public Timestamp getDestinatioDate() {
-        return destinatioDate;
+    @Column(name = "destination_date", nullable = false)
+    public Timestamp getDestinationDate() {
+        return destinationDate;
     }
 
-    public void setDestinatioDate(Timestamp destinatioDate) {
-        this.destinatioDate = destinatioDate;
+    public void setDestinationDate(Timestamp destinationDate) {
+        this.destinationDate = destinationDate;
     }
 
     @Basic
@@ -85,39 +86,6 @@ public class Transportation {
 
     public void setTotalCost(Double totalCost) {
         this.totalCost = totalCost;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Transportation that = (Transportation) o;
-
-        if (transportationId != null ? !transportationId.equals(that.transportationId) : that.transportationId != null)
-            return false;
-        if (ticketId != null ? !ticketId.equals(that.ticketId) : that.ticketId != null) return false;
-        if (carrierId != null ? !carrierId.equals(that.carrierId) : that.carrierId != null) return false;
-        if (status != null ? !status.equals(that.status) : that.status != null) return false;
-        if (departureDate != null ? !departureDate.equals(that.departureDate) : that.departureDate != null)
-            return false;
-        if (destinatioDate != null ? !destinatioDate.equals(that.destinatioDate) : that.destinatioDate != null)
-            return false;
-        if (totalCost != null ? !totalCost.equals(that.totalCost) : that.totalCost != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = transportationId != null ? transportationId.hashCode() : 0;
-        result = 31 * result + (ticketId != null ? ticketId.hashCode() : 0);
-        result = 31 * result + (carrierId != null ? carrierId.hashCode() : 0);
-        result = 31 * result + (status != null ? status.hashCode() : 0);
-        result = 31 * result + (departureDate != null ? departureDate.hashCode() : 0);
-        result = 31 * result + (destinatioDate != null ? destinatioDate.hashCode() : 0);
-        result = 31 * result + (totalCost != null ? totalCost.hashCode() : 0);
-        return result;
     }
 
     @ManyToOne
@@ -147,5 +115,38 @@ public class Transportation {
 
     public void setTransportationWaypointsByTransportationId(Collection<TransportationWaypoint> transportationWaypointsByTransportationId) {
         this.transportationWaypointsByTransportationId = transportationWaypointsByTransportationId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Transportation that = (Transportation) o;
+
+        if (transportationId != null ? !transportationId.equals(that.transportationId) : that.transportationId != null)
+            return false;
+        if (ticketId != null ? !ticketId.equals(that.ticketId) : that.ticketId != null) return false;
+        if (carrierId != null ? !carrierId.equals(that.carrierId) : that.carrierId != null) return false;
+        if (status != null ? !status.equals(that.status) : that.status != null) return false;
+        if (departureDate != null ? !departureDate.equals(that.departureDate) : that.departureDate != null)
+            return false;
+        if (destinationDate != null ? !destinationDate.equals(that.destinationDate) : that.destinationDate != null)
+            return false;
+        if (totalCost != null ? !totalCost.equals(that.totalCost) : that.totalCost != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = transportationId != null ? transportationId.hashCode() : 0;
+        result = 31 * result + (ticketId != null ? ticketId.hashCode() : 0);
+        result = 31 * result + (carrierId != null ? carrierId.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
+        result = 31 * result + (departureDate != null ? departureDate.hashCode() : 0);
+        result = 31 * result + (destinationDate != null ? destinationDate.hashCode() : 0);
+        result = 31 * result + (totalCost != null ? totalCost.hashCode() : 0);
+        return result;
     }
 }

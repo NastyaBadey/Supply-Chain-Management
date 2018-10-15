@@ -20,8 +20,8 @@
         <property name="departureDate">
             <column name="departure_date" sql-type="datetime"/>
         </property>
-        <property name="destinatioDate">
-            <column name="destinatio_date" sql-type="datetime"/>
+        <property name="destinationDate">
+            <column name="destination_date" sql-type="datetime"/>
         </property>
         <property name="totalCost">
             <column name="total_cost" sql-type="float(10,2)" precision="10" scale="2"/>

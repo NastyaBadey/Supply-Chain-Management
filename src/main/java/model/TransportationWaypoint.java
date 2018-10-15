@@ -3,7 +3,7 @@ package model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "transportation_waypoint", schema = "scm", catalog = "")
+@Table(name = "transportation_waypoint", schema = "scm")
 public class TransportationWaypoint {
     private Integer transportationWaypointId;
     private Integer transportationId;
@@ -13,6 +13,7 @@ public class TransportationWaypoint {
 
     @Id
     @Column(name = "transportation_waypoint_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getTransportationWaypointId() {
         return transportationWaypointId;
     }
@@ -41,6 +42,26 @@ public class TransportationWaypoint {
         this.waypointId = waypointId;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "transportation_id", referencedColumnName = "transportation_id", nullable = false)
+    public Transportation getTransportationByTransportationId() {
+        return transportationByTransportationId;
+    }
+
+    public void setTransportationByTransportationId(Transportation transportationByTransportationId) {
+        this.transportationByTransportationId = transportationByTransportationId;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "waypoint_id", referencedColumnName = "waypoint_id", nullable = false)
+    public Waypoint getWaypointByWaypointId() {
+        return waypointByWaypointId;
+    }
+
+    public void setWaypointByWaypointId(Waypoint waypointByWaypointId) {
+        this.waypointByWaypointId = waypointByWaypointId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -63,25 +84,5 @@ public class TransportationWaypoint {
         result = 31 * result + (transportationId != null ? transportationId.hashCode() : 0);
         result = 31 * result + (waypointId != null ? waypointId.hashCode() : 0);
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "transportation_id", referencedColumnName = "transportation_id", nullable = false)
-    public Transportation getTransportationByTransportationId() {
-        return transportationByTransportationId;
-    }
-
-    public void setTransportationByTransportationId(Transportation transportationByTransportationId) {
-        this.transportationByTransportationId = transportationByTransportationId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "waypoint_id", referencedColumnName = "waypoint_id", nullable = false)
-    public Waypoint getWaypointByWaypointId() {
-        return waypointByWaypointId;
-    }
-
-    public void setWaypointByWaypointId(Waypoint waypointByWaypointId) {
-        this.waypointByWaypointId = waypointByWaypointId;
     }
 }

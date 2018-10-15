@@ -14,6 +14,7 @@ public class Rate {
 
     @Id
     @Column(name = "rate_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getRateId() {
         return rateId;
     }
@@ -42,28 +43,6 @@ public class Rate {
         this.carrierId = carrierId;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Rate rate = (Rate) o;
-
-        if (rateId != null ? !rateId.equals(rate.rateId) : rate.rateId != null) return false;
-        if (rateCost != null ? !rateCost.equals(rate.rateCost) : rate.rateCost != null) return false;
-        if (carrierId != null ? !carrierId.equals(rate.carrierId) : rate.carrierId != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = rateId != null ? rateId.hashCode() : 0;
-        result = 31 * result + (rateCost != null ? rateCost.hashCode() : 0);
-        result = 31 * result + (carrierId != null ? carrierId.hashCode() : 0);
-        return result;
-    }
-
     @ManyToOne
     @JoinColumn(name = "carrier_id", referencedColumnName = "carrier_id", nullable = false)
     public Carrier getCarrierByCarrierId() {
@@ -90,5 +69,27 @@ public class Rate {
 
     public void setWaypointsByRateId(Collection<Waypoint> waypointsByRateId) {
         this.waypointsByRateId = waypointsByRateId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Rate rate = (Rate) o;
+
+        if (rateId != null ? !rateId.equals(rate.rateId) : rate.rateId != null) return false;
+        if (rateCost != null ? !rateCost.equals(rate.rateCost) : rate.rateCost != null) return false;
+        if (carrierId != null ? !carrierId.equals(rate.carrierId) : rate.carrierId != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = rateId != null ? rateId.hashCode() : 0;
+        result = 31 * result + (rateCost != null ? rateCost.hashCode() : 0);
+        result = 31 * result + (carrierId != null ? carrierId.hashCode() : 0);
+        return result;
     }
 }
