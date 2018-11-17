@@ -6,7 +6,7 @@ import java.util.Collection;
 @Entity
 public class Rate {
     private Integer rateId;
-    private Double rateCost;
+    private Double ratePricePerKg;
     private Integer carrierId;
     private Carrier carrierByCarrierId;
     private Collection<RateDeliveryMethod> rateDeliveryMethodsByRateId;
@@ -24,13 +24,13 @@ public class Rate {
     }
 
     @Basic
-    @Column(name = "rate_cost", nullable = false, precision = 2)
-    public Double getRateCost() {
-        return rateCost;
+    @Column(name = "rate_price_per_kg", nullable = false, precision = 2)
+    public Double getRatePricePerKg() {
+        return ratePricePerKg;
     }
 
-    public void setRateCost(Double rateCost) {
-        this.rateCost = rateCost;
+    public void setRatePricePerKg(Double rateCost) {
+        this.ratePricePerKg = rateCost;
     }
 
     @Basic
@@ -79,7 +79,7 @@ public class Rate {
         Rate rate = (Rate) o;
 
         if (rateId != null ? !rateId.equals(rate.rateId) : rate.rateId != null) return false;
-        if (rateCost != null ? !rateCost.equals(rate.rateCost) : rate.rateCost != null) return false;
+        if (ratePricePerKg != null ? !ratePricePerKg.equals(rate.ratePricePerKg) : rate.ratePricePerKg != null) return false;
         if (carrierId != null ? !carrierId.equals(rate.carrierId) : rate.carrierId != null) return false;
 
         return true;
@@ -88,7 +88,7 @@ public class Rate {
     @Override
     public int hashCode() {
         int result = rateId != null ? rateId.hashCode() : 0;
-        result = 31 * result + (rateCost != null ? rateCost.hashCode() : 0);
+        result = 31 * result + (ratePricePerKg != null ? ratePricePerKg.hashCode() : 0);
         result = 31 * result + (carrierId != null ? carrierId.hashCode() : 0);
         return result;
     }

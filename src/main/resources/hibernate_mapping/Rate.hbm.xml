@@ -8,8 +8,8 @@
         <id name="rateId">
             <column name="rate_id" sql-type="int(5)"/>
         </id>
-        <property name="rateCost">
-            <column name="rate_cost" sql-type="float(10,2)" precision="10" scale="2"/>
+        <property name="ratePricePerKg">
+            <column name="rate_price_per_kg" sql-type="float(10,2)" precision="10" scale="2"/>
         </property>
         <property name="carrierId">
             <column name="carrier_id" sql-type="int(5)"/>

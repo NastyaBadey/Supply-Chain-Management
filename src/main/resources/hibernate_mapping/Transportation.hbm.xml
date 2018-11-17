@@ -17,14 +17,11 @@
         <property name="status">
             <column name="status" sql-type="varchar(30)" length="30" not-null="true"/>
         </property>
-        <property name="departureDate">
-            <column name="departure_date" sql-type="datetime"/>
-        </property>
         <property name="destinationDate">
             <column name="destination_date" sql-type="datetime"/>
         </property>
-        <property name="totalCost">
-            <column name="total_cost" sql-type="float(10,2)" precision="10" scale="2"/>
+        <property name="totalPrice">
+            <column name="total_price" sql-type="float(10,2)" precision="10" scale="2"/>
         </property>
         <many-to-one name="ticketByTicketId" class="model.Ticket">
             <column name="ticket_id"/>

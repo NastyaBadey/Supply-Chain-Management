@@ -51,7 +51,7 @@
 
  CREATE TABLE IF NOT EXISTS scm.rate(
    rate_id INT(5) PRIMARY KEY,
-   rate_cost FLOAT(10,2) NOT NULL,
+   rate_price_per_kg FLOAT(10,2) NOT NULL,
    carrier_id INT(5) NOT NULL,
    
    FOREIGN KEY (carrier_id) REFERENCES carrier(carrier_id)
@@ -102,6 +102,7 @@
    cargo_owner_id INT(5) NOT NULL, 
    cargo_id INT(5) NOT NULL,
    cargo_quantity INT(7) NOT NULL,
+   departure_date DATETIME NOT NULL,
    route_id INT(5) NOT NULL,
    status VARCHAR(30),
    date_of_creation DATETIME NOT NULL,
@@ -116,9 +117,8 @@
    ticket_id INT(5) NOT NULL,
    carrier_id INT(5) NOT NULL,
    status VARCHAR(30),
-   departure_date DATETIME NOT NULL,
    destination_date DATETIME NOT NULL,
-   total_cost FLOAT(10,2) NOT NULL,
+   total_price FLOAT(10,2) NOT NULL,
    
    FOREIGN KEY (ticket_id) REFERENCES ticket(ticket_id), 
    FOREIGN KEY (carrier_id) REFERENCES carrier(carrier_id)
@@ -141,6 +141,3 @@
    FOREIGN KEY (rate_id) REFERENCES rate(rate_id),
    FOREIGN KEY (delivery_method_id) REFERENCES delivery_method(delivery_method_id)
 );
- 
- 
- 

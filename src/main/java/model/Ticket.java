@@ -10,6 +10,7 @@ public class Ticket {
     private Integer cargoOwnerId;
     private Integer cargoId;
     private Integer cargoQuantity;
+    private Timestamp departureDate;
     private Integer routeId;
     private String status;
     private Timestamp dateOfCreation;
@@ -57,6 +58,16 @@ public class Ticket {
 
     public void setCargoQuantity(Integer cargoQuantity) {
         this.cargoQuantity = cargoQuantity;
+    }
+
+    @Basic
+    @Column(name = "departure_date", nullable = false)
+    public Timestamp getDepartureDate() {
+        return departureDate;
+    }
+
+    public void setDepartureDate(Timestamp departureDate) {
+        this.departureDate = departureDate;
     }
 
     @Basic
@@ -141,12 +152,19 @@ public class Ticket {
         if (cargoId != null ? !cargoId.equals(ticket.cargoId) : ticket.cargoId != null) return false;
         if (cargoQuantity != null ? !cargoQuantity.equals(ticket.cargoQuantity) : ticket.cargoQuantity != null)
             return false;
+        if (departureDate != null ? !departureDate.equals(ticket.departureDate) : ticket.departureDate != null)
+            return false;
         if (routeId != null ? !routeId.equals(ticket.routeId) : ticket.routeId != null) return false;
         if (status != null ? !status.equals(ticket.status) : ticket.status != null) return false;
         if (dateOfCreation != null ? !dateOfCreation.equals(ticket.dateOfCreation) : ticket.dateOfCreation != null)
             return false;
-
-        return true;
+        if (cargoOwnerByCargoOwnerId != null ? !cargoOwnerByCargoOwnerId.equals(ticket.cargoOwnerByCargoOwnerId) : ticket.cargoOwnerByCargoOwnerId != null)
+            return false;
+        if (cargoByCargoId != null ? !cargoByCargoId.equals(ticket.cargoByCargoId) : ticket.cargoByCargoId != null)
+            return false;
+        if (routeByRouteId != null ? !routeByRouteId.equals(ticket.routeByRouteId) : ticket.routeByRouteId != null)
+            return false;
+        return transportationByTicketId != null ? transportationByTicketId.equals(ticket.transportationByTicketId) : ticket.transportationByTicketId == null;
     }
 
     @Override
@@ -155,9 +173,14 @@ public class Ticket {
         result = 31 * result + (cargoOwnerId != null ? cargoOwnerId.hashCode() : 0);
         result = 31 * result + (cargoId != null ? cargoId.hashCode() : 0);
         result = 31 * result + (cargoQuantity != null ? cargoQuantity.hashCode() : 0);
+        result = 31 * result + (departureDate != null ? departureDate.hashCode() : 0);
         result = 31 * result + (routeId != null ? routeId.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
         result = 31 * result + (dateOfCreation != null ? dateOfCreation.hashCode() : 0);
+        result = 31 * result + (cargoOwnerByCargoOwnerId != null ? cargoOwnerByCargoOwnerId.hashCode() : 0);
+        result = 31 * result + (cargoByCargoId != null ? cargoByCargoId.hashCode() : 0);
+        result = 31 * result + (routeByRouteId != null ? routeByRouteId.hashCode() : 0);
+        result = 31 * result + (transportationByTicketId != null ? transportationByTicketId.hashCode() : 0);
         return result;
     }
 }

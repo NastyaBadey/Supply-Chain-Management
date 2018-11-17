@@ -10,9 +10,8 @@ public class Transportation {
     private Integer ticketId;
     private Integer carrierId;
     private String status;
-    private Timestamp departureDate;
     private Timestamp destinationDate;
-    private Double totalCost;
+    private Double totalPrice;
     private Ticket ticketByTicketId;
     private Carrier carrierByCarrierId;
     private Collection<TransportationWaypoint> transportationWaypointsByTransportationId;
@@ -59,16 +58,6 @@ public class Transportation {
     }
 
     @Basic
-    @Column(name = "departure_date", nullable = false)
-    public Timestamp getDepartureDate() {
-        return departureDate;
-    }
-
-    public void setDepartureDate(Timestamp departureDate) {
-        this.departureDate = departureDate;
-    }
-
-    @Basic
     @Column(name = "destination_date", nullable = false)
     public Timestamp getDestinationDate() {
         return destinationDate;
@@ -79,13 +68,13 @@ public class Transportation {
     }
 
     @Basic
-    @Column(name = "total_cost", nullable = false, precision = 2)
-    public Double getTotalCost() {
-        return totalCost;
+    @Column(name = "total_price", nullable = false, precision = 2)
+    public Double getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setTotalCost(Double totalCost) {
-        this.totalCost = totalCost;
+    public void setTotalPrice(Double totalCost) {
+        this.totalPrice = totalCost;
     }
 
     @ManyToOne
@@ -129,13 +118,14 @@ public class Transportation {
         if (ticketId != null ? !ticketId.equals(that.ticketId) : that.ticketId != null) return false;
         if (carrierId != null ? !carrierId.equals(that.carrierId) : that.carrierId != null) return false;
         if (status != null ? !status.equals(that.status) : that.status != null) return false;
-        if (departureDate != null ? !departureDate.equals(that.departureDate) : that.departureDate != null)
-            return false;
         if (destinationDate != null ? !destinationDate.equals(that.destinationDate) : that.destinationDate != null)
             return false;
-        if (totalCost != null ? !totalCost.equals(that.totalCost) : that.totalCost != null) return false;
-
-        return true;
+        if (totalPrice != null ? !totalPrice.equals(that.totalPrice) : that.totalPrice != null) return false;
+        if (ticketByTicketId != null ? !ticketByTicketId.equals(that.ticketByTicketId) : that.ticketByTicketId != null)
+            return false;
+        if (carrierByCarrierId != null ? !carrierByCarrierId.equals(that.carrierByCarrierId) : that.carrierByCarrierId != null)
+            return false;
+        return transportationWaypointsByTransportationId != null ? transportationWaypointsByTransportationId.equals(that.transportationWaypointsByTransportationId) : that.transportationWaypointsByTransportationId == null;
     }
 
     @Override
@@ -144,9 +134,11 @@ public class Transportation {
         result = 31 * result + (ticketId != null ? ticketId.hashCode() : 0);
         result = 31 * result + (carrierId != null ? carrierId.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
-        result = 31 * result + (departureDate != null ? departureDate.hashCode() : 0);
         result = 31 * result + (destinationDate != null ? destinationDate.hashCode() : 0);
-        result = 31 * result + (totalCost != null ? totalCost.hashCode() : 0);
+        result = 31 * result + (totalPrice != null ? totalPrice.hashCode() : 0);
+        result = 31 * result + (ticketByTicketId != null ? ticketByTicketId.hashCode() : 0);
+        result = 31 * result + (carrierByCarrierId != null ? carrierByCarrierId.hashCode() : 0);
+        result = 31 * result + (transportationWaypointsByTransportationId != null ? transportationWaypointsByTransportationId.hashCode() : 0);
         return result;
     }
 }

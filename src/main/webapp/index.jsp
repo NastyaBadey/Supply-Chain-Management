@@ -5,6 +5,6 @@
 </head>
 
     <body>
-        Hello!
+        <a href="html/homePage.jsp">To Home Page</a>
     </body>
 </html>
