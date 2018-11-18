@@ -10,8 +10,8 @@
 <head>
     <meta charset="utf-8">
     <title>Регистрация</title>
-    <link rel="stylesheet" type="text/css" href="<c:url value="/css/main.css"/>" >
-    <link rel="stylesheet" type="text/css" href="<c:url value="/css/homePage.css"/>" >
+    <link rel="stylesheet" type="text/css" href="<c:url value="/css/main1.css"/>" >
+    <link rel="stylesheet" type="text/css" href="<c:url value="/css/homePage1.css"/>" >
     <link rel="stylesheet" type="text/css" href="<c:url value="/css/signUp.css"/>" >
 </head>
 <body>
