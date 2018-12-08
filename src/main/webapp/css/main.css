@@ -3,11 +3,26 @@ body{
     min-width: 700px;
     height: 100%;
     margin: 0;
-    background: url(/images/background.jpg) no-repeat fixed;
-    background-size: cover;
+    font-family: Century Gothic, serif;
+    /*font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    color: #24292e;*/
+}
+
+:focus{
+    outline:none;
+}
+
+* {
     box-sizing: border-box;
 }
 /*       ОБЩЕЕ       */
+
+.scm-center-title{
+    align-self: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
 .scm-text{
     text-align: justify;
     color: #707070;
@@ -20,21 +35,14 @@ body{
 }
 
 a{
-    color: #903306;
+    color: #707070;
     display: block;
     text-decoration: none;
     outline: none;
 }
 
-.scm-title{
-    margin: 10px 0;
-    text-align: center;
-    font-size: 22px;
-    font-weight: bold;
-    color: #707070;
-}
-
 .scm-column-container{
+    width: 100%;
     display: flex;
     display: -webkit-box;
     display: -webkit-flex;
@@ -54,35 +62,39 @@ a{
 
 /*       ОБЩЕЕ ДЛЯ КАРКАСА       */
 .scm-header{
+    box-shadow: #e3e3e3 0 0 1px;
     width: 100%;
     top: 0;
-    background-color: #ff8247;
+    padding: 12px 0;
+    background-color: #ffffff;
     position: fixed;
     z-index: 10;
     display: block;
 }
 
 .scm-car-icon{
-    width: 28px;
+    width: 30px;
     margin-right: 5px;
 }
 
 .scm-header-name{
     display: inline-block;
-    padding: 10px 60px 16px;
-    font: bold 22px Century Gothic;
-    color: #903306;
+    padding: 10px 0 16px 120px;
+    font-weight: bold;
+    font-size: 30px;
+    color: #707070;
 }
 
 /* ************** MENU start ************** */
 .scm-navigation{
     float: right;
-    padding: 18px 80px;
-    font: bold 18px Century Gothic;
-    color: #903306;
+    padding: 18px 80px 13px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #707070;
 }
 .scm-navigation ul a{
-    color: #903306;
+    color: #707070;
 }
 
 ul{
@@ -96,12 +108,23 @@ ul{
     position: relative;
 }
 
-.scm-menu > li:after{
-    color: #903306;
-    content: '▾';
+.scm-menu-title{
+    margin: 0 15px;
+    padding-bottom: 5px;
+}
+
+.scm-menu .fa-angle-right{
+    margin-left: 2px;
+    transition: 0.2s linear;
+}
+
+.scm-menu:hover .fa-angle-right{
+    transition: 0.2s linear;
+    transform: rotate(90deg);
 }
 
 .scm-submenu{
+    border: rgba(198, 198, 198, 0.2) solid 3px;
     width: 100%;
     position: absolute;
     -webkit-transition: 0.5s ease-in-out;
@@ -115,12 +138,12 @@ ul{
     padding: 10px 0;
 }
 .scm-submenu .scm-bottom-border{
-    border-bottom: 1px solid #903306;
+    border-bottom: 1px solid #707070;
 }
 
 .scm-navigation .scm-submenu{
-    border-radius: 0 0 10px 10px;
-    background: #ffa656;
+    /*border-radius: 0 0 10px 10px;*/
+    background: #ffffff;
 
     /*просто появление при наведении*/
     /*display: none;*/
@@ -155,26 +178,25 @@ ul{
 
 
 .scm-main{
-    margin-top: 80px;
+    margin-top: 85px;
     margin-left: auto;
     margin-right: auto;
-    box-sizing: border-box;
 }
 .scm-container{
     font-weight: normal;
-    font-size: 18px;
+    font-size: 20px;
     color: #707070;
     height: 100%;
     min-height: 600px;
+    margin: 0;
     display: flex;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
+    flex-direction: column;
     align-self: stretch;
-    margin: 0 80px;
-    padding: 10px 40px 20px;
-    border-radius: 7px;
-    background-color: rgba(255, 255, 255, 0.9);
+    /*border-radius: 7px;*/
+    /*background-color: rgba(255, 255, 255, 0.8);*/
     z-index: 5;
 }
 
@@ -186,13 +208,12 @@ ul{
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    box-sizing: border-box;
 }
 
 .scm-footer{
     /*background-color: #ff8247;*/
     margin: 0 80px;
-    color: #ffffff;
+    color: #707070;
     font-weight: normal;
     font-size: 20px;
     display: flex;
@@ -201,14 +222,13 @@ ul{
     display: -ms-flexbox;
     flex-direction: column;
     position: relative;
-    box-sizing: border-box;
 }
 
 .scm-horizontal-line{
     width: 100%;
     height: 5px;
     margin-bottom: 20px;
-    background-color: #ff8247;
+    background-color: #707070;
 }
 
 .scm-after-footer{
@@ -217,6 +237,5 @@ ul{
     display: -webkit-flex;
     display: -ms-flexbox;
     justify-content: center;
-    box-sizing: border-box;
     padding-bottom: 40px
 }
