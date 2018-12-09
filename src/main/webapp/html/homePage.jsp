@@ -67,7 +67,7 @@
                         ЖД-перевозки
                     </div>
                     <div class="scm-row-container">
-                        <img src="<c:url value="/images/others/train.jpg"/>" class="scm-transport-img" alt="Cars">
+                        <img src="<c:url value="/images/others/train1.jpg"/>" class="scm-transport-img" alt="Cars">
                     </div>
                     <div class="scm-row-container">
                         Текст ыапывап ываопвыол ывалпооывап
