@@ -8,6 +8,7 @@ public class User {
     private Integer userId;
     private String userLogin;
     private String userPassword;
+    private String userEmail;
     private String userRole;
     private Collection<CargoOwner> cargoOwnersByUserId;
     private Collection<Carrier> carriersByUserId;
@@ -41,6 +42,16 @@ public class User {
 
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
+    }
+
+    @Basic
+    @Column(name = "user_email", nullable = false, length = 25)
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
     @Basic
@@ -81,9 +92,11 @@ public class User {
         if (userId != null ? !userId.equals(user.userId) : user.userId != null) return false;
         if (userLogin != null ? !userLogin.equals(user.userLogin) : user.userLogin != null) return false;
         if (userPassword != null ? !userPassword.equals(user.userPassword) : user.userPassword != null) return false;
+        if (userEmail != null ? !userEmail.equals(user.userEmail) : user.userEmail != null) return false;
         if (userRole != null ? !userRole.equals(user.userRole) : user.userRole != null) return false;
-
-        return true;
+        if (cargoOwnersByUserId != null ? !cargoOwnersByUserId.equals(user.cargoOwnersByUserId) : user.cargoOwnersByUserId != null)
+            return false;
+        return carriersByUserId != null ? carriersByUserId.equals(user.carriersByUserId) : user.carriersByUserId == null;
     }
 
     @Override
@@ -91,7 +104,10 @@ public class User {
         int result = userId != null ? userId.hashCode() : 0;
         result = 31 * result + (userLogin != null ? userLogin.hashCode() : 0);
         result = 31 * result + (userPassword != null ? userPassword.hashCode() : 0);
+        result = 31 * result + (userEmail != null ? userEmail.hashCode() : 0);
         result = 31 * result + (userRole != null ? userRole.hashCode() : 0);
+        result = 31 * result + (cargoOwnersByUserId != null ? cargoOwnersByUserId.hashCode() : 0);
+        result = 31 * result + (carriersByUserId != null ? carriersByUserId.hashCode() : 0);
         return result;
     }
 }

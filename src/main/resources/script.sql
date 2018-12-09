@@ -20,6 +20,7 @@
    user_id INT(5) PRIMARY KEY,
    user_login VARCHAR(25) NOT NULL,
    user_password VARCHAR(25) NOT NULL,
+   user_email VARCHAR(25) NOT NULL,
    user_role VARCHAR(2)
  );
  
