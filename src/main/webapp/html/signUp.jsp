@@ -27,38 +27,41 @@
     </jsp:attribute>
 
     <jsp:body>
-        <div class="scm-center-form">
-            <form action="" class="scm-form">
-                <div class="scm-center-title scm-form-title">Регистрация</div>
+        <div class="scm-auto-background scm-row-container">
+            <div class="scm-auto-text scm-column-container">С нами удобнее</div>
+            <div class="scm-center-form scm-column-container">
+                <form action="" class="scm-form">
+                    <div class="scm-center-title scm-form-title">Регистрация</div>
 
-                <div class="scm-form-row">
-                    <div class="scm-row-container">
-                        <input id="owner" name="user_role" type="radio" class="scm-input-radio" value="cargo_owner" checked>
-                        <label for="owner">Владелец груза</label>
+                    <div class="scm-form-row">
+                        <div class="scm-row-container">
+                            <input id="owner" name="user_role" type="radio" class="scm-input-radio" value="cargo_owner" checked>
+                            <label for="owner">Владелец груза</label>
+                        </div>
+                        <div class="scm-row-container">
+                            <input id="carrier" name="user_role" type="radio" class="scm-input-radio" value="carrier">
+                            <label for="carrier">Перевозчик</label>
+                        </div>
                     </div>
-                    <div class="scm-row-container">
-                        <input id="carrier" name="user_role" type="radio" class="scm-input-radio" value="carrier">
-                        <label for="carrier">Перевозчик</label>
+
+                    <div class="scm-form-row">
+                        <input id="surname" size="28" class="scm-input-text scm-row-container" required maxlength="25" autocomplete="off">
+                        <label for="surname" class="scm-form-label scm-row-container">Логин</label>
                     </div>
-                </div>
 
-                <div class="scm-form-row">
-                    <input id="surname" size="28" class="scm-input-text scm-row-container" required maxlength="25" autocomplete="off">
-                    <label for="surname" class="scm-form-label scm-row-container">Логин</label>
-                </div>
+                    <div class="scm-form-row">
+                        <input id="password" type="password" size="28" class="scm-input-text scm-row-container" required maxlength="25" autocomplete="off">
+                        <label for="password" class="scm-form-label scm-row-container">Пароль</label>
+                    </div>
 
-                <div class="scm-form-row">
-                    <input id="password" type="password" size="28" class="scm-input-text scm-row-container" required maxlength="25" autocomplete="off">
-                    <label for="password" class="scm-form-label scm-row-container">Пароль</label>
-                </div>
+                    <div class="scm-form-row">
+                        <input id="email" type="email" size="28" class="scm-input-text scm-row-container" required maxlength="25" autocomplete="off">
+                        <label for="email" class="scm-form-label scm-row-container">Email</label>
+                    </div>
 
-                <div class="scm-form-row">
-                    <input id="email" type="email" size="28" class="scm-input-text scm-row-container" required maxlength="25" autocomplete="off">
-                    <label for="email" class="scm-form-label scm-row-container">Email</label>
-                </div>
-
-                <input type="submit" value="Зарегистрироваться" >
-            </form>
+                    <input type="submit" value="Зарегистрироваться" >
+                </form>
+            </div>
         </div>
     </jsp:body>
 </scm:page_wrapper>

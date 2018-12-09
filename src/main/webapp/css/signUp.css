@@ -1,5 +1,19 @@
+.scm-auto-background{
+    background: url(/images/others/auto3.jpg) no-repeat;
+    background-size: cover;
+}
+
+.scm-auto-text{
+    text-shadow: #707070 0 0 5px;
+    text-align: left;
+    padding: 200px 0 0 10%;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 60px;
+}
+
 .scm-center-form{
-    align-self: center;
+    align-self: flex-end;
 }
 
 .scm-form{
