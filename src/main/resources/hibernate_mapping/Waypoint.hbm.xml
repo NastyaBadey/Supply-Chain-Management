@@ -4,11 +4,11 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="model.Waypoint" table="waypoint" schema="scm">
+    <class name="com.scm.services.model.Waypoint" table="waypoint" schema="scm">
         <id name="waypointId">
             <column name="waypoint_id" sql-type="int(5)"/>
         </id>
-        <property name="routeId">
+        <!--<property name="routeId">
             <column name="route_id" sql-type="int(5)"/>
         </property>
         <property name="rateId">
@@ -19,27 +19,27 @@
         </property>
         <property name="toLocalityId">
             <column name="to_locality_id" sql-type="int(5)"/>
-        </property>
+        </property>-->
         <property name="backward">
             <column name="backward" sql-type="tinyint(4)" not-null="true"/>
         </property>
-        <many-to-one name="routeByRouteId" class="model.Route">
+        <many-to-one name="routeByRouteId" class="com.scm.services.model.Route">
             <column name="route_id"/>
         </many-to-one>
-        <many-to-one name="rateByRateId" class="model.Rate">
+        <many-to-one name="rateByRateId" class="com.scm.services.model.Rate">
             <column name="rate_id" not-null="true"/>
         </many-to-one>
-        <many-to-one name="localityByFromLocalityId" class="model.Locality">
+        <many-to-one name="localityByFromLocalityId" class="com.scm.services.model.Locality">
             <column name="from_locality_id"/>
         </many-to-one>
-        <many-to-one name="localityByToLocalityId" class="model.Locality">
+        <many-to-one name="localityByToLocalityId" class="com.scm.services.model.Locality">
             <column name="to_locality_id"/>
         </many-to-one>
         <set name="transportationWaypointsByWaypointId" inverse="true">
             <key>
                 <column name="waypoint_id"/>
             </key>
-            <one-to-many not-found="ignore" class="model.TransportationWaypoint"/>
+            <one-to-many not-found="ignore" class="com.scm.services.model.TransportationWaypoint"/>
         </set>
     </class>
 </hibernate-mapping>

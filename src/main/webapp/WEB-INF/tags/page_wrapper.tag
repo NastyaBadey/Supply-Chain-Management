@@ -1,6 +1,5 @@
 <%@ tag description="Page template" pageEncoding="UTF-8" %>
 <%@ attribute name="scm_head" fragment="true" %>
-<%@ attribute name="scm_header" fragment="true" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
@@ -12,15 +11,33 @@
 <body>
 <header class="scm-header">
     <div class="scm-header-name">
-        <a href="<c:url value="/html/homePage.jsp"/>" >
-            <img class="scm-car-icon" src="<c:url value="/images/car-icon.png"/>">
+        <a href="<c:url value="/scm/html/homePage.jsp"/>" >
+            <img class="scm-car-icon" src="<c:url value="/scm/images/car-icon.png"/>">
             TransportLogistics
         </a>
     </div>
     <nav class="scm-navigation">
         <ul class="scm-menu">
             <li>
-                <jsp:invoke fragment="scm_header" />
+                <c:choose>
+                    <c:when test="${currentUserLogin ne null}">
+                        <div class="scm-menu-title">${currentUserLogin}
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                        <ul class="scm-submenu">
+                            <li><a href="<c:url value="/logout"/>">Выход</a></li>
+                        </ul>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="scm-menu-title">Мой профиль
+                            <i class="fa fa-angle-right"></i>
+                        </div>
+                        <ul class="scm-submenu">
+                            <li class="scm-bottom-border"><a href="<c:url value="/signIn"/>">Вход</a></li>
+                            <li><a href="<c:url value="/signUp"/>">Регистрация</a></li>
+                        </ul>
+                    </c:otherwise>
+                </c:choose>
             </li>
         </ul>
     </nav>

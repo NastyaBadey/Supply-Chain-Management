@@ -1,18 +1,162 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!-- Root Context: defines shared resources visible to all other web components -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/webapp/views/" />
+        <property name="prefix" value="/scm/html/" />
         <property name="suffix" value=".jsp" />
     </bean>
 
-    <mvc:resources mapping="/resources/**" location="/"
-                   cache-period="31556926"/>
+    <mvc:resources mapping="/scm/**" location="/scm/" cache-period="31556926"/>
     <mvc:default-servlet-handler/>
+    <mvc:annotation-driven/>
+
+    <context:component-scan base-package="com.scm"/>
+
+    <!-- Database Information -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/scm?useSSL=false&amp;serverTimezone=UTC" />
+        <property name="username" value="root" />
+        <property name="password" value="root" />
+    </bean>
+
+    <!-- Hibernate 5 SessionFactory Bean definition -->
+    <bean id="hibernate5AnnotatedSessionFactory"
+          class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="annotatedClasses">
+            <list>
+                <value>com.scm.services.model.Cargo</value>
+                <value>com.scm.services.model.CargoOwner</value>
+                <value>com.scm.services.model.Carrier</value>
+                <value>com.scm.services.model.DeliveryMethod</value>
+                <value>com.scm.services.model.Locality</value>
+                <value>com.scm.services.model.Rate</value>
+                <value>com.scm.services.model.RateDeliveryMethod</value>
+                <value>com.scm.services.model.Route</value>
+                <value>com.scm.services.model.Ticket</value>
+                <value>com.scm.services.model.Transportation</value>
+                <value>com.scm.services.model.TransportationWaypoint</value>
+                <value>com.scm.services.model.User</value>
+                <value>com.scm.services.model.Waypoint</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.jdbc.batch_size">20</prop>
+                <prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate5.SpringSessionContext</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- всё есть через аннотации
+     <bean id="cargoDAO" class="com.scm.services.dao.impl.CargoDaoImpl">
+        <property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory" />
+    </bean>
+    <bean id="cargoService" class="com.scm.services.service.impl.CargoServiceImpl">
+        <property name="cargoDao" ref="cargoDAO" />
+    </bean>
+
+    <bean id="cargoOwnerDAO" class="com.scm.services.dao.impl.CargoOwnerDaoImpl">
+        <property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory" />
+    </bean>
+    <bean id="cargoOwnerService" class="com.scm.services.service.impl.CargoOwnerServiceImpl">
+        <property name="cargoOwnerDao" ref="cargoOwnerDAO" />
+    </bean>
+
+    <bean id="carrierDAO" class="com.scm.services.dao.impl.CarrierDaoImpl">
+        <property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory" />
+    </bean>
+    <bean id="carrierService" class="com.scm.services.service.impl.CarrierServiceImpl">
+        <property name="carrierDao" ref="carrierDAO" />
+    </bean>
+
+    <bean id="deliveryMethodDAO" class="com.scm.services.dao.impl.DeliveryMethodDaoImpl">
+        <property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory" />
+    </bean>
+    <bean id="deliveryMethodService" class="com.scm.services.service.impl.DeliveryMethodServiceImpl">
+        <property name="deliveryMethodDao" ref="deliveryMethodDAO" />
+    </bean>
+
+    <bean id="localityDAO" class="com.scm.services.dao.impl.LocalityDaoImpl">
+        <property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory" />
+    </bean>
+    <bean id="localityService" class="com.scm.services.service.impl.LocalityServiceImpl">
+        <property name="localityDao" ref="localityDAO" />
+    </bean>
+
+    <bean id="rateDAO" class="com.scm.services.dao.impl.RateDaoImpl">
+        <property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory" />
+    </bean>
+    <bean id="rateService" class="com.scm.services.service.impl.RateServiceImpl">
+        <property name="rateDao" ref="rateDAO" />
+    </bean>
+
+    <bean id="rateDeliveryMethodDAO" class="com.scm.services.dao.impl.RateDeliveryMethodDaoImpl">
+        <property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory" />
+    </bean>
+    <bean id="rateDeliveryMethodService" class="com.scm.services.service.impl.RateDeliveryMethodServiceImpl">
+        <property name="rateDeliveryMethodDao" ref="rateDeliveryMethodDAO" />
+    </bean>
+
+    <bean id="routeDAO" class="com.scm.services.dao.impl.RouteDaoImpl">
+        <property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory" />
+    </bean>
+    <bean id="routeService" class="com.scm.services.service.impl.RouteServiceImpl">
+        <property name="routeDao" ref="routeDAO" />
+    </bean>
+
+    <bean id="ticketDAO" class="com.scm.services.dao.impl.TicketDaoImpl">
+        <property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory" />
+    </bean>
+    <bean id="ticketService" class="com.scm.services.service.impl.TicketServiceImpl">
+        <property name="ticketDao" ref="ticketDAO" />
+    </bean>
+
+    <bean id="transportationDAO" class="com.scm.services.dao.impl.TransportationDaoImpl">
+        <property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory" />
+    </bean>
+    <bean id="transportationService" class="com.scm.services.service.impl.TransportationServiceImpl">
+        <property name="transportationDao" ref="transportationDAO" />
+    </bean>
+
+    <bean id="transportationWaypointDAO" class="com.scm.services.dao.impl.TransportationWaypointDaoImpl">
+        <property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory" />
+    </bean>
+    <bean id="transportationWaypointService" class="com.scm.services.service.impl.TransportationWaypointServiceImpl">
+        <property name="transportationWaypointDao" ref="transportationWaypointDAO" />
+    </bean>
+
+    <bean id="userDAO" class="com.scm.services.dao.impl.UserDaoImpl">
+        <property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory" />
+    </bean>
+    <bean id="userService" class="com.scm.services.service.impl.UserServiceImpl">
+        <property name="userDao" ref="userDAO" />
+    </bean>
+
+    <bean id="waypointDAO" class="com.scm.services.dao.impl.WaypointDaoImpl">
+        <property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory" />
+    </bean>
+    <bean id="waypointService" class="com.scm.services.service.impl.WaypointServiceImpl">
+        <property name="waypointDao" ref="waypointDAO" />
+    </bean>
+     -->
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="hibernate5AnnotatedSessionFactory"/>
+    </bean>
 
 </beans>

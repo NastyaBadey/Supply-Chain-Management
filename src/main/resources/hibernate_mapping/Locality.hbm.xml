@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="model.Locality" table="locality" schema="scm">
+    <class name="com.scm.services.model.Locality" table="locality" schema="scm">
         <id name="localityId">
             <column name="locality_id" sql-type="int(5)"/>
         </id>
@@ -18,25 +18,25 @@
             <key>
                 <column name="departure_locality_id"/>
             </key>
-            <one-to-many not-found="ignore" class="model.Route"/>
+            <one-to-many not-found="ignore" class="com.scm.services.model.Route"/>
         </set>
         <set name="routesByLocalityId_0" inverse="true">
             <key>
                 <column name="destination_locality_id"/>
             </key>
-            <one-to-many not-found="ignore" class="model.Route"/>
+            <one-to-many not-found="ignore" class="com.scm.services.model.Route"/>
         </set>
         <set name="waypointsByLocalityId" inverse="true">
             <key>
                 <column name="from_locality_id"/>
             </key>
-            <one-to-many not-found="ignore" class="model.Waypoint"/>
+            <one-to-many not-found="ignore" class="com.scm.services.model.Waypoint"/>
         </set>
         <set name="waypointsByLocalityId_0" inverse="true">
             <key>
                 <column name="to_lacality_id"/>
             </key>
-            <one-to-many not-found="ignore" class="model.Waypoint"/>
+            <one-to-many not-found="ignore" class="com.scm.services.model.Waypoint"/>
         </set>
     </class>
 </hibernate-mapping>
