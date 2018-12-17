@@ -17,6 +17,15 @@ body{
 }
 /*       ОБЩЕЕ       */
 
+
+.scm-flex-center{
+    align-self: center;
+}
+
+.scm-flex-end{
+    align-self: flex-end;
+}
+
 .scm-center-title{
     align-self: center;
     font-size: 22px;

@@ -53,6 +53,7 @@
  CREATE TABLE IF NOT EXISTS scm.rate(
    rate_id INT(5) PRIMARY KEY AUTO_INCREMENT,
    rate_price_per_kg FLOAT(10,2) NOT NULL,
+   average_speed FLOAT(6,2) NOT NULL,
    carrier_id INT(5) NOT NULL,
    
    FOREIGN KEY (carrier_id) REFERENCES carrier(carrier_id)

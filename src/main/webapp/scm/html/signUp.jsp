@@ -20,7 +20,7 @@
         <c:url var="register" value="/register" />
         <div class="scm-auto-background scm-row-container">
             <div class="scm-auto-text scm-column-container">С нами удобнее</div>
-            <div class="scm-center-form scm-column-container">
+            <div class="scm-flex-center scm-column-container scm-main-row">
                 <form:form action="${register}" commandName="user" class="scm-form">
                     <div class="scm-center-title scm-form-title">Регистрация</div>
 

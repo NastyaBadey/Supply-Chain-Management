@@ -18,24 +18,27 @@
 
     <jsp:body>
         <c:url var="login" value="/login" />
-        <div class="scm-center-form">
-            <form:form action="${login}" commandName="user" class="scm-form">
-                <div class="scm-center-title scm-form-title">Вход</div>
+        <div class="scm-auto-background scm-row-container">
+            <div class="scm-auto-text scm-column-container">С нами удобнее</div>
+            <div class="scm-flex-center scm-column-container scm-main-row">
+                <form:form action="${login}" commandName="user" class="scm-form">
+                    <div class="scm-center-title scm-form-title">Вход</div>
 
-                <div class="scm-form-row">
-                    <form:input path="userLogin" size="28" class="scm-input-text scm-row-container"
-                                required="required" maxlength="25" autocomplete="off" />
-                    <form:label path="userLogin" class="scm-form-label scm-row-container">Логин</form:label>
-                </div>
+                    <div class="scm-form-row">
+                        <form:input path="userLogin" size="28" class="scm-input-text scm-row-container"
+                                    required="required" maxlength="25" autocomplete="off" />
+                        <form:label path="userLogin" class="scm-form-label scm-row-container">Логин</form:label>
+                    </div>
 
-                <div class="scm-form-row">
-                    <form:password path="userPassword" size="28" class="scm-input-text scm-row-container"
-                                   required="required" maxlength="25" autocomplete="off" />
-                    <form:label path="userPassword" class="scm-form-label scm-row-container">Пароль</form:label>
-                </div>
+                    <div class="scm-form-row">
+                        <form:password path="userPassword" size="28" class="scm-input-text scm-row-container"
+                                       required="required" maxlength="25" autocomplete="off" />
+                        <form:label path="userPassword" class="scm-form-label scm-row-container">Пароль</form:label>
+                    </div>
 
-                <input type="submit" value="Войти" >
-            </form:form>
+                    <input type="submit" value="Войти" >
+                </form:form>
+            </div>
         </div>
     </jsp:body>
 </scm:page_wrapper>
