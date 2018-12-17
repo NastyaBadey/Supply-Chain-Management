@@ -1,0 +1,87 @@
+.scm-profile-main-auto-background{
+    background: url(/scm/images/auto.png) no-repeat;
+    background-size: cover;
+}
+
+.scm-profile-main-block{
+    margin-top: 40px;
+    min-height: 600px;
+}
+
+.scm-profile-title-name{
+    margin-bottom: 20px;
+    text-shadow: #707070 0 0 5px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 38px;
+}
+
+.scm-profile-form{
+    padding: 25px 60px 20px;
+    margin: auto;
+    background-color: #ebebeb;
+}
+
+.scm-profile-center-title{
+    text-align: center;
+    margin-bottom: 18px;
+    font-size: 22px;
+    font-weight: normal;
+}
+
+.scm-profile-form-row{
+    margin: 0 0 25px;
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    flex-direction: row;
+}
+
+.scm-profile-input{
+    background-color: #ebebeb;
+    line-height: 20px;
+    font-size: 20px;
+    color: #959595;
+    border-width: 0;
+    border-bottom: 2px solid #c8c8c8;
+    float: right;
+}
+
+.scm-profile-label{
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 10px;
+    align-self: center;
+}
+
+.scm-profile-textarea{
+    background-color: #ebebeb;
+    line-height: 20px;
+    font-size: 20px;
+    font-family: inherit;
+    color: #959595;
+    border-width: 0;
+    border-bottom: 2px solid #c8c8c8;
+    float: right;
+    min-height: 90px;
+    word-break: break-all;
+}
+
+.scm-profile-btn{
+    text-align: center;
+}
+
+.scm-profile-form input[type="submit"]{
+    padding: 10px 40px;
+    background: #acacac;
+    border-radius: 10px;
+    border-width: 0;
+    color: white;
+    font-size: 20px;
+}
+
+.scm-profile-form input[type="submit"]:hover{
+    background: #707070;
+}

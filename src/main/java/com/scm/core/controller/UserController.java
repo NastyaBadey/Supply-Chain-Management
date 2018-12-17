@@ -53,7 +53,7 @@ public class UserController {
         System.out.println("   Calling login in UserController");
         User currentUser = UserServiceUtil.getUserByLoginAndPassword(user);
         if (currentUser != null) {
-            UserUtil.addUser(request, user);
+            UserUtil.addUser(request, currentUser);
         }
         return "homePage";
     }

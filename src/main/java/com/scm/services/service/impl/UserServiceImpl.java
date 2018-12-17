@@ -30,10 +30,12 @@ public class UserServiceImpl implements UserService {
         userDao.remove(userId);
     }
 
+    @Transactional
     public User getUserById(int userId) {
         return userDao.getById(userId);
     }
 
+    @Transactional
     public List<User> getAllUsers() {
         return userDao.getAll();
     }
