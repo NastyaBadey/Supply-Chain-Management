@@ -1,7 +1,6 @@
 package com.scm.services.model;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
 public class User {
@@ -10,8 +9,6 @@ public class User {
     private String userPassword;
     private String userEmail;
     private String userRole;
-    private Collection<CargoOwner> cargoOwnersByUserId;
-    private Collection<Carrier> carriersByUserId;
 
     @Id
     @Column(name = "user_id", nullable = false)
@@ -64,24 +61,6 @@ public class User {
         this.userRole = userRole;
     }
 
-    @OneToMany(mappedBy = "userByUserId")
-    public Collection<CargoOwner> getCargoOwnersByUserId() {
-        return cargoOwnersByUserId;
-    }
-
-    public void setCargoOwnersByUserId(Collection<CargoOwner> cargoOwnersByUserId) {
-        this.cargoOwnersByUserId = cargoOwnersByUserId;
-    }
-
-    @OneToMany(mappedBy = "userByUserId")
-    public Collection<Carrier> getCarriersByUserId() {
-        return carriersByUserId;
-    }
-
-    public void setCarriersByUserId(Collection<Carrier> carriersByUserId) {
-        this.carriersByUserId = carriersByUserId;
-    }
-
     @Override
     public String toString() {
         return "User{" +
@@ -90,8 +69,6 @@ public class User {
                 ", userPassword='" + userPassword + '\'' +
                 ", userEmail='" + userEmail + '\'' +
                 ", userRole='" + userRole + '\'' +
-                ", cargoOwnersByUserId=" + cargoOwnersByUserId +
-                ", carriersByUserId=" + carriersByUserId +
                 '}';
     }
 
@@ -106,10 +83,7 @@ public class User {
         if (userLogin != null ? !userLogin.equals(user.userLogin) : user.userLogin != null) return false;
         if (userPassword != null ? !userPassword.equals(user.userPassword) : user.userPassword != null) return false;
         if (userEmail != null ? !userEmail.equals(user.userEmail) : user.userEmail != null) return false;
-        if (userRole != null ? !userRole.equals(user.userRole) : user.userRole != null) return false;
-        if (cargoOwnersByUserId != null ? !cargoOwnersByUserId.equals(user.cargoOwnersByUserId) : user.cargoOwnersByUserId != null)
-            return false;
-        return carriersByUserId != null ? carriersByUserId.equals(user.carriersByUserId) : user.carriersByUserId == null;
+        return userRole != null ? userRole.equals(user.userRole) : user.userRole == null;
     }
 
     @Override
@@ -119,8 +93,6 @@ public class User {
         result = 31 * result + (userPassword != null ? userPassword.hashCode() : 0);
         result = 31 * result + (userEmail != null ? userEmail.hashCode() : 0);
         result = 31 * result + (userRole != null ? userRole.hashCode() : 0);
-        result = 31 * result + (cargoOwnersByUserId != null ? cargoOwnersByUserId.hashCode() : 0);
-        result = 31 * result + (carriersByUserId != null ? carriersByUserId.hashCode() : 0);
         return result;
     }
 }

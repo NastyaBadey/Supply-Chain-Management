@@ -30,10 +30,12 @@ public class CargoOwnerServiceImpl implements CargoOwnerService {
         cargoOwnerDao.remove(cargoOwnerId);
     }
 
+    @Transactional
     public CargoOwner getCargoOwnerById(int cargoOwnerId) {
         return cargoOwnerDao.getById(cargoOwnerId);
     }
 
+    @Transactional
     public List<CargoOwner> getAllCargoOwners() {
         return cargoOwnerDao.getAll();
     }

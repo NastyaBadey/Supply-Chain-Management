@@ -4,6 +4,7 @@ import com.scm.services.dao.impl.UserDaoImpl;
 import com.scm.services.model.CargoOwner;
 import com.scm.services.util.CargoOwnerServiceUtil;
 import com.scm.services.util.UserServiceUtil;
+import com.scm.util.Constants;
 import com.scm.util.UserUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,17 +22,15 @@ public class ProfileController {
 
     @GetMapping("cargoOwnerProfile")
     public String cargoOwnerProfile(Model model) {
-        logger.info("   Calling cargoOwnerProfile in ProfileController");
-        System.out.println("   Calling cargoOwnerProfile in ProfileController");
+        Constants.showMessage("Calling cargoOwnerProfile in ProfileController");
         model.addAttribute("cargoOwner", new CargoOwner());
         return "cargoOwnerProfile";
     }
 
     @PostMapping("addCargoOwner")
-    public String addCargoOwner(@ModelAttribute("user") CargoOwner cargoOwner, HttpServletRequest request) {
-        logger.info("   Calling addCargoOwner in ProfileController");
-        System.out.println("   Calling addCargoOwner in ProfileController");
-        cargoOwner.setUserByUserId(UserServiceUtil.getUserById(UserUtil.getUserId(request)));
+    public String addCargoOwner(@ModelAttribute("cargoOwner") CargoOwner cargoOwner, HttpServletRequest request) {
+        Constants.showMessage("Calling addCargoOwner in ProfileController");
+        cargoOwner.setUserId(UserUtil.getUserId(request));
         CargoOwnerServiceUtil.addCargoOwner(cargoOwner);
         return "homePage";
     }

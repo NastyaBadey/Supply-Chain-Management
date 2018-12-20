@@ -1,7 +1,6 @@
 package com.scm.services.model;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
 @Table(name = "cargo_owner", schema = "scm")
@@ -11,8 +10,6 @@ public class CargoOwner {
     private String cargoOwnerDesc;
     private String cargoOwnerPhone;
     private Integer userId;
-    private User userByUserId;
-    private Collection<Ticket> ticketsByCargoOwnerId;
 
     @Id
     @Column(name = "cargo_owner_id", nullable = false)
@@ -54,7 +51,7 @@ public class CargoOwner {
     public void setCargoOwnerPhone(String cargoOwnerPhone) {
         this.cargoOwnerPhone = cargoOwnerPhone;
     }
-/*
+
     @Basic
     @Column(name = "user_id", nullable = false)
     public Integer getUserId() {
@@ -63,25 +60,6 @@ public class CargoOwner {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
-    }*/
-
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
-    public User getUserByUserId() {
-        return userByUserId;
-    }
-
-    public void setUserByUserId(User userByUserId) {
-        this.userByUserId = userByUserId;
-    }
-
-    @OneToMany(mappedBy = "cargoOwnerByCargoOwnerId")
-    public Collection<Ticket> getTicketsByCargoOwnerId() {
-        return ticketsByCargoOwnerId;
-    }
-
-    public void setTicketsByCargoOwnerId(Collection<Ticket> ticketsByCargoOwnerId) {
-        this.ticketsByCargoOwnerId = ticketsByCargoOwnerId;
     }
 
     @Override
@@ -92,8 +70,6 @@ public class CargoOwner {
                 ", cargoOwnerDesc='" + cargoOwnerDesc + '\'' +
                 ", cargoOwnerPhone='" + cargoOwnerPhone + '\'' +
                 ", userId=" + userId +
-                ", userByUserId=" + userByUserId +
-                ", ticketsByCargoOwnerId=" + ticketsByCargoOwnerId +
                 '}';
     }
 
@@ -111,9 +87,7 @@ public class CargoOwner {
             return false;
         if (cargoOwnerPhone != null ? !cargoOwnerPhone.equals(that.cargoOwnerPhone) : that.cargoOwnerPhone != null)
             return false;
-        if (userId != null ? !userId.equals(that.userId) : that.userId != null) return false;
-
-        return true;
+        return userId != null ? userId.equals(that.userId) : that.userId == null;
     }
 
     @Override
