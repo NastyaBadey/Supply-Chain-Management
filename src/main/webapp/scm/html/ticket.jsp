@@ -12,7 +12,7 @@
         <title>Вход</title>
         <link href="<c:url value="/scm/images/car-icon.png"/>" rel="shortcut icon" type="image/png">
         <link href="<c:url value="/scm/css/main.css"/>" rel="stylesheet" type="text/css">
-        <link href="<c:url value="/scm/css/profile.css"/>" rel="stylesheet" type="text/css">
+        <link href="<c:url value="/scm/css/ticket.css"/>" rel="stylesheet" type="text/css">
         <link href="<c:url value="/scm/css/fontAwesome/css/all.css"/>" rel="stylesheet" type="text/css">
     </jsp:attribute>
 
@@ -22,64 +22,112 @@
             <div class="scm-column-container scm-profile-main-block">
                 <div class="scm-row-container scm-flex-center scm-profile-title-name">Оформление заявки на перевозку
                 </div>
-                <div class="scm-title">Информация о грузе</div>
 
                 <div class="scm-row-container">
                     <div class="scm-column-container">
-                        <form:form action="${addTicket}" commandName="ticketAndCargo" class="scm-profile-form">
+                        <form:form action="${addTicket}" commandName="ticketAndCargoAndMethod" class="scm-profile-form">
+                            <div class="scm-ticket-center-title ">Информация о грузе</div>
                             <div class="scm-row-container">
-                                <div class="scm-column-container scm-transport-column">
-                                    <form:label path="cargo.cargoName"
-                                                class="scm-profile-label scm-30">Название: </form:label>
+                                <div class="scm-column-container scm-ticket-column">
                                     <form:input path="cargo.cargoName" size="18" class="scm-profile-input scm-70"
-                                                required="required" maxlength="60" autocomplete="off"/>
+                                                required="required" maxlength="60" autocomplete="off"
+                                                placeholder="Название"/>
                                 </div>
 
-                                <div class="scm-column-container scm-transport-column">
-                                    <form:label path="cargo.cargoLength"
-                                                class="scm-profile-label scm-30">Длина: </form:label>
+                                <div class="scm-column-container scm-ticket-column">
                                     <form:input path="cargo.cargoLength" size="18" class="scm-profile-input scm-70"
-                                                required="required" maxlength="60" autocomplete="off"/>
+                                                required="required" maxlength="60" autocomplete="off"
+                                    placeholder="Длина"/>
                                 </div>
 
-                                <div class="scm-column-container scm-transport-column">
-                                    <form:label path="cargo.cargoHeight"
-                                                class="scm-profile-label scm-30">Высота: </form:label>
+                                <div class="scm-column-container scm-ticket-column">
                                     <form:input path="cargo.cargoHeight" size="18" class="scm-profile-input scm-70"
-                                                required="required" maxlength="60" autocomplete="off"/>
+                                                required="required" maxlength="60" autocomplete="off"
+                                    placeholder="Высота"/>
                                 </div>
+
                             </div>
 
                             <div class="scm-row-container">
 
-                                <div class="scm-column-container scm-transport-column">
-                                    <form:label path="cargo.cargoWeight"
-                                                class="scm-profile-label scm-30">Название: </form:label>
+                                <div class="scm-column-container scm-ticket-column">
                                     <form:input path="cargo.cargoWeight" size="18" class="scm-profile-input scm-70"
-                                                required="required" maxlength="60" autocomplete="off"/>
+                                                required="required" maxlength="60" autocomplete="off"
+                                                placeholder="Вес"/>
                                 </div>
 
-                                <div class="scm-column-container scm-transport-column">
-                                    <form:label path="cargo.cargoWidth"
-                                                class="scm-profile-label scm-30">Длина: </form:label>
+                                <div class="scm-column-container scm-ticket-column">
                                     <form:input path="cargo.cargoWidth" size="18" class="scm-profile-input scm-70"
-                                                required="required" maxlength="60" autocomplete="off"/>
+                                                required="required" maxlength="60" autocomplete="off"
+                                                placeholder="Ширина"/>
                                 </div>
 
-                                <div class="scm-column-container scm-transport-column">
-                                    <form:label path="ticket.cargoQuantity"
-                                                class="scm-profile-label scm-30">Количество груза: </form:label>
+                                <div class="scm-column-container scm-ticket-column">
                                     <form:input path="ticket.cargoQuantity" size="18" class="scm-profile-input scm-70"
-                                                required="required" maxlength="60" autocomplete="off"/>
+                                                required="required" maxlength="60" autocomplete="off"
+                                                placeholder="Количество груза"/>
+                                </div>
+                            </div>
+                            <div class="scm-ticket-center-title ">Желаемый способ доставки</div>
+                            <div class="scm-row-container">
+                                <div class="scm-column-container ">
+                                <input type="radio" value="Авто">
+                                    Авто
+                                </div>
+                                <div class="scm-column-container ">
+                                <input type="radio" value="ЖД">
+                                    Жд
+                                </div>
+                                <div class="scm-column-container ">
+                                <input type="radio" value="Морской транспорт">
+                                    Морской транспорт
+                                </div>
+                                <div class="scm-column-container ">
+                                <input type="radio" value="Авиатранспорт">
+                                    Авиатранспорт
                                 </div>
 
-
+                            </div>
+                            <div class="scm-ticket-center-title ">Маршрут</div>
+                            <div class="scm-row-container">
+                                <div class="scm-column-container ">
+                                    Место отправки:
+                                </div>
+                                <div class="scm-column-container ">
+                                    Место назначения:
+                                </div>
+                            </div>
+                            <div class="scm-row-container">
+                                <div class="scm-column-container scm-ticket-column">
+                                    <form:input path="locality.localityName" size="18" class="scm-profile-input scm-70"
+                                                required="required" maxlength="60" autocomplete="off"
+                                                placeholder="Город"/>
+                                </div>
+                               <%-- <div class="scm-column-container scm-transport-column">
+                                    <form:input path="locality.localityName" size="18" class="scm-profile-input scm-70"
+                                                required="required" maxlength="60" autocomplete="off"
+                                                placeholder="Количество груза"/>
+                                </div>--%>
+                            </div>
+                            <div class="scm-row-container">
+                                <div class="scm-column-container scm-ticket-column">
+                                    <form:input path="locality.country" size="18" class="scm-profile-input scm-70"
+                                                required="required" maxlength="60" autocomplete="off"
+                                                placeholder="Страна"/>
+                                </div>
+                                    <%-- <div class="scm-column-container scm-transport-column">
+                                         <form:input path="locality.localityName" size="18" class="scm-profile-input scm-70"
+                                                     required="required" maxlength="60" autocomplete="off"
+                                                     placeholder="Количество груза"/>
+                                     </div>--%>
+                            </div>
+                            <div class="scm-ticket-btn">
+                                <input type="submit" value="Сохранить" >
                             </div>
 
                         </form:form>
                     </div>
                 </div>
-
             </div>
         </div>
 
