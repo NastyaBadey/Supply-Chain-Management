@@ -4,6 +4,7 @@ import com.scm.services.dao.impl.UserDaoImpl;
 import com.scm.services.model.CargoOwner;
 import com.scm.services.util.CargoOwnerServiceUtil;
 import com.scm.util.Constants;
+import com.scm.util.TicketAndCargoAndLocalities;
 import com.scm.util.UserUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,5 +33,19 @@ public class CargoOwnerController {
         cargoOwner.setUserId(UserUtil.getUserId(request));
         CargoOwnerServiceUtil.addCargoOwner(cargoOwner);
         return "redirect:homePage";
+    }
+
+    @GetMapping("ticketRegistration")
+    public String ticketRegistration(Model model) {
+        Constants.showMessage("Calling ticketRegistration in TicketController");
+        model.addAttribute("ticketAndCargoAndMethod", new TicketAndCargoAndLocalities());
+        return "ticket";
+    }
+
+    @PostMapping("addTicket")
+    public String addTicket(@ModelAttribute("ticketAndCargoAndMethod") TicketAndCargoAndLocalities ticketAndCargoAndLocalities,
+                            HttpServletRequest request) {
+        Constants.showMessage("Calling addTicket in TicketController");
+        return "homePage";
     }
 }

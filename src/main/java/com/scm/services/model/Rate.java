@@ -8,6 +8,7 @@ public class Rate {
     private Double ratePricePerKg;
     private Double averageSpeed;
     private Integer carrierId;
+    private Integer deliveryMethodId;
 
     @Id
     @Column(name = "rate_id", nullable = false)
@@ -50,15 +51,13 @@ public class Rate {
         this.carrierId = carrierId;
     }
 
-    @Override
-    public String toString() {
-        return "Rate{" +
-                "rateId=" + rateId +
-                ", ratePricePerKg=" + ratePricePerKg +
-                ", averageSpeed=" + averageSpeed +
-                ", carrierId=" + carrierId +
-                '}';
+    @Basic
+    @Column(name = "delivery_method_id", nullable = false)
+    public Integer getDeliveryMethodId() {
+        return deliveryMethodId;
     }
+
+    public void setDeliveryMethodId(Integer deliveryMethodId) { this.deliveryMethodId = deliveryMethodId; }
 
     @Override
     public boolean equals(Object o) {
@@ -71,7 +70,8 @@ public class Rate {
         if (ratePricePerKg != null ? !ratePricePerKg.equals(rate.ratePricePerKg) : rate.ratePricePerKg != null)
             return false;
         if (averageSpeed != null ? !averageSpeed.equals(rate.averageSpeed) : rate.averageSpeed != null) return false;
-        return carrierId != null ? carrierId.equals(rate.carrierId) : rate.carrierId == null;
+        if (carrierId != null ? !carrierId.equals(rate.carrierId) : rate.carrierId != null) return false;
+        return deliveryMethodId != null ? deliveryMethodId.equals(rate.deliveryMethodId) : rate.deliveryMethodId == null;
     }
 
     @Override
@@ -80,6 +80,18 @@ public class Rate {
         result = 31 * result + (ratePricePerKg != null ? ratePricePerKg.hashCode() : 0);
         result = 31 * result + (averageSpeed != null ? averageSpeed.hashCode() : 0);
         result = 31 * result + (carrierId != null ? carrierId.hashCode() : 0);
+        result = 31 * result + (deliveryMethodId != null ? deliveryMethodId.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Rate{" +
+                "rateId=" + rateId +
+                ", ratePricePerKg=" + ratePricePerKg +
+                ", averageSpeed=" + averageSpeed +
+                ", carrierId=" + carrierId +
+                ", deliveryMethodId=" + deliveryMethodId +
+                '}';
     }
 }

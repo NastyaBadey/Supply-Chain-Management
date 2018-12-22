@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +24,7 @@ public class UserDaoImpl implements UserDao {
         Session session = this.sessionFactory.getCurrentSession();
         session.persist(user);
         logger.info("User successfully added. User details: ", user);
+        System.out.println("User successfully added. User details: " + user);
     }
 
     public void update(User user) {

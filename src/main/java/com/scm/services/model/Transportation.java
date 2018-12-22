@@ -2,7 +2,6 @@ package com.scm.services.model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
-import java.util.Collection;
 
 @Entity
 public class Transportation {

@@ -41,7 +41,6 @@
                 <value>com.scm.services.model.DeliveryMethod</value>
                 <value>com.scm.services.model.Locality</value>
                 <value>com.scm.services.model.Rate</value>
-                <value>com.scm.services.model.RateDeliveryMethod</value>
                 <value>com.scm.services.model.Route</value>
                 <value>com.scm.services.model.Ticket</value>
                 <value>com.scm.services.model.Transportation</value>

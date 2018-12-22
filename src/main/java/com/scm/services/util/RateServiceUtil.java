@@ -17,8 +17,8 @@ public class RateServiceUtil {
     }
     
 
-    public static void addRate(Rate rate){
-        rateService.addRate(rate);
+    public static Rate addRate(Rate rate){
+        return rateService.addRate(rate);
     }
 
     public static void updateRate(Rate rate){

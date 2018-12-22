@@ -16,8 +16,8 @@ public class RateServiceImpl implements RateService {
     private RateDao rateDao;
 
     @Transactional
-    public void addRate(Rate rate) {
-        rateDao.add(rate);
+    public Rate addRate(Rate rate) {
+        return rateDao.addRate(rate);
     }
 
     @Transactional

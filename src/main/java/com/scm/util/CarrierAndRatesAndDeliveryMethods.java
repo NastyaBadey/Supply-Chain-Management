@@ -4,7 +4,6 @@ import com.scm.services.model.Carrier;
 import com.scm.services.model.DeliveryMethod;
 import com.scm.services.model.Rate;
 import com.scm.services.util.DeliveryMethodServiceUtil;
-import com.scm.services.util.RateDeliveryMethodServiceUtil;
 import com.scm.services.util.RateServiceUtil;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +18,15 @@ public class CarrierAndRatesAndDeliveryMethods {
     List<Rate> rates;
     List<DeliveryMethod> deliveryMethodsByRates; //for table
 
+    public CarrierAndRatesAndDeliveryMethods(){
+        this.carrier = new Carrier();
+        this.selectedDeliveryMethod = new DeliveryMethod();
+        this.deliveryMethods = new ArrayList<DeliveryMethod>();
+        this.rate = new Rate();
+        this.rates = new ArrayList<Rate>();
+        this.deliveryMethods = new ArrayList<DeliveryMethod>();
+    }
+
     public CarrierAndRatesAndDeliveryMethods(HttpServletRequest request) {
         this.carrier = new Carrier();
         this.selectedDeliveryMethod = new DeliveryMethod();
@@ -32,11 +40,11 @@ public class CarrierAndRatesAndDeliveryMethods {
         }
         this.deliveryMethodsByRates = new ArrayList<DeliveryMethod>();
         for (Rate currentRate : this.rates){
-            DeliveryMethod currentDeliveryMethod = DeliveryMethodServiceUtil.getDeliveryMethodById(
+           /* DeliveryMethod currentDeliveryMethod = DeliveryMethodServiceUtil.getDeliveryMethodById(
                     RateDeliveryMethodServiceUtil.getRateDeliveryMethodByRateId(currentRate.getRateId())
                             .getDeliveryMethodId());
             this.deliveryMethodsByRates.add(currentDeliveryMethod);
-            this.deliveryMethods.remove(currentDeliveryMethod);
+            this.deliveryMethods.remove(currentDeliveryMethod);*/
         }
     }
 

@@ -25,6 +25,13 @@ public class RateDaoImpl implements RateDao {
         logger.info("Rate successfully added. Rate details: ", rate);
     }
 
+    public Rate addRate(Rate rate) {
+        Session session = this.sessionFactory.getCurrentSession();
+        session.persist(rate);
+        logger.info("Rate successfully added. Rate details: ", rate);
+        return rate;
+    }
+
     public void update(Rate rate) {
         Session session = this.sessionFactory.getCurrentSession();
         session.update(rate);
