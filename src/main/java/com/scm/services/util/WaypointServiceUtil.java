@@ -11,29 +11,28 @@ import java.util.List;
 public class WaypointServiceUtil {
     private static WaypointService waypointService;
 
-    @Autowired
-    public void setWaypointService(WaypointService waypointService) {
-        this.waypointService = waypointService;
+    public static Waypoint addWaypoint(Waypoint waypoint) {
+        return waypointService.addWaypoint(waypoint);
     }
 
-
-    public static void addWaypoint(Waypoint waypoint){
-        waypointService.addWaypoint(waypoint);
-    }
-
-    public static void updateWaypoint(Waypoint waypoint){
+    public static void updateWaypoint(Waypoint waypoint) {
         waypointService.updateWaypoint(waypoint);
     }
 
-    public static void removeWaypoint(int waypointId){
+    public static void removeWaypoint(int waypointId) {
         waypointService.removeWaypoint(waypointId);
     }
 
-    public static Waypoint getWaypointById(int waypointId){
+    public static Waypoint getWaypointById(int waypointId) {
         return waypointService.getWaypointById(waypointId);
     }
 
-    public static List<Waypoint> getAllWaypoints(){
+    public static List<Waypoint> getAllWaypoints() {
         return waypointService.getAllWaypoints();
+    }
+
+    @Autowired
+    public void setWaypointService(WaypointService waypointService) {
+        this.waypointService = waypointService;
     }
 }

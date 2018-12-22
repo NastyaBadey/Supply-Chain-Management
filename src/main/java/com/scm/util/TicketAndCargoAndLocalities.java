@@ -24,36 +24,36 @@ public class TicketAndCargoAndLocalities {
         this.destinationLocality = destinationLocality;
     }
 
-    public void setTicket(Ticket ticket) {
-        this.ticket = ticket;
-    }
-
     public Ticket getTicket() {
         return ticket;
     }
 
-    public void setCargo(Cargo cargo) {
-        this.cargo = cargo;
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
     }
 
     public Cargo getCargo() {
         return cargo;
     }
 
-    public void setDepartureLocality(Locality departureLocality) {
-        this.departureLocality = departureLocality;
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
     }
 
     public Locality getDepartureLocality() {
         return departureLocality;
     }
 
-    public void setDestinationLocality(Locality destinationLocality) {
-        this.destinationLocality = destinationLocality;
+    public void setDepartureLocality(Locality departureLocality) {
+        this.departureLocality = departureLocality;
     }
 
     public Locality getDestinationLocality() {
         return destinationLocality;
+    }
+
+    public void setDestinationLocality(Locality destinationLocality) {
+        this.destinationLocality = destinationLocality;
     }
 
     @Override

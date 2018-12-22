@@ -16,8 +16,8 @@ public class CarrierServiceImpl implements CarrierService {
     private CarrierDao carrierDao;
 
     @Transactional
-    public void addCarrier(Carrier carrier) {
-        carrierDao.add(carrier);
+    public Carrier addCarrier(Carrier carrier) {
+        return carrierDao.add(carrier);
     }
 
     @Transactional

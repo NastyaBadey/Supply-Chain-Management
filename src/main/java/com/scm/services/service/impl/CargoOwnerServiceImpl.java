@@ -16,8 +16,8 @@ public class CargoOwnerServiceImpl implements CargoOwnerService {
     private CargoOwnerDao cargoOwnerDao;
 
     @Transactional
-    public void addCargoOwner(CargoOwner cargoOwner) {
-        cargoOwnerDao.add(cargoOwner);
+    public CargoOwner addCargoOwner(CargoOwner cargoOwner) {
+        return cargoOwnerDao.add(cargoOwner);
     }
 
     @Transactional

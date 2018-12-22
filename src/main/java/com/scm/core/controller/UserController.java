@@ -19,20 +19,20 @@ public class UserController {
 
     @RequestMapping(value = "homePage", method = RequestMethod.GET)
     public String viewHome(Model model) {
-        Constants.showMessage("Calling viewHome in UserController");
+        Constants.showMessageWithIndent("Calling viewHome in UserController");
         return "homePage";
     }
 
     @RequestMapping(value = "signUp", method = RequestMethod.GET)
     public String signUp(Model model) {
-        Constants.showMessage("Calling signUp in UserController");
+        Constants.showMessageWithIndent("Calling signUp in UserController");
         model.addAttribute("user", new User());
         return "signUp";
     }
 
     @RequestMapping(value = "register", method = RequestMethod.POST)
     public String register(@ModelAttribute("user") User user, HttpServletRequest request) {
-        Constants.showMessage("Calling register in UserController");
+        Constants.showMessageWithIndent("Calling register in UserController");
         if (user.getUserId() == null) {
             UserServiceUtil.addUser(user);
         } else {
@@ -45,7 +45,7 @@ public class UserController {
     //то же самое, что и @RequestMapping(value = "signIn", method = RequestMethod.GET)
     @GetMapping("signIn")
     public String signIn(Model model) {
-        Constants.showMessage("Calling signIn in UserController");
+        Constants.showMessageWithIndent("Calling signIn in UserController");
         model.addAttribute("user", new User());
         return "signIn";
     }
@@ -53,7 +53,7 @@ public class UserController {
     //то же самое, что и @RequestMapping(value = "login", method = RequestMethod.POST)
     @PostMapping("login")
     public String login(@ModelAttribute("user") User user, HttpServletRequest request) {
-        Constants.showMessage("Calling login in UserController");
+        Constants.showMessageWithIndent("Calling login in UserController");
         User currentUser = UserServiceUtil.getUserByLoginAndPassword(user);
         if (currentUser != null) {
             UserUtil.addUser(request, currentUser);
@@ -64,7 +64,7 @@ public class UserController {
 
     @GetMapping("logout")
     public String logout(HttpServletRequest request) {
-        Constants.showMessage("Calling logout in UserController");
+        Constants.showMessageWithIndent("Calling logout in UserController");
         UserUtil.removeUser(request);
         return "homePage";
     }

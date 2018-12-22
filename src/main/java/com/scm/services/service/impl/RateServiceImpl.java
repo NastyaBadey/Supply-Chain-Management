@@ -17,7 +17,7 @@ public class RateServiceImpl implements RateService {
 
     @Transactional
     public Rate addRate(Rate rate) {
-        return rateDao.addRate(rate);
+        return rateDao.add(rate);
     }
 
     @Transactional
@@ -41,7 +41,7 @@ public class RateServiceImpl implements RateService {
     }
 
     @Transactional
-    public List<Rate> getAllRatesByCarrierId(int carrierId){
+    public List<Rate> getAllRatesByCarrierId(int carrierId) {
         return rateDao.getAllRatesByCarrierId(carrierId);
     }
 }

@@ -2,6 +2,7 @@ package com.scm.services.dao.impl;
 
 import com.scm.services.dao.CargoOwnerDao;
 import com.scm.services.model.CargoOwner;
+import com.scm.util.Constants;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -19,16 +20,17 @@ public class CargoOwnerDaoImpl implements CargoOwnerDao {
     private SessionFactory sessionFactory;
 
 
-    public void add(CargoOwner cargoOwnerOwner) {
+    public CargoOwner add(CargoOwner cargoOwnerOwner) {
         Session session = this.sessionFactory.getCurrentSession();
         session.persist(cargoOwnerOwner);
-        logger.info("CargoOwner successfully added. CargoOwner details: ", cargoOwnerOwner);
+        Constants.showMessage("CargoOwner successfully added. CargoOwner details: " + cargoOwnerOwner);
+        return cargoOwnerOwner;
     }
 
     public void update(CargoOwner cargoOwnerOwner) {
         Session session = this.sessionFactory.getCurrentSession();
         session.update(cargoOwnerOwner);
-        logger.info("CargoOwner successfully updated. CargoOwner details: ", cargoOwnerOwner);
+        Constants.showMessage("CargoOwner successfully updated. CargoOwner details: " + cargoOwnerOwner);
     }
 
     public void remove(int id) {
@@ -36,16 +38,16 @@ public class CargoOwnerDaoImpl implements CargoOwnerDao {
         CargoOwner cargoOwner = session.load(CargoOwner.class, id);
         if (cargoOwner != null) {
             session.delete(cargoOwner);
-            logger.info("CargoOwner successfully removed. CargoOwner details: ", cargoOwner);
+            Constants.showMessage("CargoOwner successfully removed. CargoOwner details: " + cargoOwner);
             return;
         }
-        logger.error("CargoOwner with id \'" + id + "\' cannot be removed.");
+        Constants.showErrorMessage("CargoOwner with id \'" + id + "\' cannot be removed.");
     }
 
     public CargoOwner getById(int id) {
         Session session = this.sessionFactory.getCurrentSession();
         CargoOwner cargoOwner = session.load(CargoOwner.class, id);
-        System.out.println("CargoOwner successfully loaded. CargoOwner details: " + cargoOwner);
+        Constants.showMessage("CargoOwner successfully loaded. CargoOwner details: " + cargoOwner);
         return cargoOwner;
     }
 
@@ -53,8 +55,20 @@ public class CargoOwnerDaoImpl implements CargoOwnerDao {
         Session session = this.sessionFactory.getCurrentSession();
         List<CargoOwner> cargoOwnerList = session.createQuery("from CargoOwner").list();
         for (CargoOwner cargoOwner : cargoOwnerList) {
-            logger.info("CargoOwner list element: ", cargoOwner);
+            Constants.showMessage("CargoOwner list element: " + cargoOwner);
         }
         return cargoOwnerList;
+    }
+
+    public CargoOwner getCargoOwnerByUserId(int userId) {
+        Session session = this.sessionFactory.getCurrentSession();
+        List<CargoOwner> cargoOwners = session.createQuery("from CargoOwner where userId = " + userId).list();
+        if (cargoOwners.isEmpty()) {
+            Constants.showMessage("CargoOwner with id \'" + userId + "\' not found.");
+            return null;
+        }
+        CargoOwner cargoOwner = cargoOwners.get(0);
+        Constants.showMessage("CargoOwner successfully loaded. CargoOwner details: " + cargoOwner);
+        return cargoOwner;
     }
 }

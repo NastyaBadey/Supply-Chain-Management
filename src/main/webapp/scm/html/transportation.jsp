@@ -21,9 +21,9 @@
         <div class="scm-profile-main-auto-background scm-row-container">
             <div class="scm-column-container scm-profile-main-block">
                 <div class="scm-row-container scm-flex-center scm-profile-title-name">Перевозки</div>
-<form class="scm-profile-form">
-                <div class="scm-column-container">
-                    <div class="scm-ticket-center-title">Перевозки</div>
+                <form class="scm-profile-form">
+                    <div class="scm-column-container">
+                        <div class="scm-ticket-center-title">Перевозки</div>
                         <table class="tg">
                             <tr>
                                 <th width="40">Владелец</th>
@@ -44,8 +44,8 @@
 
                         </table>
 
-                </div>
-</form>
+                    </div>
+                </form>
             </div>
         </div>
     </jsp:body>

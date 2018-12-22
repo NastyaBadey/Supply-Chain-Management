@@ -16,8 +16,8 @@ public class LocalityServiceImpl implements LocalityService {
     private LocalityDao localityDao;
 
     @Transactional
-    public void addLocality(Locality locality) {
-        localityDao.add(locality);
+    public Locality addLocality(Locality locality) {
+        return localityDao.add(locality);
     }
 
     @Transactional

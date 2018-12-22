@@ -11,33 +11,32 @@ import java.util.List;
 public class CarrierServiceUtil {
     private static CarrierService carrierService;
 
-    @Autowired
-    public void setCarrierService(CarrierService carrierService) {
-        this.carrierService = carrierService;
+    public static Carrier addCarrier(Carrier carrier) {
+        return carrierService.addCarrier(carrier);
     }
 
-    
-    public static void addCarrier(Carrier carrier){
-        carrierService.addCarrier(carrier);
-    }
-
-    public static void updateCarrier(Carrier carrier){
+    public static void updateCarrier(Carrier carrier) {
         carrierService.updateCarrier(carrier);
     }
 
-    public static void removeCarrier(int carrierId){
+    public static void removeCarrier(int carrierId) {
         carrierService.removeCarrier(carrierId);
     }
 
-    public static Carrier getCarrierById(int carrierId){
+    public static Carrier getCarrierById(int carrierId) {
         return carrierService.getCarrierById(carrierId);
     }
 
-    public static List<Carrier> getAllCarriers(){
+    public static List<Carrier> getAllCarriers() {
         return carrierService.getAllCarriers();
     }
 
-    public static Carrier getCarrierByUserId(int userId){
+    public static Carrier getCarrierByUserId(int userId) {
         return carrierService.getCarrierByUserId(userId);
+    }
+
+    @Autowired
+    public void setCarrierService(CarrierService carrierService) {
+        this.carrierService = carrierService;
     }
 }

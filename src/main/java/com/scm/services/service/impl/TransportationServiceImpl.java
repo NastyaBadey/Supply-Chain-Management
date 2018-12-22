@@ -16,8 +16,8 @@ public class TransportationServiceImpl implements TransportationService {
     private TransportationDao transportationDao;
 
     @Transactional
-    public void addTransportation(Transportation transportation) {
-        transportationDao.add(transportation);
+    public Transportation addTransportation(Transportation transportation) {
+        return transportationDao.add(transportation);
     }
 
     @Transactional

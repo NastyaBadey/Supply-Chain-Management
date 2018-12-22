@@ -5,9 +5,13 @@ import com.scm.services.model.TransportationWaypoint;
 import java.util.List;
 
 public interface TransportationWaypointService {
-    void addTransportationWaypoint(TransportationWaypoint transportationWaypoint);
+    TransportationWaypoint addTransportationWaypoint(TransportationWaypoint transportationWaypoint);
+
     void updateTransportationWaypoint(TransportationWaypoint transportationWaypoint);
+
     void removeTransportationWaypoint(int id);
+
     TransportationWaypoint getTransportationWaypointById(int id);
+
     List<TransportationWaypoint> getAllTransportationWaypoints();
 }

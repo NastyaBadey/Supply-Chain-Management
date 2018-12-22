@@ -1,4 +1,4 @@
-body{
+body {
     width: 100%;
     min-width: 700px;
     height: 100%;
@@ -8,57 +8,57 @@ body{
     color: #24292e;*/
 }
 
-:focus{
-    outline:none;
+:focus {
+    outline: none;
 }
 
 * {
     box-sizing: border-box;
 }
+
 /*       ОБЩЕЕ       */
 
-
-.scm-flex-center{
+.scm-flex-center {
     align-self: center;
 }
 
-.scm-flex-end{
+.scm-flex-end {
     align-self: flex-end;
 }
 
-.scm-30{
+.scm-30 {
     width: 30%;
 }
 
-.scm-70{
+.scm-70 {
     width: 70%;
 }
 
-.scm-center-title{
+.scm-center-title {
     align-self: center;
     font-size: 22px;
     font-weight: bold;
 }
 
-.scm-text{
+.scm-text {
     text-align: justify;
     color: #707070;
 }
 
-.scm-text-with-indent{
+.scm-text-with-indent {
     text-indent: 35px;
     text-align: justify;
     color: #707070;
 }
 
-a{
+a {
     color: #707070;
     display: block;
     text-decoration: none;
     outline: none;
 }
 
-.scm-column-container{
+.scm-column-container {
     width: 100%;
     display: flex;
     display: -webkit-box;
@@ -67,7 +67,7 @@ a{
     flex-direction: column;
 }
 
-.scm-row-container{
+.scm-row-container {
     display: flex;
     display: -webkit-box;
     display: -webkit-flex;
@@ -75,10 +75,8 @@ a{
     flex-direction: row;
 }
 
-
-
 /*       ОБЩЕЕ ДЛЯ КАРКАСА       */
-.scm-header{
+.scm-header {
     box-shadow: #e3e3e3 0 0 1px;
     width: 100%;
     top: 0;
@@ -89,12 +87,12 @@ a{
     display: block;
 }
 
-.scm-car-icon{
+.scm-car-icon {
     width: 30px;
     margin-right: 5px;
 }
 
-.scm-header-name{
+.scm-header-name {
     display: inline-block;
     padding: 10px 0 16px 5%;
     font-weight: bold;
@@ -102,61 +100,62 @@ a{
     color: #707070;
 }
 
-
-.scm-user-menu{
+.scm-user-menu {
     display: inline-block;
 }
 
-.scm-user-menu-element{
+.scm-user-menu-element {
     padding: 0 0 0 40px;
     display: inline-block;
     word-wrap: break-word;
     font-size: 20px;
 }
 
-.scm-user-menu-element:hover{
+.scm-user-menu-element:hover {
     font-weight: bold;
 }
+
 /* ************** MENU start ************** */
-.scm-navigation{
+.scm-navigation {
     float: right;
     padding: 18px 80px 13px;
     font-weight: bold;
     font-size: 18px;
     color: #707070;
 }
-.scm-navigation ul a{
+
+.scm-navigation ul a {
     color: #707070;
 }
 
-ul{
+ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.scm-menu > li{
+.scm-menu > li {
     display: inline-block;
     position: relative;
 }
 
-.scm-menu-title{
+.scm-menu-title {
     margin: 0 15px;
     padding-bottom: 5px;
     min-width: 85px;
 }
 
-.scm-menu .fa-angle-right{
+.scm-menu .fa-angle-right {
     margin-left: 2px;
     transition: 0.2s linear;
 }
 
-.scm-menu:hover .fa-angle-right{
+.scm-menu:hover .fa-angle-right {
     transition: 0.2s linear;
     transform: rotate(90deg);
 }
 
-.scm-submenu{
+.scm-submenu {
     border: rgba(198, 198, 198, 0.2) solid 3px;
     width: 100%;
     position: absolute;
@@ -166,15 +165,16 @@ ul{
     transition: 0.5s ease-in-out;
 }
 
-.scm-submenu > li{
+.scm-submenu > li {
     margin: 0 10px;
     padding: 10px 0;
 }
-.scm-submenu .scm-bottom-border{
+
+.scm-submenu .scm-bottom-border {
     border-bottom: 1px solid #707070;
 }
 
-.scm-navigation .scm-submenu{
+.scm-navigation .scm-submenu {
     /*border-radius: 0 0 10px 10px;*/
     background: #ffffff;
 
@@ -194,7 +194,7 @@ ul{
     /*opacity: 0;*/
 }
 
-.scm-navigation ul li:hover .scm-submenu{
+.scm-navigation ul li:hover .scm-submenu {
     /*просто появление при наведении*/
     /*display: block;*/
 
@@ -207,15 +207,16 @@ ul{
     /*visibility: visible;*/
     /*opacity: 1;*/
 }
+
 /* ************** MENU end ************** */
 
-
-.scm-main{
+.scm-main {
     margin-top: 85px;
     margin-left: auto;
     margin-right: auto;
 }
-.scm-container{
+
+.scm-container {
     font-weight: normal;
     font-size: 20px;
     color: #707070;
@@ -233,8 +234,7 @@ ul{
     z-index: 5;
 }
 
-
-.scm-footer-container{
+.scm-footer-container {
     padding: 10px 0;
     margin-top: 20px;
     border-radius: 7px;
@@ -243,7 +243,7 @@ ul{
     margin-right: auto;
 }
 
-.scm-footer{
+.scm-footer {
     /*background-color: #ff8247;*/
     margin: 0 80px;
     color: #707070;
@@ -257,14 +257,14 @@ ul{
     position: relative;
 }
 
-.scm-horizontal-line{
+.scm-horizontal-line {
     width: 100%;
     height: 5px;
     margin-bottom: 20px;
     background-color: #707070;
 }
 
-.scm-after-footer{
+.scm-after-footer {
     display: flex;
     display: -webkit-box;
     display: -webkit-flex;

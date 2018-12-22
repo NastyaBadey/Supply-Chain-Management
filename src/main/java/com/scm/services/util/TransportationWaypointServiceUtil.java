@@ -11,29 +11,28 @@ import java.util.List;
 public class TransportationWaypointServiceUtil {
     private static TransportationWaypointService transportationWaypointService;
 
-    @Autowired
-    public void setTransportationWaypointService(TransportationWaypointService transportationWaypointService) {
-        this.transportationWaypointService = transportationWaypointService;
-    }
-    
-
-    public static void addTransportationWaypoint(TransportationWaypoint transportationWaypoint){
-        transportationWaypointService.addTransportationWaypoint(transportationWaypoint);
+    public static TransportationWaypoint addTransportationWaypoint(TransportationWaypoint transportationWaypoint) {
+        return transportationWaypointService.addTransportationWaypoint(transportationWaypoint);
     }
 
-    public static void updateTransportationWaypoint(TransportationWaypoint transportationWaypoint){
+    public static void updateTransportationWaypoint(TransportationWaypoint transportationWaypoint) {
         transportationWaypointService.updateTransportationWaypoint(transportationWaypoint);
     }
 
-    public static void removeTransportationWaypoint(int transportationWaypointId){
+    public static void removeTransportationWaypoint(int transportationWaypointId) {
         transportationWaypointService.removeTransportationWaypoint(transportationWaypointId);
     }
 
-    public static TransportationWaypoint getTransportationWaypointById(int transportationWaypointId){
+    public static TransportationWaypoint getTransportationWaypointById(int transportationWaypointId) {
         return transportationWaypointService.getTransportationWaypointById(transportationWaypointId);
     }
 
-    public static List<TransportationWaypoint> getAllTransportationWaypoints(){
+    public static List<TransportationWaypoint> getAllTransportationWaypoints() {
         return transportationWaypointService.getAllTransportationWaypoints();
+    }
+
+    @Autowired
+    public void setTransportationWaypointService(TransportationWaypointService transportationWaypointService) {
+        this.transportationWaypointService = transportationWaypointService;
     }
 }

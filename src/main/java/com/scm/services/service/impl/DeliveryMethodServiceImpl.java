@@ -16,8 +16,8 @@ public class DeliveryMethodServiceImpl implements DeliveryMethodService {
     private DeliveryMethodDao deliveryMethodDao;
 
     @Transactional
-    public void addDeliveryMethod(DeliveryMethod deliveryMethod) {
-        deliveryMethodDao.add(deliveryMethod);
+    public DeliveryMethod addDeliveryMethod(DeliveryMethod deliveryMethod) {
+        return deliveryMethodDao.add(deliveryMethod);
     }
 
     @Transactional

@@ -22,14 +22,14 @@ public class CargoOwnerController {
 
     @GetMapping("cargoOwnerProfile")
     public String cargoOwnerProfile(Model model) {
-        Constants.showMessage("Calling cargoOwnerProfile in CargoOwnerController");
+        Constants.showMessageWithIndent("Calling cargoOwnerProfile in CargoOwnerController");
         model.addAttribute("cargoOwner", new CargoOwner());
         return "cargoOwnerProfile";
     }
 
     @PostMapping("addCargoOwner")
     public String addCargoOwner(@ModelAttribute("cargoOwner") CargoOwner cargoOwner, HttpServletRequest request) {
-        Constants.showMessage("Calling addCargoOwner in CargoOwnerController");
+        Constants.showMessageWithIndent("Calling addCargoOwner in CargoOwnerController");
         cargoOwner.setUserId(UserUtil.getUserId(request));
         CargoOwnerServiceUtil.addCargoOwner(cargoOwner);
         return "redirect:homePage";
@@ -37,7 +37,7 @@ public class CargoOwnerController {
 
     @GetMapping("ticketRegistration")
     public String ticketRegistration(Model model) {
-        Constants.showMessage("Calling ticketRegistration in TicketController");
+        Constants.showMessageWithIndent("Calling ticketRegistration in TicketController");
         model.addAttribute("ticketAndCargoAndMethod", new TicketAndCargoAndLocalities());
         return "ticket";
     }
@@ -45,7 +45,7 @@ public class CargoOwnerController {
     @PostMapping("addTicket")
     public String addTicket(@ModelAttribute("ticketAndCargoAndMethod") TicketAndCargoAndLocalities ticketAndCargoAndLocalities,
                             HttpServletRequest request) {
-        Constants.showMessage("Calling addTicket in TicketController");
+        Constants.showMessageWithIndent("Calling addTicket in TicketController");
         return "homePage";
     }
 }

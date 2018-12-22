@@ -11,13 +11,13 @@
         <meta charset="utf-8">
         <title>Вход</title>
         <link href="<c:url value="/scm/images/car-icon.png"/>" rel="shortcut icon" type="image/png">
-        <link href="<c:url value="/scm/css/main.css"/>" rel="stylesheet" type="text/css" >
-        <link href="<c:url value="/scm/css/signUp.css"/>" rel="stylesheet" type="text/css" >
-        <link href="<c:url value="/scm/css/fontAwesome/css/all.css"/>" rel="stylesheet" type="text/css" >
+        <link href="<c:url value="/scm/css/main.css"/>" rel="stylesheet" type="text/css">
+        <link href="<c:url value="/scm/css/signUp.css"/>" rel="stylesheet" type="text/css">
+        <link href="<c:url value="/scm/css/fontAwesome/css/all.css"/>" rel="stylesheet" type="text/css">
     </jsp:attribute>
 
     <jsp:body>
-        <c:url var="login" value="/login" />
+        <c:url var="login" value="/login"/>
         <div class="scm-auto-background scm-row-container">
             <div class="scm-auto-text scm-column-container">С нами удобнее</div>
             <div class="scm-flex-center scm-column-container scm-main-row">
@@ -26,17 +26,17 @@
 
                     <div class="scm-form-row">
                         <form:input path="userLogin" size="28" class="scm-input-text scm-row-container"
-                                    required="required" maxlength="25" autocomplete="off" />
+                                    required="required" maxlength="25" autocomplete="off"/>
                         <form:label path="userLogin" class="scm-form-label scm-row-container">Логин</form:label>
                     </div>
 
                     <div class="scm-form-row">
                         <form:password path="userPassword" size="28" class="scm-input-text scm-row-container"
-                                       required="required" maxlength="25" autocomplete="off" />
+                                       required="required" maxlength="25" autocomplete="off"/>
                         <form:label path="userPassword" class="scm-form-label scm-row-container">Пароль</form:label>
                     </div>
 
-                    <input type="submit" value="Войти" >
+                    <input type="submit" value="Войти">
                 </form:form>
             </div>
         </div>

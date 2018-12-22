@@ -5,9 +5,13 @@ import com.scm.services.model.CargoOwner;
 import java.util.List;
 
 public interface CargoOwnerService {
-    void addCargoOwner(CargoOwner cargoOwner);
+    CargoOwner addCargoOwner(CargoOwner cargoOwner);
+
     void updateCargoOwner(CargoOwner cargoOwner);
+
     void removeCargoOwner(int id);
+
     CargoOwner getCargoOwnerById(int id);
+
     List<CargoOwner> getAllCargoOwners();
 }

@@ -1,9 +1,9 @@
-.scm-auto-background{
+.scm-auto-background {
     background: url(/scm/images/others/auto2.jpg) no-repeat;
     background-size: cover;
 }
 
-.scm-auto-text{
+.scm-auto-text {
     text-shadow: #707070 0 0 5px;
     text-align: left;
     padding: 200px 0 0 10%;
@@ -12,28 +12,28 @@
     font-size: 60px;
 }
 
-.scm-main-row{
+.scm-main-row {
     min-height: 620px;
     padding: 30px 0px;
 }
 
-.scm-form{
+.scm-form {
     text-align: center;
     padding: 25px 60px 20px;
     margin: auto;
     background-color: #ebebeb;
 }
 
-.scm-form-title{
+.scm-form-title {
     font-size: 26px;
     margin-bottom: 40px;
 }
 
-.scm-form-row{
+.scm-form-row {
     margin: 0 0 50px;
 }
 
-.scm-input-radio{
+.scm-input-radio {
     appearance: button;
     -webkit-appearance: button;
     -moz-appearance: button;
@@ -42,32 +42,34 @@
     border-left-color: #cccccc;
     width: 15px;
     height: 15px;
-    border-radius:50%;
+    border-radius: 50%;
     margin-bottom: 15px;
 }
-.scm-input-radio:checked{
+
+.scm-input-radio:checked {
     border: 4px solid #999999;
     border-top-color: #707070;
     border-left-color: #707070;
 }
-.scm-input-radio:checked ~ label{
+
+.scm-input-radio:checked ~ label {
     color: #707070;
     font-weight: 600;
 }
 
-.scm-form-row label{
+.scm-form-row label {
     color: #959595;
     font-size: 18px;
     font-weight: 300;
 }
 
-.scm-form-label{
+.scm-form-label {
     position: relative;
     top: -50px;
     opacity: 1;
 }
 
-.scm-input-text{
+.scm-input-text {
     background-color: #ebebeb;
     line-height: 20px;
     font-size: 20px;
@@ -78,16 +80,16 @@
     transition: all 0.2s ease;
 }
 
-.scm-input-text:focus{
+.scm-input-text:focus {
     color: #707070;
     border-color: #707070;
 }
 
-.scm-input-text:focus + label{
+.scm-input-text:focus + label {
     font-weight: 600;
 }
 
-.scm-form input[type="submit"]{
+.scm-form input[type="submit"] {
     padding: 10px 20px;
     background: #acacac;
     border-radius: 10px;
@@ -96,6 +98,6 @@
     font-size: 20px;
 }
 
-.scm-form input[type="submit"]:hover{
+.scm-form input[type="submit"]:hover {
     background: #707070;
 }

@@ -11,14 +11,8 @@ import java.util.List;
 public class CargoOwnerServiceUtil {
     private static CargoOwnerService cargoOwnerService;
 
-    @Autowired
-    public void setCargoOwnerService(CargoOwnerService cargoOwnerService) {
-        this.cargoOwnerService = cargoOwnerService;
-    }
-
-
-    public static void addCargoOwner(CargoOwner cargoOwner) {
-        cargoOwnerService.addCargoOwner(cargoOwner);
+    public static CargoOwner addCargoOwner(CargoOwner cargoOwner) {
+        return cargoOwnerService.addCargoOwner(cargoOwner);
     }
 
     public static void updateCargoOwner(CargoOwner cargoOwner) {
@@ -35,5 +29,10 @@ public class CargoOwnerServiceUtil {
 
     public static List<CargoOwner> getAllCargoOwners() {
         return cargoOwnerService.getAllCargoOwners();
+    }
+
+    @Autowired
+    public void setCargoOwnerService(CargoOwnerService cargoOwnerService) {
+        this.cargoOwnerService = cargoOwnerService;
     }
 }

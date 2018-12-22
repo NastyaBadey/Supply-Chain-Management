@@ -11,29 +11,28 @@ import java.util.List;
 public class DeliveryMethodServiceUtil {
     private static DeliveryMethodService deliveryMethodService;
 
-    @Autowired
-    public void setDeliveryMethodService(DeliveryMethodService deliveryMethodService) {
-        this.deliveryMethodService = deliveryMethodService;
-    }
-    
-
-    public static void addDeliveryMethod(DeliveryMethod deliveryMethod){
-        deliveryMethodService.addDeliveryMethod(deliveryMethod);
+    public static DeliveryMethod addDeliveryMethod(DeliveryMethod deliveryMethod) {
+        return deliveryMethodService.addDeliveryMethod(deliveryMethod);
     }
 
-    public static void updateDeliveryMethod(DeliveryMethod deliveryMethod){
+    public static void updateDeliveryMethod(DeliveryMethod deliveryMethod) {
         deliveryMethodService.updateDeliveryMethod(deliveryMethod);
     }
 
-    public static void removeDeliveryMethod(int deliveryMethodId){
+    public static void removeDeliveryMethod(int deliveryMethodId) {
         deliveryMethodService.removeDeliveryMethod(deliveryMethodId);
     }
 
-    public static DeliveryMethod getDeliveryMethodById(int deliveryMethodId){
+    public static DeliveryMethod getDeliveryMethodById(int deliveryMethodId) {
         return deliveryMethodService.getDeliveryMethodById(deliveryMethodId);
     }
 
-    public static List<DeliveryMethod> getAllDeliveryMethods(){
+    public static List<DeliveryMethod> getAllDeliveryMethods() {
         return deliveryMethodService.getAllDeliveryMethods();
+    }
+
+    @Autowired
+    public void setDeliveryMethodService(DeliveryMethodService deliveryMethodService) {
+        this.deliveryMethodService = deliveryMethodService;
     }
 }

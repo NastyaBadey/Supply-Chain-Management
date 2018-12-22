@@ -11,33 +11,32 @@ import java.util.List;
 public class RateServiceUtil {
     private static RateService rateService;
 
-    @Autowired
-    public void setRateService(RateService rateService) {
-        this.rateService =rateService;
-    }
-    
-
-    public static Rate addRate(Rate rate){
+    public static Rate addRate(Rate rate) {
         return rateService.addRate(rate);
     }
 
-    public static void updateRate(Rate rate){
+    public static void updateRate(Rate rate) {
         rateService.updateRate(rate);
     }
 
-    public static void removeRate(int rateId){
+    public static void removeRate(int rateId) {
         rateService.removeRate(rateId);
     }
 
-    public static Rate getRateById(int rateId){
+    public static Rate getRateById(int rateId) {
         return rateService.getRateById(rateId);
     }
 
-    public static List<Rate> getAllRates(){
+    public static List<Rate> getAllRates() {
         return rateService.getAllRates();
     }
 
-    public static List<Rate> getAllRatesByCarrierId(int carrierId){
+    public static List<Rate> getAllRatesByCarrierId(int carrierId) {
         return rateService.getAllRatesByCarrierId(carrierId);
+    }
+
+    @Autowired
+    public void setRateService(RateService rateService) {
+        this.rateService = rateService;
     }
 }

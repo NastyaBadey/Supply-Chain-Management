@@ -57,7 +57,20 @@ public class Rate {
         return deliveryMethodId;
     }
 
-    public void setDeliveryMethodId(Integer deliveryMethodId) { this.deliveryMethodId = deliveryMethodId; }
+    public void setDeliveryMethodId(Integer deliveryMethodId) {
+        this.deliveryMethodId = deliveryMethodId;
+    }
+
+    @Override
+    public String toString() {
+        return "Rate{" +
+                "rateId=" + rateId +
+                ", ratePricePerKg=" + ratePricePerKg +
+                ", averageSpeed=" + averageSpeed +
+                ", carrierId=" + carrierId +
+                ", deliveryMethodId=" + deliveryMethodId +
+                '}';
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -82,16 +95,5 @@ public class Rate {
         result = 31 * result + (carrierId != null ? carrierId.hashCode() : 0);
         result = 31 * result + (deliveryMethodId != null ? deliveryMethodId.hashCode() : 0);
         return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Rate{" +
-                "rateId=" + rateId +
-                ", ratePricePerKg=" + ratePricePerKg +
-                ", averageSpeed=" + averageSpeed +
-                ", carrierId=" + carrierId +
-                ", deliveryMethodId=" + deliveryMethodId +
-                '}';
     }
 }

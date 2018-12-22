@@ -16,8 +16,8 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Transactional
-    public void addUser(User user) {
-        this.userDao.add(user);
+    public User addUser(User user) {
+        return userDao.add(user);
     }
 
     @Transactional
@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Transactional
-    public User getUserByLoginAndPassword(User user){
+    public User getUserByLoginAndPassword(User user) {
         return userDao.getUserByLoginAndPassword(user);
     }
 }

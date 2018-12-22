@@ -55,8 +55,10 @@
    rate_price_per_kg FLOAT(10,2) NOT NULL,
    average_speed FLOAT(6,2) NOT NULL,
    carrier_id INT(5) NOT NULL,
+   delivery_method_id INT(5),
    
-   FOREIGN KEY (carrier_id) REFERENCES carrier(carrier_id)
+   FOREIGN KEY (carrier_id) REFERENCES carrier(carrier_id),
+   FOREIGN KEY (delivery_method_id) REFERENCES delivery_method(delivery_method_id)
 );
 
  CREATE TABLE IF NOT EXISTS scm.cargo(
@@ -135,14 +137,6 @@
    FOREIGN KEY (waypoint_id) REFERENCES waypoint(waypoint_id)
 );   
   
-  CREATE TABLE IF NOT EXISTS scm.rate_delivery_method(
-   rate_delivery_method_id INT(5) PRIMARY KEY AUTO_INCREMENT,
-   rate_id INT(5) NOT NULL,
-   delivery_method_id INT(5) NOT NULL,
-   
-   FOREIGN KEY (rate_id) REFERENCES rate(rate_id),
-   FOREIGN KEY (delivery_method_id) REFERENCES delivery_method(delivery_method_id)
-);
 
 INSERT INTO scm.delivery_method (delivery_method_name, delivery_method_desc) 
 	VALUES ('автотранспорт', 'перевозки грузовыми машинами');

@@ -11,29 +11,28 @@ import java.util.List;
 public class TicketServiceUtil {
     private static TicketService ticketService;
 
-    @Autowired
-    public void setTicketService(TicketService ticketService) {
-        this.ticketService = ticketService;
+    public static Ticket addTicket(Ticket ticket) {
+        return ticketService.addTicket(ticket);
     }
 
-
-    public static void addTicket(Ticket ticket){
-        ticketService.addTicket(ticket);
-    }
-
-    public static void updateTicket(Ticket ticket){
+    public static void updateTicket(Ticket ticket) {
         ticketService.updateTicket(ticket);
     }
 
-    public static void removeTicket(int ticketId){
+    public static void removeTicket(int ticketId) {
         ticketService.removeTicket(ticketId);
     }
 
-    public static Ticket getTicketById(int ticketId){
+    public static Ticket getTicketById(int ticketId) {
         return ticketService.getTicketById(ticketId);
     }
 
-    public static List<Ticket> getAllTickets(){
+    public static List<Ticket> getAllTickets() {
         return ticketService.getAllTickets();
+    }
+
+    @Autowired
+    public void setTicketService(TicketService ticketService) {
+        this.ticketService = ticketService;
     }
 }

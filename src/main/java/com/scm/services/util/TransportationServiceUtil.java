@@ -11,29 +11,28 @@ import java.util.List;
 public class TransportationServiceUtil {
     private static TransportationService transportationService;
 
-    @Autowired
-    public void setTransportationService(TransportationService transportationService) {
-        this.transportationService = transportationService;
+    public static Transportation addTransportation(Transportation transportation) {
+        return transportationService.addTransportation(transportation);
     }
 
-
-    public static void addTransportation(Transportation transportation){
-        transportationService.addTransportation(transportation);
-    }
-
-    public static void updateTransportation(Transportation transportation){
+    public static void updateTransportation(Transportation transportation) {
         transportationService.updateTransportation(transportation);
     }
 
-    public static void removeTransportation(int transportationId){
+    public static void removeTransportation(int transportationId) {
         transportationService.removeTransportation(transportationId);
     }
 
-    public static Transportation getTransportationById(int transportationId){
+    public static Transportation getTransportationById(int transportationId) {
         return transportationService.getTransportationById(transportationId);
     }
 
-    public static List<Transportation> getAllTransportations(){
+    public static List<Transportation> getAllTransportations() {
         return transportationService.getAllTransportations();
+    }
+
+    @Autowired
+    public void setTransportationService(TransportationService transportationService) {
+        this.transportationService = transportationService;
     }
 }

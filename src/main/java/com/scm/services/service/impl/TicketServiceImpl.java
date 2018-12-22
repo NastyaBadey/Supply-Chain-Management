@@ -16,8 +16,8 @@ public class TicketServiceImpl implements TicketService {
     private TicketDao ticketDao;
 
     @Transactional
-    public void addTicket(Ticket ticket) {
-        ticketDao.add(ticket);
+    public Ticket addTicket(Ticket ticket) {
+        return ticketDao.add(ticket);
     }
 
     @Transactional

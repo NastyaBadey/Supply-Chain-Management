@@ -18,6 +18,7 @@ public class Route {
     public void setRouteId(Integer routeId) {
         this.routeId = routeId;
     }
+
     @Basic
     @Column(name = "departure_locality_id", nullable = false)
     public Integer getDepartureLocalityId() {

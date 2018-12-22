@@ -23,23 +23,27 @@
             <div class="scm-column-container scm-profile-main-block">
                 <div class="scm-row-container scm-flex-center scm-profile-title-name">Создание профиля</div>
                 <div class="scm-flex-center scm-row-container">
-                    <form:form action="${addCarrier}" commandName="carrierAndRatesAndDeliveryMethods" class="scm-profile-form">
+                    <form:form action="${addCarrier}" commandName="carrierAndRatesAndDeliveryMethods"
+                               class="scm-profile-form">
                         <div class="scm-profile-center-title">Общая информация</div>
 
                         <div class="scm-profile-form-row">
-                            <form:label path="carrier.carrierName" class="scm-profile-label scm-30">Название: </form:label>
+                            <form:label path="carrier.carrierName"
+                                        class="scm-profile-label scm-30">Название: </form:label>
                             <form:input path="carrier.carrierName" size="28" class="scm-profile-input scm-70"
                                         required="required" maxlength="60" autocomplete="off"/>
                         </div>
 
                         <div class="scm-profile-form-row">
-                            <form:label path="carrier.carrierPhone" class="scm-profile-label scm-30">Телефон: </form:label>
+                            <form:label path="carrier.carrierPhone"
+                                        class="scm-profile-label scm-30">Телефон: </form:label>
                             <form:input path="carrier.carrierPhone" size="28" class="scm-profile-input scm-70"
                                         required="required" maxlength="20" autocomplete="off"/>
                         </div>
 
                         <div class="scm-profile-form-row">
-                            <form:label path="carrier.carrierDesc" class="scm-profile-label scm-30">Описание: </form:label>
+                            <form:label path="carrier.carrierDesc"
+                                        class="scm-profile-label scm-30">Описание: </form:label>
                             <form:textarea path="carrier.carrierDesc" class="scm-profile-textarea scm-70"
                                            required="required" maxlength="255" autocomplete="off"/>
                         </div>
@@ -48,7 +52,8 @@
                         <div class="scm-profile-center-title">Тарифы</div>
 
                         <div class="scm-profile-form-row">
-                            <form:label path="selectedDeliveryMethod" class="scm-profile-label scm-30">Тип доставки: </form:label>
+                            <form:label path="selectedDeliveryMethod"
+                                        class="scm-profile-label scm-30">Тип доставки: </form:label>
                             <form:select path="selectedDeliveryMethod" class="scm-profile-input scm-70"
                                          required="required">
                                 <c:forEach var="dm" items="${carrierAndRatesAndDeliveryMethods.deliveryMethods}">
@@ -58,15 +63,17 @@
                         </div>
 
                         <div class="scm-profile-form-row">
-                            <form:label path="rate.ratePricePerKg" class="scm-profile-label scm-30">Тариф за 1 кг за 1 км (BYN): </form:label>
+                            <form:label path="rate.ratePricePerKg"
+                                        class="scm-profile-label scm-30">Тариф за 1 кг за 1 км (BYN): </form:label>
                             <form:input path="rate.ratePricePerKg" size="28" class="scm-profile-input scm-70"
                                         required="required" maxlength="20" autocomplete="off"/>
                         </div>
 
                         <div class="scm-profile-form-row">
-                            <form:label path="rate.averageSpeed" class="scm-profile-label scm-30">Средняя скорость: </form:label>
+                            <form:label path="rate.averageSpeed"
+                                        class="scm-profile-label scm-30">Средняя скорость: </form:label>
                             <form:input path="rate.averageSpeed" class="scm-profile-textarea scm-70"
-                                           required="required" maxlength="255" autocomplete="off"/>
+                                        required="required" maxlength="255" autocomplete="off"/>
                         </div>
                         <%--<div class="scm-profile-btn">
                             <input type="submit" value="Добавить тариф" onclick="addRate()">

@@ -1,14 +1,14 @@
-.scm-profile-main-auto-background{
+.scm-profile-main-auto-background {
     background: url(/scm/images/auto.png) no-repeat;
     background-size: cover;
 }
 
-.scm-profile-main-block{
+.scm-profile-main-block {
     margin-top: 40px;
     min-height: 600px;
 }
 
-.scm-profile-title-name{
+.scm-profile-title-name {
     margin-bottom: 20px;
     text-shadow: #707070 0 0 5px;
     text-align: center;
@@ -17,13 +17,13 @@
     font-size: 38px;
 }
 
-.scm-profile-form{
+.scm-profile-form {
     padding: 25px 60px 20px;
     margin: auto;
     background-color: #ebebeb;
 }
 
-.scm-ticket-center-title{
+.scm-ticket-center-title {
     text-align: center;
     margin-bottom: 18px;
     font-size: 22px;
@@ -31,7 +31,7 @@
     padding: 15px;
 }
 
-.scm-profile-form-row{
+.scm-profile-form-row {
     margin: 0 0 25px;
     display: flex;
     display: -webkit-box;
@@ -40,8 +40,8 @@
     flex-direction: row;
 }
 
-.scm-profile-input{
-   /* background-color: #ebebeb;*/
+.scm-profile-input {
+    /* background-color: #ebebeb;*/
     line-height: 20px;
     font-size: 20px;
     color: #959595;
@@ -51,28 +51,26 @@
 
 }
 
-
-
-.scm-ticket-row{
+.scm-ticket-row {
     padding: 8px;
 }
 
-.scm-route-title{
+.scm-route-title {
     margin-top: 20px;
     margin-bottom: 0;
 }
 
-.scm-ticket-btn{
+.scm-ticket-btn {
     text-align: center;
     padding: 20px;
 }
 
-::-webkit-input-placeholder{
+::-webkit-input-placeholder {
     color: #d4d3c1;
     font-size: 13px;
 }
 
-.scm-profile-form input[type="submit"]{
+.scm-profile-form input[type="submit"] {
     padding: 10px 40px;
     background: #acacac;
     border-radius: 10px;
@@ -81,6 +79,6 @@
     font-size: 20px;
 }
 
-.scm-profile-form input[type="submit"]:hover{
+.scm-profile-form input[type="submit"]:hover {
     background: #707070;
 }

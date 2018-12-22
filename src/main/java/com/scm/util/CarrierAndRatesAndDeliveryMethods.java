@@ -18,7 +18,7 @@ public class CarrierAndRatesAndDeliveryMethods {
     List<Rate> rates;
     List<DeliveryMethod> deliveryMethodsByRates; //for table
 
-    public CarrierAndRatesAndDeliveryMethods(){
+    public CarrierAndRatesAndDeliveryMethods() {
         this.carrier = new Carrier();
         this.selectedDeliveryMethod = new DeliveryMethod();
         this.deliveryMethods = new ArrayList<DeliveryMethod>();
@@ -33,13 +33,13 @@ public class CarrierAndRatesAndDeliveryMethods {
         this.deliveryMethods = DeliveryMethodServiceUtil.getAllDeliveryMethods();
         this.rate = new Rate();
         Integer roleId = UserUtil.getRoleId(request);
-        if (roleId != null){
+        if (roleId != null) {
             this.rates = RateServiceUtil.getAllRatesByCarrierId(roleId);
         } else {
             this.rates = new ArrayList<Rate>();
         }
         this.deliveryMethodsByRates = new ArrayList<DeliveryMethod>();
-        for (Rate currentRate : this.rates){
+        for (Rate currentRate : this.rates) {
            /* DeliveryMethod currentDeliveryMethod = DeliveryMethodServiceUtil.getDeliveryMethodById(
                     RateDeliveryMethodServiceUtil.getRateDeliveryMethodByRateId(currentRate.getRateId())
                             .getDeliveryMethodId());
@@ -54,52 +54,52 @@ public class CarrierAndRatesAndDeliveryMethods {
         this.deliveryMethods = deliveryMethods;
     }
 
-    public void setCarrier(Carrier carrier) {
-        this.carrier = carrier;
-    }
-
     public Carrier getCarrier() {
         return carrier;
     }
 
-    public void setRates(List<Rate> rates) {
-        this.rates = rates;
+    public void setCarrier(Carrier carrier) {
+        this.carrier = carrier;
     }
 
     public List<Rate> getRates() {
         return rates;
     }
 
-    public void setDeliveryMethods(List<DeliveryMethod> deliveryMethods) {
-        this.deliveryMethods = deliveryMethods;
+    public void setRates(List<Rate> rates) {
+        this.rates = rates;
     }
 
     public List<DeliveryMethod> getDeliveryMethods() {
         return deliveryMethods;
     }
 
-    public void setSelectedDeliveryMethod(DeliveryMethod selectedDeliveryMethod) {
-        this.selectedDeliveryMethod = selectedDeliveryMethod;
+    public void setDeliveryMethods(List<DeliveryMethod> deliveryMethods) {
+        this.deliveryMethods = deliveryMethods;
     }
 
     public DeliveryMethod getSelectedDeliveryMethod() {
         return selectedDeliveryMethod;
     }
 
-    public void setRate(Rate rate) {
-        this.rate = rate;
+    public void setSelectedDeliveryMethod(DeliveryMethod selectedDeliveryMethod) {
+        this.selectedDeliveryMethod = selectedDeliveryMethod;
     }
 
     public Rate getRate() {
         return rate;
     }
 
-    public void setDeliveryMethodsByRates(List<DeliveryMethod> deliveryMethodsByRates) {
-        this.deliveryMethodsByRates = deliveryMethodsByRates;
+    public void setRate(Rate rate) {
+        this.rate = rate;
     }
 
     public List<DeliveryMethod> getDeliveryMethodsByRates() {
         return deliveryMethodsByRates;
+    }
+
+    public void setDeliveryMethodsByRates(List<DeliveryMethod> deliveryMethodsByRates) {
+        this.deliveryMethodsByRates = deliveryMethodsByRates;
     }
 
     @Override

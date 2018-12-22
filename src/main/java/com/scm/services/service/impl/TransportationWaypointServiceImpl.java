@@ -16,8 +16,8 @@ public class TransportationWaypointServiceImpl implements TransportationWaypoint
     private TransportationWaypointDao transportationWaypointDao;
 
     @Transactional
-    public void addTransportationWaypoint(TransportationWaypoint transportationWaypoint) {
-        transportationWaypointDao.add(transportationWaypoint);
+    public TransportationWaypoint addTransportationWaypoint(TransportationWaypoint transportationWaypoint) {
+        return transportationWaypointDao.add(transportationWaypoint);
     }
 
     @Transactional

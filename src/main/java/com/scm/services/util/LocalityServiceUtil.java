@@ -11,29 +11,28 @@ import java.util.List;
 public class LocalityServiceUtil {
     private static LocalityService localityService;
 
-    @Autowired
-    public void setLocalityService(LocalityService localityService) {
-        this.localityService = localityService;
-    }
-    
-
-    public static void addLocality(Locality locality){
-        localityService.addLocality(locality);
+    public static Locality addLocality(Locality locality) {
+        return localityService.addLocality(locality);
     }
 
-    public static void updateLocality(Locality locality){
+    public static void updateLocality(Locality locality) {
         localityService.updateLocality(locality);
     }
 
-    public static void removeLocality(int localityId){
+    public static void removeLocality(int localityId) {
         localityService.removeLocality(localityId);
     }
 
-    public static Locality getLocalityById(int localityId){
+    public static Locality getLocalityById(int localityId) {
         return localityService.getLocalityById(localityId);
     }
 
-    public static List<Locality> getAllLocalities(){
+    public static List<Locality> getAllLocalities() {
         return localityService.getAllLocalities();
+    }
+
+    @Autowired
+    public void setLocalityService(LocalityService localityService) {
+        this.localityService = localityService;
     }
 }

@@ -11,29 +11,28 @@ import java.util.List;
 public class CargoServiceUtil {
     private static CargoService cargoService;
 
-    @Autowired
-    public void setCargoService(CargoService cargoService) {
-        this.cargoService = cargoService;
+    public static Cargo addCargo(Cargo cargo) {
+        return cargoService.addCargo(cargo);
     }
 
-
-    public static void addCargo(Cargo cargo){
-        cargoService.addCargo(cargo);
-    }
-
-    public static void updateCargo(Cargo cargo){
+    public static void updateCargo(Cargo cargo) {
         cargoService.updateCargo(cargo);
     }
 
-    public static void removeCargo(int cargoId){
+    public static void removeCargo(int cargoId) {
         cargoService.removeCargo(cargoId);
     }
 
-    public static Cargo getCargoById(int cargoId){
+    public static Cargo getCargoById(int cargoId) {
         return cargoService.getCargoById(cargoId);
     }
 
-    public static List<Cargo> getAllCargoes(){
+    public static List<Cargo> getAllCargoes() {
         return cargoService.getAllCargoes();
+    }
+
+    @Autowired
+    public void setCargoService(CargoService cargoService) {
+        this.cargoService = cargoService;
     }
 }

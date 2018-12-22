@@ -19,7 +19,7 @@ public class CargoController {
 
     @RequestMapping(value = "/cargo/add", method = RequestMethod.POST)
     public String addCargo(@ModelAttribute("cargo") Cargo cargo) {
-        Constants.showMessage("Calling addCargo in CargoController");
+        Constants.showMessageWithIndent("Calling addCargo in CargoController");
         if (cargo.getCargoId() == null) {
             CargoServiceUtil.addCargo(cargo);
         } else {
@@ -30,7 +30,7 @@ public class CargoController {
 
     @RequestMapping(value = "/cargo/edit/{id}", method = RequestMethod.POST)
     public String editCargo(@PathVariable("id") int cargoId, Model model) {
-        Constants.showMessage("Calling editCargo in CargoController");
+        Constants.showMessageWithIndent("Calling editCargo in CargoController");
         model.addAttribute("cargo", CargoServiceUtil.getCargoById(cargoId));
         model.addAttribute("cargoList", CargoServiceUtil.getAllCargoes());
         return "cargoes";
@@ -38,21 +38,21 @@ public class CargoController {
 
     @RequestMapping("/cargo/remove/{id}")
     public String removeCargo(@PathVariable("id") int cargoId) {
-        Constants.showMessage("Calling removeCargo in CargoController");
+        Constants.showMessageWithIndent("Calling removeCargo in CargoController");
         CargoServiceUtil.removeCargo(cargoId);
         return "redirect:/cargoes";
     }
 
     @RequestMapping("cargoInfo/{id}")
     public String gerCargoInfo(@PathVariable("id") int cargoId, Model model) {
-        Constants.showMessage("Calling gerCargoInfo in CargoController");
+        Constants.showMessageWithIndent("Calling gerCargoInfo in CargoController");
         model.addAttribute("cargo", CargoServiceUtil.getCargoById(cargoId));
         return "cargoInfo";
     }
 
     @RequestMapping(value = "cargoes", method = RequestMethod.GET)
     public String getCargoList(Model model) {
-        Constants.showMessage("Calling getCargoList in CargoController");
+        Constants.showMessageWithIndent("Calling getCargoList in CargoController");
         model.addAttribute("cargo", new Cargo());
         model.addAttribute("cargoList", CargoServiceUtil.getAllCargoes());
         return "cargoes";

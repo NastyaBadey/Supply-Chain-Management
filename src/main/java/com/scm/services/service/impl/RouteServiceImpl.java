@@ -16,8 +16,8 @@ public class RouteServiceImpl implements RouteService {
     private RouteDao routeDao;
 
     @Transactional
-    public void addRoute(Route route) {
-        routeDao.add(route);
+    public Route addRoute(Route route) {
+        return routeDao.add(route);
     }
 
     @Transactional

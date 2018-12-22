@@ -21,16 +21,16 @@ public class CarrierController {
 
     @GetMapping("carrierProfile")
     public String carrierProfile(Model model, HttpServletRequest request) {
-        Constants.showMessage("Calling carrierProfile in CarrierController");
+        Constants.showMessageWithIndent("Calling carrierProfile in CarrierController");
         model.addAttribute("carrierAndRatesAndDeliveryMethods", new CarrierAndRatesAndDeliveryMethods(request));
         return "carrierProfile";
     }
 
     @PostMapping("addCarrier")
     public String addCarrier(@ModelAttribute("carrierAndRatesAndDeliveryMethods")
-                                         CarrierAndRatesAndDeliveryMethods carrierAndRatesAndDeliveryMethods,
+                                     CarrierAndRatesAndDeliveryMethods carrierAndRatesAndDeliveryMethods,
                              HttpServletRequest request) {
-        Constants.showMessage("Calling addCarrier in CarrierController");
+        Constants.showMessageWithIndent("Calling addCarrier in CarrierController");
         Rate rate = carrierAndRatesAndDeliveryMethods.getRate();
         rate = RateServiceUtil.addRate(rate);
         /*DeliveryMethod deliveryMethod = carrierAndRatesAndDeliveryMethods.getSelectedDeliveryMethod();

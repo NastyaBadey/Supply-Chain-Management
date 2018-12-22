@@ -1,14 +1,14 @@
-.scm-profile-main-auto-background{
+.scm-profile-main-auto-background {
     background: url(/scm/images/auto.png) no-repeat;
     background-size: cover;
 }
 
-.scm-profile-main-block{
+.scm-profile-main-block {
     margin-top: 40px;
     min-height: 600px;
 }
 
-.scm-profile-title-name{
+.scm-profile-title-name {
     margin-bottom: 20px;
     text-shadow: #707070 0 0 5px;
     text-align: center;
@@ -17,20 +17,20 @@
     font-size: 38px;
 }
 
-.scm-profile-form{
+.scm-profile-form {
     padding: 25px 60px 20px;
     margin: auto auto 50px;
     background-color: #ebebeb;
 }
 
-.scm-profile-center-title{
+.scm-profile-center-title {
     text-align: center;
     margin-bottom: 18px;
     font-size: 22px;
     font-weight: normal;
 }
 
-.scm-profile-form-row{
+.scm-profile-form-row {
     margin: 0 0 25px;
     display: flex;
     display: -webkit-box;
@@ -39,24 +39,25 @@
     flex-direction: row;
 }
 
-.scm-profile-input{
+.scm-profile-input {
     background-color: #ebebeb;
     line-height: 20px;
     font-size: 20px;
+    font-family: inherit;
     color: #959595;
     border-width: 0;
     border-bottom: 2px solid #c8c8c8;
     float: right;
 }
 
-.scm-profile-label{
+.scm-profile-label {
     font-weight: bold;
     font-size: 20px;
     margin-right: 10px;
     align-self: center;
 }
 
-.scm-profile-textarea{
+.scm-profile-textarea {
     background-color: #ebebeb;
     line-height: 20px;
     font-size: 20px;
@@ -69,11 +70,11 @@
     word-break: break-all;
 }
 
-.scm-profile-btn{
+.scm-profile-btn {
     text-align: center;
 }
 
-.scm-profile-form input[type="submit"]{
+.scm-profile-form input[type="submit"] {
     padding: 10px 40px;
     background: #acacac;
     border-radius: 10px;
@@ -82,6 +83,6 @@
     font-size: 20px;
 }
 
-.scm-profile-form input[type="submit"]:hover{
+.scm-profile-form input[type="submit"]:hover {
     background: #707070;
 }

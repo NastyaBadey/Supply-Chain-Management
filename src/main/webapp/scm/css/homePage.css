@@ -1,4 +1,4 @@
-.scm-main-info{
+.scm-main-info {
     text-shadow: #707070 0 0 5px;
     text-align: right;
     padding: 310px 50px 80px 0;
@@ -9,15 +9,15 @@
     background-size: cover;
 }
 
-.scm-center-container{
+.scm-center-container {
     padding: 10px 100px 20px;
 }
 
-.scm-title-row{
+.scm-title-row {
     margin-top: 20px;
 }
 
-.scm-about-title{
+.scm-about-title {
     padding: 10px 40px 10px 40px;
     width: 50%;
     align-self: center;
@@ -27,13 +27,14 @@
     color: #707070;
 }
 
-.scm-title{
+.scm-title {
     padding: 20px 0;
     text-align: center;
     font-size: 30px;
     font-weight: bold;
     color: #707070;
 }
+
 /*.cars{
     border: 2px solid #707070;
     border-radius: 20px;
@@ -59,17 +60,17 @@
     font-weight: 700;
 }*/
 
-.scm-transport-column{
+.scm-transport-column {
     padding: 0 10px;
 }
 
-.scm-transport-img{
+.scm-transport-img {
     height: 200px;
     width: 100%;
     object-fit: cover;
 }
 
-.scm-list{
+.scm-list {
     margin: 15px 0;
     display: flex;
     display: -webkit-box;
@@ -77,7 +78,7 @@
     display: -ms-flexbox;
 }
 
-.scm-about-company{
+.scm-about-company {
     text-indent: 20px;
     line-height: 23px;
     text-align: justify;

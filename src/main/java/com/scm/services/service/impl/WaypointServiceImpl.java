@@ -16,8 +16,8 @@ public class WaypointServiceImpl implements WaypointService {
     private WaypointDao waypointDao;
 
     @Transactional
-    public void addWaypoint(Waypoint waypoint) {
-        waypointDao.add(waypoint);
+    public Waypoint addWaypoint(Waypoint waypoint) {
+        return waypointDao.add(waypoint);
     }
 
     @Transactional

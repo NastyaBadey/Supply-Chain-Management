@@ -2,6 +2,7 @@ package com.scm.services.dao.impl;
 
 import com.scm.services.dao.WaypointDao;
 import com.scm.services.model.Waypoint;
+import com.scm.util.Constants;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -19,16 +20,17 @@ public class WaypointDaoImpl implements WaypointDao {
     private SessionFactory sessionFactory;
 
 
-    public void add(Waypoint waypoint) {
+    public Waypoint add(Waypoint waypoint) {
         Session session = this.sessionFactory.getCurrentSession();
         session.persist(waypoint);
-        logger.info("Waypoint successfully added. Waypoint details: ", waypoint);
+        Constants.showMessage("Waypoint successfully added. Waypoint details: " + waypoint);
+        return waypoint;
     }
 
     public void update(Waypoint waypoint) {
         Session session = this.sessionFactory.getCurrentSession();
         session.update(waypoint);
-        logger.info("Waypoint successfully updated. Waypoint details: ", waypoint);
+        Constants.showMessage("Waypoint successfully updated. Waypoint details: " + waypoint);
     }
 
     public void remove(int id) {
@@ -36,16 +38,16 @@ public class WaypointDaoImpl implements WaypointDao {
         Waypoint waypoint = session.load(Waypoint.class, id);
         if (waypoint != null) {
             session.delete(waypoint);
-            logger.info("Waypoint successfully removed. Waypoint details: ", waypoint);
+            Constants.showMessage("Waypoint successfully removed. Waypoint details: " + waypoint);
             return;
         }
-        logger.error("Waypoint with id \'" + id + "\' cannot be removed.");
+        Constants.showErrorMessage("Waypoint with id \'" + id + "\' cannot be removed.");
     }
 
     public Waypoint getById(int id) {
         Session session = this.sessionFactory.getCurrentSession();
         Waypoint waypoint = session.load(Waypoint.class, id);
-        System.out.println("Waypoint successfully loaded. Waypoint details: " + waypoint);
+        Constants.showMessage("Waypoint successfully loaded. Waypoint details: " + waypoint);
         return waypoint;
     }
 
@@ -53,7 +55,7 @@ public class WaypointDaoImpl implements WaypointDao {
         Session session = this.sessionFactory.getCurrentSession();
         List<Waypoint> waypointList = session.createQuery("from Waypoint").list();
         for (Waypoint waypoint : waypointList) {
-            logger.info("Waypoint list element: ", waypoint);
+            Constants.showMessage("Waypoint list element: " + waypoint);
         }
         return waypointList;
     }

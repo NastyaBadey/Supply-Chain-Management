@@ -16,8 +16,8 @@ public class CargoServiceImpl implements CargoService {
     private CargoDao cargoDao;
 
     @Transactional
-    public void addCargo(Cargo cargo) {
-        cargoDao.add(cargo);
+    public Cargo addCargo(Cargo cargo) {
+        return cargoDao.add(cargo);
     }
 
     @Transactional
