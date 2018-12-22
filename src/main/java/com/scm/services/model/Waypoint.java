@@ -11,11 +11,6 @@ public class Waypoint {
     private Integer fromLocalityId;
     private Integer toLocalityId;
     private Byte backward;
-    private Collection<TransportationWaypoint> transportationWaypointsByWaypointId;
-    private Route routeByRouteId;
-    private Rate rateByRateId;
-    private Locality localityByFromLocalityId;
-    private Locality localityByToLocalityId;
 
     @Id
     @Column(name = "waypoint_id", nullable = false)
@@ -27,7 +22,7 @@ public class Waypoint {
     public void setWaypointId(Integer waypointId) {
         this.waypointId = waypointId;
     }
-/*
+
     @Basic
     @Column(name = "route_id", nullable = false)
     public Integer getRouteId() {
@@ -66,7 +61,7 @@ public class Waypoint {
 
     public void setToLocalityId(Integer toLocalityId) {
         this.toLocalityId = toLocalityId;
-    }*/
+    }
 
     @Basic
     @Column(name = "backward")
@@ -78,55 +73,6 @@ public class Waypoint {
         this.backward = backward;
     }
 
-    @OneToMany(mappedBy = "waypointByWaypointId")
-    public Collection<TransportationWaypoint> getTransportationWaypointsByWaypointId() {
-        return transportationWaypointsByWaypointId;
-    }
-
-    public void setTransportationWaypointsByWaypointId(Collection<TransportationWaypoint> transportationWaypointsByWaypointId) {
-        this.transportationWaypointsByWaypointId = transportationWaypointsByWaypointId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "route_id", referencedColumnName = "route_id", nullable = false)
-    public Route getRouteByRouteId() {
-        return routeByRouteId;
-    }
-
-    public void setRouteByRouteId(Route routeByRouteId) {
-        this.routeByRouteId = routeByRouteId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "rate_id", referencedColumnName = "rate_id")
-    public Rate getRateByRateId() {
-        return rateByRateId;
-    }
-
-    public void setRateByRateId(Rate rateByRateId) {
-        this.rateByRateId = rateByRateId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "from_locality_id", referencedColumnName = "locality_id", nullable = false)
-    public Locality getLocalityByFromLocalityId() {
-        return localityByFromLocalityId;
-    }
-
-    public void setLocalityByFromLocalityId(Locality localityByFromLocalityId) {
-        this.localityByFromLocalityId = localityByFromLocalityId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "to_locality_id", referencedColumnName = "locality_id", nullable = false)
-    public Locality getLocalityByToLocalityId() {
-        return localityByToLocalityId;
-    }
-
-    public void setLocalityByToLocalityId(Locality localityByToLocalityId) {
-        this.localityByToLocalityId = localityByToLocalityId;
-    }
-
     @Override
     public String toString() {
         return "Waypoint{" +
@@ -136,11 +82,6 @@ public class Waypoint {
                 ", fromLocalityId=" + fromLocalityId +
                 ", toLocalityId=" + toLocalityId +
                 ", backward=" + backward +
-                ", transportationWaypointsByWaypointId=" + transportationWaypointsByWaypointId +
-                ", routeByRouteId=" + routeByRouteId +
-                ", rateByRateId=" + rateByRateId +
-                ", localityByFromLocalityId=" + localityByFromLocalityId +
-                ", localityByToLocalityId=" + localityByToLocalityId +
                 '}';
     }
 

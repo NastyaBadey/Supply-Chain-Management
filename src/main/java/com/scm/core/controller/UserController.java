@@ -17,6 +17,12 @@ import javax.servlet.http.HttpServletRequest;
 public class UserController {
     private static final Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
 
+    @RequestMapping(value = "homePage", method = RequestMethod.GET)
+    public String viewHome(Model model) {
+        Constants.showMessage("Calling viewHome in UserController");
+        return "homePage";
+    }
+
     @RequestMapping(value = "signUp", method = RequestMethod.GET)
     public String signUp(Model model) {
         Constants.showMessage("Calling signUp in UserController");
@@ -33,7 +39,7 @@ public class UserController {
             UserServiceUtil.updateUser(user);
         }
         UserUtil.addUser(request, user);
-        return "homePage";
+        return "redirect:homePage";
     }
 
     //то же самое, что и @RequestMapping(value = "signIn", method = RequestMethod.GET)
@@ -52,7 +58,7 @@ public class UserController {
         if (currentUser != null) {
             UserUtil.addUser(request, currentUser);
         }
-        return "homePage";
+        return "redirect:homePage";
     }
 
 

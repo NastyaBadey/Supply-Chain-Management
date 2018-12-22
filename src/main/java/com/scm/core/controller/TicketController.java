@@ -2,7 +2,7 @@ package com.scm.core.controller;
 
 import com.scm.services.dao.impl.UserDaoImpl;
 import com.scm.util.Constants;
-import com.scm.util.TicketAndCargoAndMethod;
+import com.scm.util.TicketAndCargoAndLocalities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -20,12 +20,12 @@ public class TicketController {
     @GetMapping("ticketRegistration")
     public String ticketRegistration(Model model) {
         Constants.showMessage("Calling ticketRegistration in TicketController");
-        model.addAttribute("ticketAndCargoAndMethod", new TicketAndCargoAndMethod());
+        model.addAttribute("ticketAndCargoAndMethod", new TicketAndCargoAndLocalities());
         return "ticket";
     }
 
     @PostMapping("addTicket")
-    public String addTicket(@ModelAttribute("ticketAndCargoAndMethod") TicketAndCargoAndMethod ticketAndCargoAndMethod,
+    public String addTicket(@ModelAttribute("ticketAndCargoAndMethod") TicketAndCargoAndLocalities ticketAndCargoAndLocalities,
                             HttpServletRequest request) {
         Constants.showMessage("Calling addTicket in TicketController");
         return "homePage";

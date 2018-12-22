@@ -30,10 +30,12 @@ public class WaypointServiceImpl implements WaypointService {
         waypointDao.remove(waypointId);
     }
 
+    @Transactional
     public Waypoint getWaypointById(int waypointId) {
         return waypointDao.getById(waypointId);
     }
 
+    @Transactional
     public List<Waypoint> getAllWaypoints() {
         return waypointDao.getAll();
     }

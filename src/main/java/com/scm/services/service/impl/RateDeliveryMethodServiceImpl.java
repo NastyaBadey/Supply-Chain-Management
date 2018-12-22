@@ -30,10 +30,12 @@ public class RateDeliveryMethodServiceImpl implements RateDeliveryMethodService 
         rateDeliveryMethodDao.remove(rateDeliveryMethodId);
     }
 
+    @Transactional
     public RateDeliveryMethod getRateDeliveryMethodById(int rateDeliveryMethodId) {
         return rateDeliveryMethodDao.getById(rateDeliveryMethodId);
     }
 
+    @Transactional
     public List<RateDeliveryMethod> getAllRateDeliveryMethods() {
         return rateDeliveryMethodDao.getAll();
     }

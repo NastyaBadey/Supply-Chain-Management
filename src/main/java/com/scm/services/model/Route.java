@@ -8,10 +8,6 @@ public class Route {
     private Integer routeId;
     private Integer departureLocalityId;
     private Integer destinationLocalityId;
-    private Locality localityByDepartureLocalityId;
-    private Locality localityByDestinationLocalityId;
-    private Collection<Ticket> ticketsByRouteId;
-    private Collection<Waypoint> waypointsByRouteId;
 
     @Id
     @Column(name = "route_id", nullable = false)
@@ -23,7 +19,6 @@ public class Route {
     public void setRouteId(Integer routeId) {
         this.routeId = routeId;
     }
-/*
     @Basic
     @Column(name = "departure_locality_id", nullable = false)
     public Integer getDepartureLocalityId() {
@@ -42,44 +37,6 @@ public class Route {
 
     public void setDestinationLocalityId(Integer destinationLocalityId) {
         this.destinationLocalityId = destinationLocalityId;
-    }*/
-
-    @ManyToOne
-    @JoinColumn(name = "departure_locality_id", referencedColumnName = "locality_id", nullable = false)
-    public Locality getLocalityByDepartureLocalityId() {
-        return localityByDepartureLocalityId;
-    }
-
-    public void setLocalityByDepartureLocalityId(Locality localityByDepartureLocalityId) {
-        this.localityByDepartureLocalityId = localityByDepartureLocalityId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "destination_locality_id", referencedColumnName = "locality_id", nullable = false)
-    public Locality getLocalityByDestinationLocalityId() {
-        return localityByDestinationLocalityId;
-    }
-
-    public void setLocalityByDestinationLocalityId(Locality localityByDestinationLocalityId) {
-        this.localityByDestinationLocalityId = localityByDestinationLocalityId;
-    }
-
-    @OneToMany(mappedBy = "routeByRouteId")
-    public Collection<Ticket> getTicketsByRouteId() {
-        return ticketsByRouteId;
-    }
-
-    public void setTicketsByRouteId(Collection<Ticket> ticketsByRouteId) {
-        this.ticketsByRouteId = ticketsByRouteId;
-    }
-
-    @OneToMany(mappedBy = "routeByRouteId")
-    public Collection<Waypoint> getWaypointsByRouteId() {
-        return waypointsByRouteId;
-    }
-
-    public void setWaypointsByRouteId(Collection<Waypoint> waypointsByRouteId) {
-        this.waypointsByRouteId = waypointsByRouteId;
     }
 
     @Override
@@ -88,10 +45,6 @@ public class Route {
                 "routeId=" + routeId +
                 ", departureLocalityId=" + departureLocalityId +
                 ", destinationLocalityId=" + destinationLocalityId +
-                ", localityByDepartureLocalityId=" + localityByDepartureLocalityId +
-                ", localityByDestinationLocalityId=" + localityByDestinationLocalityId +
-                ", ticketsByRouteId=" + ticketsByRouteId +
-                ", waypointsByRouteId=" + waypointsByRouteId +
                 '}';
     }
 

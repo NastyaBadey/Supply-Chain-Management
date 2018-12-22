@@ -30,10 +30,12 @@ public class RouteServiceImpl implements RouteService {
         routeDao.remove(routeId);
     }
 
+    @Transactional
     public Route getRouteById(int routeId) {
         return routeDao.getById(routeId);
     }
 
+    @Transactional
     public List<Route> getAllRoutes() {
         return routeDao.getAll();
     }

@@ -1,7 +1,6 @@
 package com.scm.services.model;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
 public class Carrier {
@@ -10,9 +9,6 @@ public class Carrier {
     private String carrierDesc;
     private String carrierPhone;
     private Integer userId;
-    private User userByUserId;
-    private Collection<Rate> ratesByCarrierId;
-    private Collection<Transportation> transportationByCarrierId;
 
     @Id
     @Column(name = "carrier_id", nullable = false)
@@ -54,7 +50,7 @@ public class Carrier {
     public void setCarrierPhone(String carrierPhone) {
         this.carrierPhone = carrierPhone;
     }
-/*
+
     @Basic
     @Column(name = "user_id", nullable = false)
     public Integer getUserId() {
@@ -63,34 +59,6 @@ public class Carrier {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
-    }*/
-
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
-    public User getUserByUserId() {
-        return userByUserId;
-    }
-
-    public void setUserByUserId(User userByUserId) {
-        this.userByUserId = userByUserId;
-    }
-
-    @OneToMany(mappedBy = "carrierByCarrierId")
-    public Collection<Rate> getRatesByCarrierId() {
-        return ratesByCarrierId;
-    }
-
-    public void setRatesByCarrierId(Collection<Rate> ratesByCarrierId) {
-        this.ratesByCarrierId = ratesByCarrierId;
-    }
-
-    @OneToMany(mappedBy = "carrierByCarrierId")
-    public Collection<Transportation> getTransportationByCarrierId() {
-        return transportationByCarrierId;
-    }
-
-    public void setTransportationByCarrierId(Collection<Transportation> transportationByCarrierId) {
-        this.transportationByCarrierId = transportationByCarrierId;
     }
 
     @Override
@@ -101,9 +69,6 @@ public class Carrier {
                 ", carrierDesc='" + carrierDesc + '\'' +
                 ", carrierPhone='" + carrierPhone + '\'' +
                 ", userId=" + userId +
-                ", userByUserId=" + userByUserId +
-                ", ratesByCarrierId=" + ratesByCarrierId +
-                ", transportationByCarrierId=" + transportationByCarrierId +
                 '}';
     }
 

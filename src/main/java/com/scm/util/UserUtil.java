@@ -10,6 +10,7 @@ public class UserUtil {
         HttpSession session = request.getSession();
         session.setAttribute(Constants.CURRENT_USER_ID, user.getUserId());
         session.setAttribute(Constants.CURRENT_USER_LOGIN, user.getUserLogin());
+        session.setAttribute(Constants.CURRENT_USER_ROLE, user.getUserRole());
     }
 
     public static Integer getUserId(HttpServletRequest request){
@@ -22,9 +23,15 @@ public class UserUtil {
         return (String) session.getAttribute(Constants.CURRENT_USER_LOGIN);
     }
 
+    public static String getUserRole(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        return (String) session.getAttribute(Constants.CURRENT_USER_ROLE);
+    }
+
     public static void removeUser(HttpServletRequest request){
         HttpSession session = request.getSession();
         session.removeAttribute(Constants.CURRENT_USER_ID);
         session.removeAttribute(Constants.CURRENT_USER_LOGIN);
+        session.removeAttribute(Constants.CURRENT_USER_ROLE);
     }
 }

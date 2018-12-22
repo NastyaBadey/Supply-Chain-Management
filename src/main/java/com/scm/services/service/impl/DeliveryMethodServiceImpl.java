@@ -30,10 +30,12 @@ public class DeliveryMethodServiceImpl implements DeliveryMethodService {
         deliveryMethodDao.remove(deliveryMethodId);
     }
 
+    @Transactional
     public DeliveryMethod getDeliveryMethodById(int deliveryMethodId) {
         return deliveryMethodDao.getById(deliveryMethodId);
     }
 
+    @Transactional
     public List<DeliveryMethod> getAllDeliveryMethods() {
         return deliveryMethodDao.getAll();
     }

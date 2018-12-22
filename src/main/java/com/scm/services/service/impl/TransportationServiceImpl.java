@@ -30,10 +30,12 @@ public class TransportationServiceImpl implements TransportationService {
         transportationDao.remove(transportationId);
     }
 
+    @Transactional
     public Transportation getTransportationById(int transportationId) {
         return transportationDao.getById(transportationId);
     }
 
+    @Transactional
     public List<Transportation> getAllTransportations() {
         return transportationDao.getAll();
     }

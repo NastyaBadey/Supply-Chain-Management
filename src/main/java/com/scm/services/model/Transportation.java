@@ -12,9 +12,6 @@ public class Transportation {
     private String status;
     private Timestamp destinationDate;
     private Double totalPrice;
-    private Ticket ticketByTicketId;
-    private Carrier carrierByCarrierId;
-    private Collection<TransportationWaypoint> transportationWaypointsByTransportationId;
 
     @Id
     @Column(name = "transportation_id", nullable = false)
@@ -26,7 +23,7 @@ public class Transportation {
     public void setTransportationId(Integer transportationId) {
         this.transportationId = transportationId;
     }
-/*
+
     @Basic
     @Column(name = "ticket_id", nullable = false)
     public Integer getTicketId() {
@@ -45,7 +42,7 @@ public class Transportation {
 
     public void setCarrierId(Integer carrierId) {
         this.carrierId = carrierId;
-    }*/
+    }
 
     @Basic
     @Column(name = "status", length = 30)
@@ -77,35 +74,6 @@ public class Transportation {
         this.totalPrice = totalCost;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "ticket_id", referencedColumnName = "ticket_id", nullable = false)
-    public Ticket getTicketByTicketId() {
-        return ticketByTicketId;
-    }
-
-    public void setTicketByTicketId(Ticket ticketByTicketId) {
-        this.ticketByTicketId = ticketByTicketId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "carrier_id", referencedColumnName = "carrier_id", nullable = false)
-    public Carrier getCarrierByCarrierId() {
-        return carrierByCarrierId;
-    }
-
-    public void setCarrierByCarrierId(Carrier carrierByCarrierId) {
-        this.carrierByCarrierId = carrierByCarrierId;
-    }
-
-    @OneToMany(mappedBy = "transportationByTransportationId")
-    public Collection<TransportationWaypoint> getTransportationWaypointsByTransportationId() {
-        return transportationWaypointsByTransportationId;
-    }
-
-    public void setTransportationWaypointsByTransportationId(Collection<TransportationWaypoint> transportationWaypointsByTransportationId) {
-        this.transportationWaypointsByTransportationId = transportationWaypointsByTransportationId;
-    }
-
     @Override
     public String toString() {
         return "Transportation{" +
@@ -115,9 +83,6 @@ public class Transportation {
                 ", status='" + status + '\'' +
                 ", destinationDate=" + destinationDate +
                 ", totalPrice=" + totalPrice +
-                ", ticketByTicketId=" + ticketByTicketId +
-                ", carrierByCarrierId=" + carrierByCarrierId +
-                ", transportationWaypointsByTransportationId=" + transportationWaypointsByTransportationId +
                 '}';
     }
 
@@ -135,12 +100,7 @@ public class Transportation {
         if (status != null ? !status.equals(that.status) : that.status != null) return false;
         if (destinationDate != null ? !destinationDate.equals(that.destinationDate) : that.destinationDate != null)
             return false;
-        if (totalPrice != null ? !totalPrice.equals(that.totalPrice) : that.totalPrice != null) return false;
-        if (ticketByTicketId != null ? !ticketByTicketId.equals(that.ticketByTicketId) : that.ticketByTicketId != null)
-            return false;
-        if (carrierByCarrierId != null ? !carrierByCarrierId.equals(that.carrierByCarrierId) : that.carrierByCarrierId != null)
-            return false;
-        return transportationWaypointsByTransportationId != null ? transportationWaypointsByTransportationId.equals(that.transportationWaypointsByTransportationId) : that.transportationWaypointsByTransportationId == null;
+        return totalPrice != null ? totalPrice.equals(that.totalPrice) : that.totalPrice == null;
     }
 
     @Override
@@ -151,9 +111,6 @@ public class Transportation {
         result = 31 * result + (status != null ? status.hashCode() : 0);
         result = 31 * result + (destinationDate != null ? destinationDate.hashCode() : 0);
         result = 31 * result + (totalPrice != null ? totalPrice.hashCode() : 0);
-        result = 31 * result + (ticketByTicketId != null ? ticketByTicketId.hashCode() : 0);
-        result = 31 * result + (carrierByCarrierId != null ? carrierByCarrierId.hashCode() : 0);
-        result = 31 * result + (transportationWaypointsByTransportationId != null ? transportationWaypointsByTransportationId.hashCode() : 0);
         return result;
     }
 }

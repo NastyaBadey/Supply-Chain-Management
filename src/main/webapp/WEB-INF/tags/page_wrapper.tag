@@ -6,15 +6,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <jsp:invoke fragment="scm_head" />
+    <jsp:invoke fragment="scm_head"/>
 </head>
 <body>
 <header class="scm-header">
     <div class="scm-header-name">
-        <a href="<c:url value="/scm/html/homePage.jsp"/>" >
+        <a href="<c:url value="/scm/html/homePage.jsp"/>">
             <img class="scm-car-icon" src="<c:url value="/scm/images/car-icon.png"/>">
             TransportLogistics
         </a>
+    </div>
+    <div class="scm-user-menu">
+        <c:if test="${currentUserLoginRole eq 1}">
+            <div class="scm-user-menu-element">
+                <a href="<c:url value="/"/>">Маршруты</a>
+            </div>
+            <div class="scm-user-menu-element">
+                <a href="<c:url value="/"/>">Перевозки</a>
+            </div>
+            <div class="scm-user-menu-element">
+                <a href="<c:url value="/"/>">Формирование перевозки</a>
+            </div>
+        </c:if>
+
+        <c:if test="${currentUserLoginRole eq 2}">
+            <div class="scm-user-menu-element">
+                <a href="<c:url value="/"/>">Оформление заявки</a>
+            </div>
+            <div class="scm-user-menu-element">
+                <a href="<c:url value="/"/>">Перевозки</a>
+            </div>
+        </c:if>
     </div>
     <nav class="scm-navigation">
         <ul class="scm-menu">
@@ -25,9 +47,17 @@
                             <i class="fa fa-angle-right"></i>
                         </div>
                         <ul class="scm-submenu">
+                            <c:if test="${currentUserLoginRole eq 1}">
+                                <li class="scm-bottom-border"><a href="<c:url value="/"/>">Профиль</a></li>
+                            </c:if>
+                            <c:if test="${currentUserLoginRole eq 2}">
+                                <li class="scm-bottom-border"><a href="<c:url value="/cargoOwnerProfile"/>">Профиль</a></li>
+                            </c:if>
+
                             <li><a href="<c:url value="/logout"/>">Выход</a></li>
                         </ul>
                     </c:when>
+
                     <c:otherwise>
                         <div class="scm-menu-title">Мой профиль
                             <i class="fa fa-angle-right"></i>

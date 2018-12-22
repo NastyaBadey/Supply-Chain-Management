@@ -30,10 +30,12 @@ public class LocalityServiceImpl implements LocalityService {
         localityDao.remove(localityId);
     }
 
+    @Transactional
     public Locality getLocalityById(int localityId) {
         return localityDao.getById(localityId);
     }
 
+    @Transactional
     public List<Locality> getAllLocalities() {
         return localityDao.getAll();
     }

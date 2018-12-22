@@ -1,17 +1,12 @@
 package com.scm.services.model;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
 public class Locality {
     private Integer localityId;
     private String localityName;
     private String country;
-    private Collection<Route> routesByLocalityId;
-    private Collection<Route> routesByLocalityId_0;
-    private Collection<Waypoint> waypointsByLocalityId;
-    private Collection<Waypoint> waypointsByLocalityId_0;
 
     @Id
     @Column(name = "locality_id", nullable = false)
@@ -44,41 +39,6 @@ public class Locality {
         this.country = country;
     }
 
-    @OneToMany(mappedBy = "localityByDepartureLocalityId")
-    public Collection<Route> getRoutesByLocalityId() {
-        return routesByLocalityId;
-    }
-
-    public void setRoutesByLocalityId(Collection<Route> routesByLocalityId) {
-        this.routesByLocalityId = routesByLocalityId;
-    }
-
-    @OneToMany(mappedBy = "localityByDestinationLocalityId")
-    public Collection<Route> getRoutesByLocalityId_0() {
-        return routesByLocalityId_0;
-    }
-
-    public void setRoutesByLocalityId_0(Collection<Route> routesByLocalityId_0) {
-        this.routesByLocalityId_0 = routesByLocalityId_0;
-    }
-
-    @OneToMany(mappedBy = "localityByFromLocalityId")
-    public Collection<Waypoint> getWaypointsByLocalityId() {
-        return waypointsByLocalityId;
-    }
-
-    public void setWaypointsByLocalityId(Collection<Waypoint> waypointsByLocalityId) {
-        this.waypointsByLocalityId = waypointsByLocalityId;
-    }
-
-    @OneToMany(mappedBy = "localityByToLocalityId")
-    public Collection<Waypoint> getWaypointsByLocalityId_0() {
-        return waypointsByLocalityId_0;
-    }
-
-    public void setWaypointsByLocalityId_0(Collection<Waypoint> waypointsByLocalityId_0) {
-        this.waypointsByLocalityId_0 = waypointsByLocalityId_0;
-    }
 
     @Override
     public String toString() {
@@ -86,10 +46,6 @@ public class Locality {
                 "localityId=" + localityId +
                 ", localityName='" + localityName + '\'' +
                 ", country='" + country + '\'' +
-                ", routesByLocalityId=" + routesByLocalityId +
-                ", routesByLocalityId_0=" + routesByLocalityId_0 +
-                ", waypointsByLocalityId=" + waypointsByLocalityId +
-                ", waypointsByLocalityId_0=" + waypointsByLocalityId_0 +
                 '}';
     }
 

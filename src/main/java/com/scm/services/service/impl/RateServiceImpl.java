@@ -30,10 +30,12 @@ public class RateServiceImpl implements RateService {
         rateDao.remove(rateId);
     }
 
+    @Transactional
     public Rate getRateById(int rateId) {
         return rateDao.getById(rateId);
     }
 
+    @Transactional
     public List<Rate> getAllRates() {
         return rateDao.getAll();
     }

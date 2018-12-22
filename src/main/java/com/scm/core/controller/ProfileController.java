@@ -32,6 +32,6 @@ public class ProfileController {
         Constants.showMessage("Calling addCargoOwner in ProfileController");
         cargoOwner.setUserId(UserUtil.getUserId(request));
         CargoOwnerServiceUtil.addCargoOwner(cargoOwner);
-        return "homePage";
+        return "redirect:homePage";
     }
 }

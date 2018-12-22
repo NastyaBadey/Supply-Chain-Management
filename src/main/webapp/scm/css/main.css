@@ -103,6 +103,21 @@ a{
     color: #707070;
 }
 
+
+.scm-user-menu{
+    display: inline-block;
+}
+
+.scm-user-menu-element{
+    padding: 0 0 0 40px;
+    display: inline-block;
+    word-wrap: break-word;
+    font-size: 20px;
+}
+
+.scm-user-menu-element:hover{
+    font-weight: bold;
+}
 /* ************** MENU start ************** */
 .scm-navigation{
     float: right;
@@ -129,6 +144,7 @@ ul{
 .scm-menu-title{
     margin: 0 15px;
     padding-bottom: 5px;
+    min-width: 85px;
 }
 
 .scm-menu .fa-angle-right{

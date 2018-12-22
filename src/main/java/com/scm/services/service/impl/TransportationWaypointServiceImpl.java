@@ -30,10 +30,12 @@ public class TransportationWaypointServiceImpl implements TransportationWaypoint
         transportationWaypointDao.remove(transportationWaypointId);
     }
 
+    @Transactional
     public TransportationWaypoint getTransportationWaypointById(int transportationWaypointId) {
         return transportationWaypointDao.getById(transportationWaypointId);
     }
 
+    @Transactional
     public List<TransportationWaypoint> getAllTransportationWaypoints() {
         return transportationWaypointDao.getAll();
     }

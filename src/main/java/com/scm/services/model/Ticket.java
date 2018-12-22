@@ -14,10 +14,6 @@ public class Ticket {
     private Integer routeId;
     private String status;
     private Timestamp dateOfCreation;
-    private CargoOwner cargoOwnerByCargoOwnerId;
-    private Cargo cargoByCargoId;
-    private Route routeByRouteId;
-    private Collection<Transportation> transportationByTicketId;
 
     @Id
     @Column(name = "ticket_id", nullable = false)
@@ -29,7 +25,7 @@ public class Ticket {
     public void setTicketId(Integer ticketId) {
         this.ticketId = ticketId;
     }
-/*
+
     @Basic
     @Column(name = "cargo_owner_id", nullable = false)
     public Integer getCargoOwnerId() {
@@ -48,7 +44,7 @@ public class Ticket {
 
     public void setCargoId(Integer cargoId) {
         this.cargoId = cargoId;
-    }*/
+    }
 
     @Basic
     @Column(name = "cargo_quantity", nullable = false)
@@ -69,7 +65,7 @@ public class Ticket {
     public void setDepartureDate(Timestamp departureDate) {
         this.departureDate = departureDate;
     }
-/*
+
     @Basic
     @Column(name = "route_id", nullable = false)
     public Integer getRouteId() {
@@ -78,7 +74,7 @@ public class Ticket {
 
     public void setRouteId(Integer routeId) {
         this.routeId = routeId;
-    }*/
+    }
 
     @Basic
     @Column(name = "status", length = 30)
@@ -100,45 +96,6 @@ public class Ticket {
         this.dateOfCreation = dateOfCreation;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "cargo_owner_id", referencedColumnName = "cargo_owner_id", nullable = false)
-    public CargoOwner getCargoOwnerByCargoOwnerId() {
-        return cargoOwnerByCargoOwnerId;
-    }
-
-    public void setCargoOwnerByCargoOwnerId(CargoOwner cargoOwnerByCargoOwnerId) {
-        this.cargoOwnerByCargoOwnerId = cargoOwnerByCargoOwnerId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "cargo_id", referencedColumnName = "cargo_id", nullable = false)
-    public Cargo getCargoByCargoId() {
-        return cargoByCargoId;
-    }
-
-    public void setCargoByCargoId(Cargo cargoByCargoId) {
-        this.cargoByCargoId = cargoByCargoId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "route_id", referencedColumnName = "route_id", nullable = false)
-    public Route getRouteByRouteId() {
-        return routeByRouteId;
-    }
-
-    public void setRouteByRouteId(Route routeByRouteId) {
-        this.routeByRouteId = routeByRouteId;
-    }
-
-    @OneToMany(mappedBy = "ticketByTicketId")
-    public Collection<Transportation> getTransportationByTicketId() {
-        return transportationByTicketId;
-    }
-
-    public void setTransportationByTicketId(Collection<Transportation> transportationByTicketId) {
-        this.transportationByTicketId = transportationByTicketId;
-    }
-
     @Override
     public String toString() {
         return "Ticket{" +
@@ -150,10 +107,6 @@ public class Ticket {
                 ", routeId=" + routeId +
                 ", status='" + status + '\'' +
                 ", dateOfCreation=" + dateOfCreation +
-                ", cargoOwnerByCargoOwnerId=" + cargoOwnerByCargoOwnerId +
-                ", cargoByCargoId=" + cargoByCargoId +
-                ", routeByRouteId=" + routeByRouteId +
-                ", transportationByTicketId=" + transportationByTicketId +
                 '}';
     }
 
@@ -174,15 +127,7 @@ public class Ticket {
             return false;
         if (routeId != null ? !routeId.equals(ticket.routeId) : ticket.routeId != null) return false;
         if (status != null ? !status.equals(ticket.status) : ticket.status != null) return false;
-        if (dateOfCreation != null ? !dateOfCreation.equals(ticket.dateOfCreation) : ticket.dateOfCreation != null)
-            return false;
-        if (cargoOwnerByCargoOwnerId != null ? !cargoOwnerByCargoOwnerId.equals(ticket.cargoOwnerByCargoOwnerId) : ticket.cargoOwnerByCargoOwnerId != null)
-            return false;
-        if (cargoByCargoId != null ? !cargoByCargoId.equals(ticket.cargoByCargoId) : ticket.cargoByCargoId != null)
-            return false;
-        if (routeByRouteId != null ? !routeByRouteId.equals(ticket.routeByRouteId) : ticket.routeByRouteId != null)
-            return false;
-        return transportationByTicketId != null ? transportationByTicketId.equals(ticket.transportationByTicketId) : ticket.transportationByTicketId == null;
+        return dateOfCreation != null ? dateOfCreation.equals(ticket.dateOfCreation) : ticket.dateOfCreation == null;
     }
 
     @Override
@@ -195,10 +140,6 @@ public class Ticket {
         result = 31 * result + (routeId != null ? routeId.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
         result = 31 * result + (dateOfCreation != null ? dateOfCreation.hashCode() : 0);
-        result = 31 * result + (cargoOwnerByCargoOwnerId != null ? cargoOwnerByCargoOwnerId.hashCode() : 0);
-        result = 31 * result + (cargoByCargoId != null ? cargoByCargoId.hashCode() : 0);
-        result = 31 * result + (routeByRouteId != null ? routeByRouteId.hashCode() : 0);
-        result = 31 * result + (transportationByTicketId != null ? transportationByTicketId.hashCode() : 0);
         return result;
     }
 }

@@ -64,8 +64,8 @@ public class UserDaoImpl implements UserDao {
         Session session = this.sessionFactory.getCurrentSession();
         ArrayList<User> users = (ArrayList) session.createQuery("from User where userLogin = '" +
                 user.getUserLogin() + "' and userPassword = '" + user.getUserPassword() + "'").list();
-        System.out.println("User \'" + user.getUserLogin() + "\' not found.");
         if (users.isEmpty()){
+            System.out.println("User \'" + user.getUserLogin() + "\' not found.");
             return null;
         }
         System.out.println("User \'" + user.getUserLogin() + "\' successfully loaded. User details: " + user);

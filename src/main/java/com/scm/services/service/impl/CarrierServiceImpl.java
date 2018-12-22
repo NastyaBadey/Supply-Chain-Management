@@ -30,10 +30,12 @@ public class CarrierServiceImpl implements CarrierService {
         carrierDao.remove(carrierId);
     }
 
+    @Transactional
     public Carrier getCarrierById(int carrierId) {
         return carrierDao.getById(carrierId);
     }
 
+    @Transactional
     public List<Carrier> getAllCarriers() {
         return carrierDao.getAll();
     }

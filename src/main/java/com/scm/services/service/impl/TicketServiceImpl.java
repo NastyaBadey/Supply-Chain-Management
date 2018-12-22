@@ -30,10 +30,12 @@ public class TicketServiceImpl implements TicketService {
         ticketDao.remove(ticketId);
     }
 
+    @Transactional
     public Ticket getTicketById(int ticketId) {
         return ticketDao.getById(ticketId);
     }
 
+    @Transactional
     public List<Ticket> getAllTickets() {
         return ticketDao.getAll();
     }

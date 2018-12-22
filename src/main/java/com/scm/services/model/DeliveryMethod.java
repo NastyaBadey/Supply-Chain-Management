@@ -1,7 +1,6 @@
 package com.scm.services.model;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
 @Table(name = "delivery_method", schema = "scm")
@@ -9,7 +8,6 @@ public class DeliveryMethod {
     private Integer deliveryMethodId;
     private String deliveryMethodName;
     private String deliveryMethodDesc;
-    private Collection<RateDeliveryMethod> rateDeliveryMethodsByDeliveryMethodId;
 
     @Id
     @Column(name = "delivery_method_id", nullable = false)
@@ -42,22 +40,12 @@ public class DeliveryMethod {
         this.deliveryMethodDesc = deliveryMethodDesc;
     }
 
-    @OneToMany(mappedBy = "deliveryMethodByDeliveryMethodId")
-    public Collection<RateDeliveryMethod> getRateDeliveryMethodsByDeliveryMethodId() {
-        return rateDeliveryMethodsByDeliveryMethodId;
-    }
-
-    public void setRateDeliveryMethodsByDeliveryMethodId(Collection<RateDeliveryMethod> rateDeliveryMethodsByDeliveryMethodId) {
-        this.rateDeliveryMethodsByDeliveryMethodId = rateDeliveryMethodsByDeliveryMethodId;
-    }
-
     @Override
     public String toString() {
         return "DeliveryMethod{" +
                 "deliveryMethodId=" + deliveryMethodId +
                 ", deliveryMethodName='" + deliveryMethodName + '\'' +
                 ", deliveryMethodDesc='" + deliveryMethodDesc + '\'' +
-                ", rateDeliveryMethodsByDeliveryMethodId=" + rateDeliveryMethodsByDeliveryMethodId +
                 '}';
     }
 

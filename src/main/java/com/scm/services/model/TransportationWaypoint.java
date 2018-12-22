@@ -8,8 +8,6 @@ public class TransportationWaypoint {
     private Integer transportationWaypointId;
     private Integer transportationId;
     private Integer waypointId;
-    private Transportation transportationByTransportationId;
-    private Waypoint waypointByWaypointId;
 
     @Id
     @Column(name = "transportation_waypoint_id", nullable = false)
@@ -21,7 +19,7 @@ public class TransportationWaypoint {
     public void setTransportationWaypointId(Integer transportationWaypointId) {
         this.transportationWaypointId = transportationWaypointId;
     }
-/*
+
     @Basic
     @Column(name = "transportation_id", nullable = false)
     public Integer getTransportationId() {
@@ -40,26 +38,6 @@ public class TransportationWaypoint {
 
     public void setWaypointId(Integer waypointId) {
         this.waypointId = waypointId;
-    }*/
-
-    @ManyToOne
-    @JoinColumn(name = "transportation_id", referencedColumnName = "transportation_id", nullable = false)
-    public Transportation getTransportationByTransportationId() {
-        return transportationByTransportationId;
-    }
-
-    public void setTransportationByTransportationId(Transportation transportationByTransportationId) {
-        this.transportationByTransportationId = transportationByTransportationId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "waypoint_id", referencedColumnName = "waypoint_id", nullable = false)
-    public Waypoint getWaypointByWaypointId() {
-        return waypointByWaypointId;
-    }
-
-    public void setWaypointByWaypointId(Waypoint waypointByWaypointId) {
-        this.waypointByWaypointId = waypointByWaypointId;
     }
 
     @Override
@@ -68,8 +46,6 @@ public class TransportationWaypoint {
                 "transportationWaypointId=" + transportationWaypointId +
                 ", transportationId=" + transportationId +
                 ", waypointId=" + waypointId +
-                ", transportationByTransportationId=" + transportationByTransportationId +
-                ", waypointByWaypointId=" + waypointByWaypointId +
                 '}';
     }
 

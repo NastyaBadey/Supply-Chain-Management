@@ -8,8 +8,6 @@ public class RateDeliveryMethod {
     private Integer rateDeliveryMethodId;
     private Integer rateId;
     private Integer deliveryMethodId;
-    private Rate rateByRateId;
-    private DeliveryMethod deliveryMethodByDeliveryMethodId;
 
     @Id
     @Column(name = "rate_delivery_method_id", nullable = false)
@@ -21,7 +19,7 @@ public class RateDeliveryMethod {
     public void setRateDeliveryMethodId(Integer rateDeliveryMethodId) {
         this.rateDeliveryMethodId = rateDeliveryMethodId;
     }
-/*
+
     @Basic
     @Column(name = "rate_id", nullable = false)
     public Integer getRateId() {
@@ -30,8 +28,7 @@ public class RateDeliveryMethod {
 
     public void setRateId(Integer rateId) {
         this.rateId = rateId;
-    }*/
-/*
+    }
     @Basic
     @Column(name = "delivery_method_id", nullable = false)
     public Integer getDeliveryMethodId() {
@@ -40,26 +37,6 @@ public class RateDeliveryMethod {
 
     public void setDeliveryMethodId(Integer deliveryMethodId) {
         this.deliveryMethodId = deliveryMethodId;
-    }*/
-
-    @ManyToOne
-    @JoinColumn(name = "rate_id", referencedColumnName = "rate_id", nullable = false)
-    public Rate getRateByRateId() {
-        return rateByRateId;
-    }
-
-    public void setRateByRateId(Rate rateByRateId) {
-        this.rateByRateId = rateByRateId;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "delivery_method_id", referencedColumnName = "delivery_method_id", nullable = false)
-    public DeliveryMethod getDeliveryMethodByDeliveryMethodId() {
-        return deliveryMethodByDeliveryMethodId;
-    }
-
-    public void setDeliveryMethodByDeliveryMethodId(DeliveryMethod deliveryMethodByDeliveryMethodId) {
-        this.deliveryMethodByDeliveryMethodId = deliveryMethodByDeliveryMethodId;
     }
 
     @Override
@@ -68,8 +45,6 @@ public class RateDeliveryMethod {
                 "rateDeliveryMethodId=" + rateDeliveryMethodId +
                 ", rateId=" + rateId +
                 ", deliveryMethodId=" + deliveryMethodId +
-                ", rateByRateId=" + rateByRateId +
-                ", deliveryMethodByDeliveryMethodId=" + deliveryMethodByDeliveryMethodId +
                 '}';
     }
 

@@ -1,7 +1,6 @@
 package com.scm.services.model;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
 public class Cargo {
@@ -13,7 +12,6 @@ public class Cargo {
     private Double cargoWeight;
     private Byte cargoDangerous;
     private Byte cargoFragile;
-    private Collection<Ticket> ticketsByCargoId;
 
     @Id
     @Column(name = "cargo_id", nullable = false)
@@ -96,15 +94,6 @@ public class Cargo {
         this.cargoFragile = cargoFragile;
     }
 
-    @OneToMany(mappedBy = "cargoByCargoId")
-    public Collection<Ticket> getTicketsByCargoId() {
-        return ticketsByCargoId;
-    }
-
-    public void setTicketsByCargoId(Collection<Ticket> ticketsByCargoId) {
-        this.ticketsByCargoId = ticketsByCargoId;
-    }
-
     @Override
     public String toString() {
         return "Cargo{" +
@@ -116,7 +105,6 @@ public class Cargo {
                 ", cargoWeight=" + cargoWeight +
                 ", cargoDangerous=" + cargoDangerous +
                 ", cargoFragile=" + cargoFragile +
-                ", ticketsByCargoId=" + ticketsByCargoId +
                 '}';
     }
 
