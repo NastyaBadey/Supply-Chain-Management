@@ -64,7 +64,7 @@ public class CargoOwnerDaoImpl implements CargoOwnerDao {
         Session session = this.sessionFactory.getCurrentSession();
         List<CargoOwner> cargoOwners = session.createQuery("from CargoOwner where userId = " + userId).list();
         if (cargoOwners.isEmpty()) {
-            Constants.showMessage("CargoOwner with id \'" + userId + "\' not found.");
+            Constants.showMessage("CargoOwner with userId \'" + userId + "\' not found.");
             return null;
         }
         CargoOwner cargoOwner = cargoOwners.get(0);

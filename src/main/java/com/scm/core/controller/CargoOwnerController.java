@@ -46,6 +46,6 @@ public class CargoOwnerController {
     public String addTicket(@ModelAttribute("ticketAndCargoAndMethod") TicketAndCargoAndLocalities ticketAndCargoAndLocalities,
                             HttpServletRequest request) {
         Constants.showMessageWithIndent("Calling addTicket in TicketController");
-        return "homePage";
+        return "redirect:homePage";
     }
 }

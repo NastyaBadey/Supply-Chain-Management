@@ -64,7 +64,7 @@ public class CarrierDaoImpl implements CarrierDao {
         Session session = this.sessionFactory.getCurrentSession();
         List<Carrier> carriers = session.createQuery("from Carrier where userId = " + userId).list();
         if (carriers.isEmpty()) {
-            Constants.showMessage("Carrier with id \'" + userId + "\' not found.");
+            Constants.showMessage("Carrier with userId \'" + userId + "\' not found.");
             return null;
         }
         Carrier carrier = carriers.get(0);

@@ -52,12 +52,12 @@
                         <div class="scm-profile-center-title">Тарифы</div>
 
                         <div class="scm-profile-form-row">
-                            <form:label path="selectedDeliveryMethod"
+                            <form:label path="selectedDeliveryMethod.deliveryMethodId"
                                         class="scm-profile-label scm-30">Тип доставки: </form:label>
-                            <form:select path="selectedDeliveryMethod" class="scm-profile-input scm-70"
+                            <form:select path="selectedDeliveryMethod.deliveryMethodId" class="scm-profile-input scm-70"
                                          required="required">
                                 <c:forEach var="dm" items="${carrierAndRatesAndDeliveryMethods.deliveryMethods}">
-                                    <form:option value="${dm.deliveryMethodName}">${dm.deliveryMethodName}</form:option>
+                                    <form:option value="${dm.deliveryMethodId}">${dm.deliveryMethodName}</form:option>
                                 </c:forEach>
                             </form:select>
                         </div>
