@@ -36,4 +36,8 @@ public class CarrierServiceUtil {
     public static List<Carrier> getAllCarriers(){
         return carrierService.getAllCarriers();
     }
+
+    public static Carrier getCarrierByUserId(int userId){
+        return carrierService.getCarrierByUserId(userId);
+    }
 }

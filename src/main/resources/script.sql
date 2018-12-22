@@ -143,3 +143,15 @@
    FOREIGN KEY (rate_id) REFERENCES rate(rate_id),
    FOREIGN KEY (delivery_method_id) REFERENCES delivery_method(delivery_method_id)
 );
+
+INSERT INTO scm.delivery_method (delivery_method_name, delivery_method_desc) 
+	VALUES ('автотранспорт', 'перевозки грузовыми машинами');
+    
+INSERT INTO scm.delivery_method (delivery_method_name, delivery_method_desc) 
+	VALUES ('воздушный тарнспорт', 'перевозки самолётами');
+    
+INSERT INTO scm.delivery_method (delivery_method_name, delivery_method_desc) 
+	VALUES ('морской транспорт', 'перевозки короблями');
+    
+INSERT INTO scm.delivery_method (delivery_method_name, delivery_method_desc) 
+	VALUES ('железнодорожный транспорт', 'перевозки поездами');

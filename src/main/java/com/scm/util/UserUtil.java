@@ -1,6 +1,8 @@
 package com.scm.util;
 
+import com.scm.services.model.Carrier;
 import com.scm.services.model.User;
+import com.scm.services.util.CarrierServiceUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -33,5 +35,13 @@ public class UserUtil {
         session.removeAttribute(Constants.CURRENT_USER_ID);
         session.removeAttribute(Constants.CURRENT_USER_LOGIN);
         session.removeAttribute(Constants.CURRENT_USER_ROLE);
+    }
+
+    public static Integer getRoleId(HttpServletRequest request){
+        Carrier carrier = CarrierServiceUtil.getCarrierByUserId(getUserId(request));
+        if(carrier != null){
+            return carrier.getCarrierId();
+        }
+        return null;
     }
 }

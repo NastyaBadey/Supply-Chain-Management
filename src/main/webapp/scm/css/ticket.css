@@ -53,6 +53,15 @@
 
 
 
+.scm-ticket-row{
+    padding: 8px;
+}
+
+.scm-route-title{
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
 .scm-ticket-btn{
     text-align: center;
     padding: 20px;

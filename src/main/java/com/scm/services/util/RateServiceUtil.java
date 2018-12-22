@@ -36,4 +36,8 @@ public class RateServiceUtil {
     public static List<Rate> getAllRates(){
         return rateService.getAllRates();
     }
+
+    public static List<Rate> getAllRatesByCarrierId(int carrierId){
+        return rateService.getAllRatesByCarrierId(carrierId);
+    }
 }

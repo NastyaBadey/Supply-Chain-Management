@@ -39,4 +39,9 @@ public class RateDeliveryMethodServiceImpl implements RateDeliveryMethodService 
     public List<RateDeliveryMethod> getAllRateDeliveryMethods() {
         return rateDeliveryMethodDao.getAll();
     }
+
+    @Transactional
+    public RateDeliveryMethod getRateDeliveryMethodByRateId(int rateId){
+        return rateDeliveryMethodDao.getRateDeliveryMethodByRateId(rateId);
+    }
 }

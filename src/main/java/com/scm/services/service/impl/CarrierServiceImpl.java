@@ -39,4 +39,9 @@ public class CarrierServiceImpl implements CarrierService {
     public List<Carrier> getAllCarriers() {
         return carrierDao.getAll();
     }
+
+    @Transactional
+    public Carrier getCarrierByUserId(int userId) {
+        return carrierDao.getCarrierByUserId(userId);
+    }
 }

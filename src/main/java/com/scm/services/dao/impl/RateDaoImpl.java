@@ -57,4 +57,13 @@ public class RateDaoImpl implements RateDao {
         }
         return rateList;
     }
+
+    public List<Rate> getAllRatesByCarrierId(int carrierId) {
+        Session session = this.sessionFactory.getCurrentSession();
+        List<Rate> rateList = session.createQuery("from Rate where carrierId = " + carrierId).list();
+        for (Rate rate : rateList) {
+            logger.info("Rate list element: ", rate);
+        }
+        return rateList;
+    }
 }

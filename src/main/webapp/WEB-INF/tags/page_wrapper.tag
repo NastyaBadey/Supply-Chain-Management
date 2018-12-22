@@ -31,7 +31,7 @@
 
         <c:if test="${currentUserLoginRole eq 2}">
             <div class="scm-user-menu-element">
-                <a href="<c:url value="/"/>">Оформление заявки</a>
+                <a href="<c:url value="/ticketRegistration"/>">Оформление заявки</a>
             </div>
             <div class="scm-user-menu-element">
                 <a href="<c:url value="/"/>">Перевозки</a>
@@ -48,7 +48,7 @@
                         </div>
                         <ul class="scm-submenu">
                             <c:if test="${currentUserLoginRole eq 1}">
-                                <li class="scm-bottom-border"><a href="<c:url value="/"/>">Профиль</a></li>
+                                <li class="scm-bottom-border"><a href="<c:url value="/carrierProfile"/>">Профиль</a></li>
                             </c:if>
                             <c:if test="${currentUserLoginRole eq 2}">
                                 <li class="scm-bottom-border"><a href="<c:url value="/cargoOwnerProfile"/>">Профиль</a></li>

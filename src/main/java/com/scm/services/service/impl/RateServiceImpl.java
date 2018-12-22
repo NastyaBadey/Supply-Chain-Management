@@ -39,4 +39,9 @@ public class RateServiceImpl implements RateService {
     public List<Rate> getAllRates() {
         return rateDao.getAll();
     }
+
+    @Transactional
+    public List<Rate> getAllRatesByCarrierId(int carrierId){
+        return rateDao.getAllRatesByCarrierId(carrierId);
+    }
 }

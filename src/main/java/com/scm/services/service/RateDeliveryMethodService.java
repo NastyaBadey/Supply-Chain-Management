@@ -1,5 +1,6 @@
 package com.scm.services.service;
 
+import com.scm.services.model.DeliveryMethod;
 import com.scm.services.model.RateDeliveryMethod;
 
 import java.util.List;
@@ -10,4 +11,5 @@ public interface RateDeliveryMethodService {
     void removeRateDeliveryMethod(int id);
     RateDeliveryMethod getRateDeliveryMethodById(int id);
     List<RateDeliveryMethod> getAllRateDeliveryMethods();
+    RateDeliveryMethod getRateDeliveryMethodByRateId(int rateId);
 }

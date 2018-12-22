@@ -9,7 +9,7 @@
 <scm:page_wrapper>
     <jsp:attribute name="scm_head">
         <meta charset="utf-8">
-        <title>Вход</title>
+        <title>Профиль</title>
         <link href="<c:url value="/scm/images/car-icon.png"/>" rel="shortcut icon" type="image/png">
         <link href="<c:url value="/scm/css/main.css"/>" rel="stylesheet" type="text/css" >
         <link href="<c:url value="/scm/css/profile.css"/>" rel="stylesheet" type="text/css" >

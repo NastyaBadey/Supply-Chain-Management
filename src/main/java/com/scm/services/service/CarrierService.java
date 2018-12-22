@@ -10,4 +10,5 @@ public interface CarrierService {
     void removeCarrier(int id);
     Carrier getCarrierById(int id);
     List<Carrier> getAllCarriers();
+    Carrier getCarrierByUserId(int userId);
 }

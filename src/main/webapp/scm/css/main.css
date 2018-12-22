@@ -73,7 +73,6 @@ a{
     display: -webkit-flex;
     display: -ms-flexbox;
     flex-direction: row;
-    padding: 8px;
 }
 
 

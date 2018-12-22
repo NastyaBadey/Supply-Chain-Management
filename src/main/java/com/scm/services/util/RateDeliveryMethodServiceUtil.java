@@ -1,5 +1,6 @@
 package com.scm.services.util;
 
+import com.scm.services.model.DeliveryMethod;
 import com.scm.services.model.RateDeliveryMethod;
 import com.scm.services.service.RateDeliveryMethodService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +36,9 @@ public class RateDeliveryMethodServiceUtil {
 
     public static List<RateDeliveryMethod> getAllRateDeliveryMethods(){
         return rateDeliveryMethodService.getAllRateDeliveryMethods();
+    }
+
+    public static RateDeliveryMethod getRateDeliveryMethodByRateId(int rateId){
+        return rateDeliveryMethodService.getRateDeliveryMethodByRateId(rateId);
     }
 }

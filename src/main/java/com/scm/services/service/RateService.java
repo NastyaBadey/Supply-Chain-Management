@@ -10,4 +10,5 @@ public interface RateService {
     void removeRate(int id);
     Rate getRateById(int id);
     List<Rate> getAllRates();
+    List<Rate> getAllRatesByCarrierId(int carrierId);
 }

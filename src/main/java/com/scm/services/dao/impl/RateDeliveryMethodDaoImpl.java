@@ -1,6 +1,7 @@
 package com.scm.services.dao.impl;
 
 import com.scm.services.dao.RateDeliveryMethodDao;
+import com.scm.services.model.DeliveryMethod;
 import com.scm.services.model.RateDeliveryMethod;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -56,5 +57,14 @@ public class RateDeliveryMethodDaoImpl implements RateDeliveryMethodDao {
             logger.info("RateDeliveryMethod list element: ", rateDeliveryMethod);
         }
         return rateDeliveryMethodList;
+    }
+
+    public RateDeliveryMethod getRateDeliveryMethodByRateId(int rateId) {
+        Session session = this.sessionFactory.getCurrentSession();
+        List<RateDeliveryMethod> deliveryMethodList = session.createQuery("from RateDeliveryMethod where rateId = " + rateId).list();
+        if (deliveryMethodList.isEmpty()) {
+            return null;
+        }
+        return deliveryMethodList.get(0);
     }
 }
