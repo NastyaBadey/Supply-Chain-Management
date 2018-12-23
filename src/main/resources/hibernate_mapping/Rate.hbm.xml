@@ -4,30 +4,30 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="model.Rate" table="rate" schema="scm">
+    <class name="com.scm.services.model.Rate" table="rate" schema="scm">
         <id name="rateId">
             <column name="rate_id" sql-type="int(5)"/>
         </id>
         <property name="ratePricePerKg">
             <column name="rate_price_per_kg" sql-type="float(10,2)" precision="10" scale="2"/>
         </property>
-        <property name="carrierId">
+        <!--<property name="carrierId">
             <column name="carrier_id" sql-type="int(5)"/>
-        </property>
-        <many-to-one name="carrierByCarrierId" class="model.Carrier">
+        </property>-->
+        <many-to-one name="carrierByCarrierId" class="com.scm.services.model.Carrier">
             <column name="carrier_id"/>
         </many-to-one>
         <set name="rateDeliveryMethodsByRateId" inverse="true">
             <key>
                 <column name="rate_id"/>
             </key>
-            <one-to-many not-found="ignore" class="model.RateDeliveryMethod"/>
+            <one-to-many not-found="ignore" class="com.scm.services.model.RateDeliveryMethod"/>
         </set>
         <set name="waypointsByRateId" inverse="true">
             <key>
                 <column name="rate_id" not-null="true"/>
             </key>
-            <one-to-many not-found="ignore" class="model.Waypoint"/>
+            <one-to-many not-found="ignore" class="com.scm.services.model.Waypoint"/>
         </set>
     </class>
 </hibernate-mapping>

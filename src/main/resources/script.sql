@@ -17,7 +17,7 @@
  
  
  CREATE TABLE IF NOT EXISTS scm.user(
-   user_id INT(5) PRIMARY KEY,
+   user_id INT(5) PRIMARY KEY AUTO_INCREMENT,
    user_login VARCHAR(25) NOT NULL,
    user_password VARCHAR(25) NOT NULL,
    user_email VARCHAR(25) NOT NULL,
@@ -25,7 +25,7 @@
  );
  
  CREATE TABLE IF NOT EXISTS scm.cargo_owner(
-   cargo_owner_id INT(5) PRIMARY KEY,
+   cargo_owner_id INT(5) PRIMARY KEY AUTO_INCREMENT,
    cargo_owner_name VARCHAR(60) NOT NULL,
    cargo_owner_desc VARCHAR(255),
    cargo_owner_phone VARCHAR(20),
@@ -35,7 +35,7 @@
  );
  
  CREATE TABLE IF NOT EXISTS scm.carrier(
-   carrier_id INT(5) PRIMARY KEY,
+   carrier_id INT(5) PRIMARY KEY AUTO_INCREMENT,
    carrier_name VARCHAR(60) NOT NULL,
    carrier_desc VARCHAR(255),
    carrier_phone VARCHAR(20),
@@ -45,21 +45,24 @@
 );
 
   CREATE TABLE IF NOT EXISTS scm.delivery_method(
-   delivery_method_id INT(5) PRIMARY KEY,
+   delivery_method_id INT(5) PRIMARY KEY AUTO_INCREMENT,
    delivery_method_name VARCHAR(40) NOT NULL,
    delivery_method_desc VARCHAR(255)
 );
 
  CREATE TABLE IF NOT EXISTS scm.rate(
-   rate_id INT(5) PRIMARY KEY,
+   rate_id INT(5) PRIMARY KEY AUTO_INCREMENT,
    rate_price_per_kg FLOAT(10,2) NOT NULL,
+   average_speed FLOAT(6,2) NOT NULL,
    carrier_id INT(5) NOT NULL,
+   delivery_method_id INT(5),
    
-   FOREIGN KEY (carrier_id) REFERENCES carrier(carrier_id)
+   FOREIGN KEY (carrier_id) REFERENCES carrier(carrier_id),
+   FOREIGN KEY (delivery_method_id) REFERENCES delivery_method(delivery_method_id)
 );
 
  CREATE TABLE IF NOT EXISTS scm.cargo(
-   cargo_id INT(5) PRIMARY KEY,
+   cargo_id INT(5) PRIMARY KEY AUTO_INCREMENT,
    cargo_name VARCHAR(50) NOT NULL,
    cargo_length FLOAT(8,2),
    cargo_width FLOAT(8,2),
@@ -70,13 +73,13 @@
 );
 
   CREATE TABLE IF NOT EXISTS scm.locality(
-   locality_id INT(5) PRIMARY KEY,
+   locality_id INT(5) PRIMARY KEY AUTO_INCREMENT,
    locality_name VARCHAR(50) NOT NULL,
    country VARCHAR(30) NOT NULL
 );
 
   CREATE TABLE IF NOT EXISTS scm.route(
-   route_id INT(5) PRIMARY KEY,
+   route_id INT(5) PRIMARY KEY AUTO_INCREMENT,
    departure_locality_id INT(5) NOT NULL,
    destination_locality_id INT(5) NOT NULL,
    
@@ -85,7 +88,7 @@
 );
 
   CREATE TABLE IF NOT EXISTS scm.waypoint(
-   waypoint_id INT(5) PRIMARY KEY,
+   waypoint_id INT(5) PRIMARY KEY AUTO_INCREMENT,
    route_id INT(5) NOT NULL,
    rate_id INT(5),
    from_locality_id INT(5) NOT NULL,
@@ -99,7 +102,7 @@
 );
 
   CREATE TABLE IF NOT EXISTS scm.ticket(
-   ticket_id INT(5) PRIMARY KEY,
+   ticket_id INT(5) PRIMARY KEY AUTO_INCREMENT,
    cargo_owner_id INT(5) NOT NULL, 
    cargo_id INT(5) NOT NULL,
    cargo_quantity INT(7) NOT NULL,
@@ -114,7 +117,7 @@
 );
 
   CREATE TABLE IF NOT EXISTS scm.transportation(
-   transportation_id INT(5) PRIMARY KEY,
+   transportation_id INT(5) PRIMARY KEY AUTO_INCREMENT,
    ticket_id INT(5) NOT NULL,
    carrier_id INT(5) NOT NULL,
    status VARCHAR(30),
@@ -126,7 +129,7 @@
 );
 
   CREATE TABLE IF NOT EXISTS scm.transportation_waypoint(
-   transportation_waypoint_id INT(5) PRIMARY KEY,
+   transportation_waypoint_id INT(5) PRIMARY KEY AUTO_INCREMENT,
    transportation_id INT(5) NOT NULL,
    waypoint_id INT(5) NOT NULL,
    
@@ -134,11 +137,15 @@
    FOREIGN KEY (waypoint_id) REFERENCES waypoint(waypoint_id)
 );   
   
-  CREATE TABLE IF NOT EXISTS scm.rate_delivery_method(
-   rate_delivery_method_id INT(5) PRIMARY KEY,
-   rate_id INT(5) NOT NULL,
-   delivery_method_id INT(5) NOT NULL,
-   
-   FOREIGN KEY (rate_id) REFERENCES rate(rate_id),
-   FOREIGN KEY (delivery_method_id) REFERENCES delivery_method(delivery_method_id)
-);
+
+INSERT INTO scm.delivery_method (delivery_method_name, delivery_method_desc) 
+	VALUES ('автотранспорт', 'перевозки грузовыми машинами');
+    
+INSERT INTO scm.delivery_method (delivery_method_name, delivery_method_desc) 
+	VALUES ('воздушный транспорт', 'перевозки самолётами');
+    
+INSERT INTO scm.delivery_method (delivery_method_name, delivery_method_desc) 
+	VALUES ('морской транспорт', 'перевозки короблями');
+    
+INSERT INTO scm.delivery_method (delivery_method_name, delivery_method_desc) 
+	VALUES ('железнодорожный транспорт', 'перевозки поездами');

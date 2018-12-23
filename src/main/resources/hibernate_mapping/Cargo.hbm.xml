@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="model.Cargo" table="cargo" schema="scm">
+    <class name="com.scm.services.model.Cargo" table="cargo" schema="scm">
         <id name="cargoId">
             <column name="cargo_id" sql-type="int(5)"/>
         </id>
@@ -33,7 +33,7 @@
             <key>
                 <column name="cargo_id"/>
             </key>
-            <one-to-many not-found="ignore" class="model.Ticket"/>
+            <one-to-many not-found="ignore" class="com.scm.services.model.Ticket"/>
         </set>
     </class>
 </hibernate-mapping>

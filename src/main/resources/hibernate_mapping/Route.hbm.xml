@@ -4,33 +4,33 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="model.Route" table="route" schema="scm">
+    <class name="com.scm.services.model.Route" table="route" schema="scm">
         <id name="routeId">
             <column name="route_id" sql-type="int(5)"/>
         </id>
-        <property name="departureLocalityId">
+        <!--<property name="departureLocalityId">
             <column name="departure_locality_id" sql-type="int(5)"/>
         </property>
         <property name="destinationLocalityId">
             <column name="destination_locality_id" sql-type="int(5)"/>
-        </property>
-        <many-to-one name="localityByDepartureLocalityId" class="model.Locality">
+        </property>-->
+        <many-to-one name="localityByDepartureLocalityId" class="com.scm.services.model.Locality">
             <column name="departure_locality_id"/>
         </many-to-one>
-        <many-to-one name="localityByDestinationLocalityId" class="model.Locality">
+        <many-to-one name="localityByDestinationLocalityId" class="com.scm.services.model.Locality">
             <column name="destination_locality_id"/>
         </many-to-one>
         <set name="ticketsByRouteId" inverse="true">
             <key>
                 <column name="route_id"/>
             </key>
-            <one-to-many not-found="ignore" class="model.Ticket"/>
+            <one-to-many not-found="ignore" class="com.scm.services.model.Ticket"/>
         </set>
         <set name="waypointsByRouteId" inverse="true">
             <key>
                 <column name="route_id"/>
             </key>
-            <one-to-many not-found="ignore" class="model.Waypoint"/>
+            <one-to-many not-found="ignore" class="com.scm.services.model.Waypoint"/>
         </set>
     </class>
 </hibernate-mapping>

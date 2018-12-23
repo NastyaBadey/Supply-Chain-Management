@@ -4,20 +4,20 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="model.TransportationWaypoint" table="transportation_waypoint" schema="scm">
+    <class name="com.scm.services.model.TransportationWaypoint" table="transportation_waypoint" schema="scm">
         <id name="transportationWaypointId">
             <column name="transportation_waypoint_id" sql-type="int(5)"/>
         </id>
-        <property name="transportationId">
+        <!--<property name="transportationId">
             <column name="transportation_id" sql-type="int(5)"/>
         </property>
         <property name="waypointId">
             <column name="waypoint_id" sql-type="int(5)"/>
-        </property>
-        <many-to-one name="transportationByTransportationId" class="model.Transportation">
+        </property>-->
+        <many-to-one name="transportationByTransportationId" class="com.scm.services.model.Transportation">
             <column name="transportation_id"/>
         </many-to-one>
-        <many-to-one name="waypointByWaypointId" class="model.Waypoint">
+        <many-to-one name="waypointByWaypointId" class="com.scm.services.model.Waypoint">
             <column name="waypoint_id"/>
         </many-to-one>
     </class>

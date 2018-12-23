@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="model.CargoOwner" table="cargo_owner" schema="scm">
+    <class name="com.scm.services.model.CargoOwner" table="cargo_owner" schema="scm">
         <id name="cargoOwnerId">
             <column name="cargo_owner_id" sql-type="int(5)"/>
         </id>
@@ -17,17 +17,17 @@
         <property name="cargoOwnerPhone">
             <column name="cargo_owner_phone" sql-type="varchar(20)" length="20" not-null="true"/>
         </property>
-        <property name="userId">
+        <!--<property name="userId">
             <column name="user_id" sql-type="int(5)"/>
-        </property>
-        <many-to-one name="userByUserId" class="model.User">
+        </property>-->
+        <many-to-one name="userByUserId" class="com.scm.services.model.User">
             <column name="user_id"/>
         </many-to-one>
         <set name="ticketsByCargoOwnerId" inverse="true">
             <key>
                 <column name="cargo_owner_id"/>
             </key>
-            <one-to-many not-found="ignore" class="model.Ticket"/>
+            <one-to-many not-found="ignore" class="com.scm.services.model.Ticket"/>
         </set>
     </class>
 </hibernate-mapping>
