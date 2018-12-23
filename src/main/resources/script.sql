@@ -142,7 +142,7 @@ INSERT INTO scm.delivery_method (delivery_method_name, delivery_method_desc)
 	VALUES ('автотранспорт', 'перевозки грузовыми машинами');
     
 INSERT INTO scm.delivery_method (delivery_method_name, delivery_method_desc) 
-	VALUES ('воздушный транспорт', 'перевозки самолётами');
+	VALUES ('воздушный тарнспорт', 'перевозки самолётами');
     
 INSERT INTO scm.delivery_method (delivery_method_name, delivery_method_desc) 
 	VALUES ('морской транспорт', 'перевозки короблями');

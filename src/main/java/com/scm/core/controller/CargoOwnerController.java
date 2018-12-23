@@ -1,4 +1,4 @@
-package com.scm.core.controller.cargoOwner;
+package com.scm.core.controller;
 
 import com.scm.services.dao.impl.UserDaoImpl;
 import com.scm.services.model.CargoOwner;
@@ -20,30 +20,22 @@ import javax.servlet.http.HttpServletRequest;
 public class CargoOwnerController {
     private static final Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
 
-    @GetMapping("cargoOwner/profile")
-    public String cargoOwnerProfile(Model model, HttpServletRequest request) {
+    @GetMapping("cargoOwnerProfile")
+    public String cargoOwnerProfile(Model model) {
         Constants.showMessageWithIndent("Calling cargoOwnerProfile in CargoOwnerController");
-        CargoOwner cargoOwner = CargoOwnerServiceUtil.getCargoOwnerByUserId(UserUtil.getUserId(request));
-        if (cargoOwner == null) {
-            cargoOwner = new CargoOwner();
-        }
-        model.addAttribute("cargoOwner", cargoOwner);
+        model.addAttribute("cargoOwner", new CargoOwner());
         return "cargoOwnerProfile";
     }
 
     @PostMapping("addCargoOwner")
     public String addCargoOwner(@ModelAttribute("cargoOwner") CargoOwner cargoOwner, HttpServletRequest request) {
         Constants.showMessageWithIndent("Calling addCargoOwner in CargoOwnerController");
-        if (cargoOwner.getCargoOwnerId() == null) {
-            cargoOwner.setUserId(UserUtil.getUserId(request));
-            CargoOwnerServiceUtil.addCargoOwner(cargoOwner);
-        } else {
-            CargoOwnerServiceUtil.updateCargoOwner(cargoOwner);
-        }
-        return "redirect:/homePage";
+        cargoOwner.setUserId(UserUtil.getUserId(request));
+        CargoOwnerServiceUtil.addCargoOwner(cargoOwner);
+        return "redirect:homePage";
     }
 
-    @GetMapping("cargoOwner/ticketRegistration")
+    @GetMapping("ticketRegistration")
     public String ticketRegistration(Model model) {
         Constants.showMessageWithIndent("Calling ticketRegistration in TicketController");
         model.addAttribute("ticketAndCargoAndMethod", new TicketAndCargoAndLocalities());
@@ -54,6 +46,6 @@ public class CargoOwnerController {
     public String addTicket(@ModelAttribute("ticketAndCargoAndMethod") TicketAndCargoAndLocalities ticketAndCargoAndLocalities,
                             HttpServletRequest request) {
         Constants.showMessageWithIndent("Calling addTicket in TicketController");
-        return "redirect:/homePage";
+        return "redirect:homePage";
     }
 }

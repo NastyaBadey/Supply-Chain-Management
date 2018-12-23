@@ -3,7 +3,6 @@ package com.scm.services.dao.impl;
 import com.scm.services.dao.CargoOwnerDao;
 import com.scm.services.model.CargoOwner;
 import com.scm.util.Constants;
-import com.sun.istack.internal.Nullable;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -61,7 +60,6 @@ public class CargoOwnerDaoImpl implements CargoOwnerDao {
         return cargoOwnerList;
     }
 
-    @Nullable
     public CargoOwner getCargoOwnerByUserId(int userId) {
         Session session = this.sessionFactory.getCurrentSession();
         List<CargoOwner> cargoOwners = session.createQuery("from CargoOwner where userId = " + userId).list();

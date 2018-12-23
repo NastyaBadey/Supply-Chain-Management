@@ -26,24 +26,12 @@ body {
     align-self: flex-end;
 }
 
-.scm-20 {
-    width: 20%;
+.scm-30 {
+    width: 30%;
 }
 
-.scm-25 {
-    width: 25%;
-}
-
-.scm-35 {
-    width: 35%;
-}
-
-.scm-60 {
-    width: 60%;
-}
-
-.scm-100 {
-    width: 100%;
+.scm-70 {
+    width: 70%;
 }
 
 .scm-center-title {
@@ -112,6 +100,10 @@ a {
     color: #707070;
 }
 
+.scm-user-menu {
+    display: inline-block;
+}
+
 .scm-user-menu-element {
     padding: 0 0 0 40px;
     display: inline-block;
@@ -123,18 +115,10 @@ a {
     font-weight: bold;
 }
 
-.scm-help-profile {
-    display: inline-block;
-    margin: 0 4% 0;
-    word-wrap: break-word;
-    font-size: 18px;
-    font-style: italic;
-}
-
 /* ************** MENU start ************** */
 .scm-navigation {
     float: right;
-    padding: 22px 3% 0 0;
+    padding: 18px 80px 13px;
     font-weight: bold;
     font-size: 18px;
     color: #707070;
@@ -248,11 +232,6 @@ ul {
     /*border-radius: 7px;*/
     /*background-color: rgba(255, 255, 255, 0.8);*/
     z-index: 5;
-}
-
-.scm-main-auto-background {
-    background: url(/scm/images/auto.png) no-repeat;
-    background-size: cover;
 }
 
 .scm-footer-container {

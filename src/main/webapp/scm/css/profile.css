@@ -1,3 +1,8 @@
+.scm-profile-main-auto-background {
+    background: url(/scm/images/auto.png) no-repeat;
+    background-size: cover;
+}
+
 .scm-profile-main-block {
     margin-top: 40px;
     min-height: 600px;
@@ -62,7 +67,7 @@
     border-bottom: 2px solid #c8c8c8;
     float: right;
     min-height: 90px;
-    word-wrap: break-word;
+    word-break: break-all;
 }
 
 .scm-profile-btn {
@@ -70,9 +75,9 @@
 }
 
 .scm-profile-form input[type="submit"] {
-    padding: 6px 40px;
+    padding: 10px 40px;
     background: #acacac;
-    border-radius: 5px;
+    border-radius: 10px;
     border-width: 0;
     color: white;
     font-size: 20px;
