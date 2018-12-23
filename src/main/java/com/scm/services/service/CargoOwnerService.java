@@ -14,4 +14,6 @@ public interface CargoOwnerService {
     CargoOwner getCargoOwnerById(int id);
 
     List<CargoOwner> getAllCargoOwners();
+
+    CargoOwner getCargoOwnerByUserId(int userId);
 }

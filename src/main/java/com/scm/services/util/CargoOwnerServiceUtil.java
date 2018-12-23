@@ -31,6 +31,10 @@ public class CargoOwnerServiceUtil {
         return cargoOwnerService.getAllCargoOwners();
     }
 
+    public static CargoOwner getCargoOwnerByUserId(int userId) {
+        return cargoOwnerService.getCargoOwnerByUserId(userId);
+    }
+
     @Autowired
     public void setCargoOwnerService(CargoOwnerService cargoOwnerService) {
         this.cargoOwnerService = cargoOwnerService;

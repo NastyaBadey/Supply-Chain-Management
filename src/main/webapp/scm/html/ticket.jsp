@@ -17,8 +17,8 @@
     </jsp:attribute>
 
     <jsp:body>
-        <c:url var="addTicket" value="/addTicket"/>
-        <div class="scm-profile-main-auto-background scm-row-container">
+        <c:url var="addTicket" value="addTicket"/>
+        <div class="scm-main-auto-background scm-row-container">
             <div class="scm-column-container scm-profile-main-block">
                 <div class="scm-row-container scm-flex-center scm-profile-title-name">Оформление заявки на перевозку
                 </div>

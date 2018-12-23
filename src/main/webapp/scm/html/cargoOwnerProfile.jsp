@@ -18,28 +18,30 @@
 
     <jsp:body>
         <c:url var="addCargoOwner" value="/addCargoOwner"/>
-        <div class="scm-profile-main-auto-background scm-row-container">
+        <div class="scm-main-auto-background scm-row-container">
             <div class="scm-column-container scm-profile-main-block">
                 <div class="scm-row-container scm-flex-center scm-profile-title-name">Создание профиля</div>
                 <div class="scm-flex-center scm-row-container">
                     <form:form action="${addCargoOwner}" commandName="cargoOwner" class="scm-profile-form">
                         <div class="scm-profile-center-title">Общая информация</div>
 
+                        <form:hidden path="cargoOwnerId"/>
+                        <form:hidden path="userId"/>
                         <div class="scm-profile-form-row">
-                            <form:label path="cargoOwnerName" class="scm-profile-label scm-30">Название: </form:label>
-                            <form:input path="cargoOwnerName" size="28" class="scm-profile-input scm-70"
+                            <form:label path="cargoOwnerName" class="scm-profile-label scm-25">Название: </form:label>
+                            <form:input path="cargoOwnerName" size="50" class="scm-profile-input scm-100"
                                         required="required" maxlength="60" autocomplete="off"/>
                         </div>
 
                         <div class="scm-profile-form-row">
-                            <form:label path="cargoOwnerPhone" class="scm-profile-label scm-30">Телефон: </form:label>
-                            <form:input path="cargoOwnerPhone" size="28" class="scm-profile-input scm-70"
+                            <form:label path="cargoOwnerPhone" class="scm-profile-label scm-25">Телефон: </form:label>
+                            <form:input path="cargoOwnerPhone" size="50" class="scm-profile-input scm-100"
                                         required="required" maxlength="20" autocomplete="off"/>
                         </div>
 
                         <div class="scm-profile-form-row">
-                            <form:label path="cargoOwnerDesc" class="scm-profile-label scm-30">Описание: </form:label>
-                            <form:textarea path="cargoOwnerDesc" class="scm-profile-textarea scm-70"
+                            <form:label path="cargoOwnerDesc" class="scm-profile-label scm-25">Описание: </form:label>
+                            <form:textarea path="cargoOwnerDesc" class="scm-profile-textarea scm-100"
                                            required="required" maxlength="255" autocomplete="off"/>
                         </div>
 

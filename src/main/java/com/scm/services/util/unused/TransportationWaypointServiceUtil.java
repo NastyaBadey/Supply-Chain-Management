@@ -1,4 +1,4 @@
-package com.scm.services.util;
+package com.scm.services.util.unused;
 
 import com.scm.services.model.TransportationWaypoint;
 import com.scm.services.service.TransportationWaypointService;

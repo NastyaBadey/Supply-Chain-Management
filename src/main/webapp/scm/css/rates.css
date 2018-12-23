@@ -1,9 +1,9 @@
-.scm-profile-main-block {
+.scm-rates-main-block {
     margin-top: 40px;
     min-height: 600px;
 }
 
-.scm-profile-title-name {
+.scm-rates-title-name {
     margin-bottom: 20px;
     text-shadow: #707070 0 0 5px;
     text-align: center;
@@ -12,20 +12,20 @@
     font-size: 38px;
 }
 
-.scm-profile-form {
+.scm-rates-form {
     padding: 25px 60px 20px;
-    margin: auto auto 50px;
+    margin: auto auto 20px;
     background-color: #ebebeb;
 }
 
-.scm-profile-center-title {
+.scm-rates-center-title {
     text-align: center;
     margin-bottom: 18px;
     font-size: 22px;
     font-weight: normal;
 }
 
-.scm-profile-form-row {
+.scm-rates-form-row {
     margin: 0 0 25px;
     display: flex;
     display: -webkit-box;
@@ -34,7 +34,7 @@
     flex-direction: row;
 }
 
-.scm-profile-input {
+.scm-rates-input {
     background-color: #ebebeb;
     line-height: 20px;
     font-size: 20px;
@@ -42,17 +42,22 @@
     color: #959595;
     border-width: 0;
     border-bottom: 2px solid #c8c8c8;
-    float: right;
+    float: left;
 }
 
-.scm-profile-label {
+.scm-rates-select{
+    min-width: 240px;
+}
+
+.scm-rates-label {
     font-weight: bold;
     font-size: 20px;
     margin-right: 10px;
     align-self: center;
+    min-width: 200px;
 }
 
-.scm-profile-textarea {
+.scm-rates-textarea {
     background-color: #ebebeb;
     line-height: 20px;
     font-size: 20px;
@@ -65,12 +70,12 @@
     word-wrap: break-word;
 }
 
-.scm-profile-btn {
+.scm-rates-btn {
     text-align: center;
 }
 
-.scm-profile-form input[type="submit"] {
-    padding: 6px 40px;
+.scm-rates-form input[type="submit"] {
+    padding: 5px 40px;
     background: #acacac;
     border-radius: 5px;
     border-width: 0;
@@ -78,6 +83,54 @@
     font-size: 20px;
 }
 
-.scm-profile-form input[type="submit"]:hover {
+.scm-rates-form input[type="submit"]:hover {
     background: #707070;
+}
+
+.scm-rates-table {
+    border-spacing: 0;
+    background-color: #ebebeb;
+    font-size: 18px;
+}
+
+tr:first-child:hover {
+    background-color: #ebebeb;
+    cursor: default;
+}
+
+tr:hover {
+    background-color: #d9d9d9;
+    cursor: hand;
+}
+
+.scm-rates-table th {
+    color: #707070;
+}
+
+.scm-rates-table th, td {
+    padding: 5px 10px;
+    text-align: center;
+    border-bottom: solid #acacac 2px;
+}
+
+.scm-rates-cell-right-border {
+    border-right: solid #acacac 2px;
+}
+
+.scm-rates-last-cell {
+    padding: 5px 10px;
+    text-align: center;
+    border-bottom: 0;
+}
+
+td a:hover {
+    font-weight: 600;
+}
+
+.scm-rates-empty-form {
+    word-wrap: break-word;
+    color: #ffffff;
+    font-size: 28px;
+    text-shadow: #cdcdcd 0 0 5px;
+    margin-bottom: 15px;
 }

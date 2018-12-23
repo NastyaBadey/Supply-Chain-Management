@@ -39,7 +39,7 @@ public class UserController {
             UserServiceUtil.updateUser(user);
         }
         UserUtil.addUser(request, user);
-        return "redirect:homePage";
+        return "redirect:/homePage";
     }
 
     //то же самое, что и @RequestMapping(value = "signIn", method = RequestMethod.GET)
@@ -58,7 +58,7 @@ public class UserController {
         if (currentUser != null) {
             UserUtil.addUser(request, currentUser);
         }
-        return "redirect:homePage";
+        return "redirect:/homePage";
     }
 
 
@@ -66,6 +66,6 @@ public class UserController {
     public String logout(HttpServletRequest request) {
         Constants.showMessageWithIndent("Calling logout in UserController");
         UserUtil.removeUser(request);
-        return "homePage";
+        return "redirect:/homePage";
     }
 }
