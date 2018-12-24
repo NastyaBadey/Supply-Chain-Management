@@ -39,4 +39,9 @@ public class CargoOwnerServiceImpl implements CargoOwnerService {
     public List<CargoOwner> getAllCargoOwners() {
         return cargoOwnerDao.getAll();
     }
+
+    @Transactional
+    public CargoOwner getCargoOwnerByUserId(int userId) {
+        return cargoOwnerDao.getCargoOwnerByUserId(userId);
+    }
 }

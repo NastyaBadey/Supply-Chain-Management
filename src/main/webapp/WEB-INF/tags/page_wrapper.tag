@@ -11,33 +11,46 @@
 <body>
 <header class="scm-header">
     <div class="scm-header-name">
-        <a href="<c:url value="/scm/html/homePage.jsp"/>">
+        <a href="<c:url value="/homePage"/>">
             <img class="scm-car-icon" src="<c:url value="/scm/images/car-icon.png"/>">
             TransportLogistics
         </a>
     </div>
-    <div class="scm-user-menu">
-        <c:if test="${currentUserLoginRole eq 1}">
-            <div class="scm-user-menu-element">
-                <a href="<c:url value="/"/>">Маршруты</a>
-            </div>
-            <div class="scm-user-menu-element">
-                <a href="<c:url value="/"/>">Перевозки</a>
-            </div>
-            <div class="scm-user-menu-element">
-                <a href="<c:url value="/"/>">Формирование перевозки</a>
-            </div>
-        </c:if>
 
-        <c:if test="${currentUserLoginRole eq 2}">
-            <div class="scm-user-menu-element">
-                <a href="<c:url value="/ticketRegistration"/>">Оформление заявки</a>
-            </div>
-            <div class="scm-user-menu-element">
-                <a href="<c:url value="/"/>">Перевозки</a>
-            </div>
-        </c:if>
-    </div>
+    <c:choose>
+        <c:when test="${profileExists}">
+            <c:if test="${currentUserLoginRole eq 1}">
+                <div class="scm-user-menu-element">
+                    <a href="<c:url value="/carrier/rates"/>">Тарифы</a>
+                </div>
+                <div class="scm-user-menu-element">
+                    <a href="<c:url value="/"/>">Маршруты</a>
+                </div>
+                <div class="scm-user-menu-element">
+                    <a href="<c:url value="/"/>">Перевозки</a>
+                </div>
+                <div class="scm-user-menu-element">
+                    <a href="<c:url value="/"/>">Формирование перевозки</a>
+                </div>
+            </c:if>
+
+            <c:if test="${currentUserLoginRole eq 2}">
+                <div class="scm-user-menu-element">
+                    <a href="<c:url value="/cargoOwner/ticketRegistration"/>">Оформление заявки</a>
+                </div>
+                <div class="scm-user-menu-element">
+                    <a href="<c:url value="/"/>">Перевозки</a>
+                </div>
+            </c:if>
+        </c:when>
+
+        <c:otherwise>
+            <c:if test="${currentUserId ne null}">
+                <div class="scm-help-profile">Создайте профиль для дальнейшей работы</div>
+            </c:if>
+        </c:otherwise>
+    </c:choose>
+
     <nav class="scm-navigation">
         <ul class="scm-menu">
             <li>
@@ -48,10 +61,12 @@
                         </div>
                         <ul class="scm-submenu">
                             <c:if test="${currentUserLoginRole eq 1}">
-                                <li class="scm-bottom-border"><a href="<c:url value="/carrierProfile"/>">Профиль</a></li>
+                                <li class="scm-bottom-border"><a href="<c:url value="/carrier/profile"/>">Профиль</a>
+                                </li>
                             </c:if>
                             <c:if test="${currentUserLoginRole eq 2}">
-                                <li class="scm-bottom-border"><a href="<c:url value="/cargoOwnerProfile"/>">Профиль</a></li>
+                                <li class="scm-bottom-border"><a href="<c:url value="/cargoOwner/profile"/>">Профиль</a>
+                                </li>
                             </c:if>
 
                             <li><a href="<c:url value="/logout"/>">Выход</a></li>

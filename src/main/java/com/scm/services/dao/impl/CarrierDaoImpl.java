@@ -3,6 +3,7 @@ package com.scm.services.dao.impl;
 import com.scm.services.dao.CarrierDao;
 import com.scm.services.model.Carrier;
 import com.scm.util.Constants;
+import com.sun.istack.internal.Nullable;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
@@ -60,6 +61,7 @@ public class CarrierDaoImpl implements CarrierDao {
         return carrierList;
     }
 
+    @Nullable
     public Carrier getCarrierByUserId(int userId) {
         Session session = this.sessionFactory.getCurrentSession();
         List<Carrier> carriers = session.createQuery("from Carrier where userId = " + userId).list();
