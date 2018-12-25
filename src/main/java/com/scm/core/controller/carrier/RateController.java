@@ -28,9 +28,6 @@ public class RateController {
     @GetMapping("carrier/rates")
     public String rates(Model model, HttpServletRequest request) {
         Constants.showMessageWithIndent("Calling rates in CarrierController");
-        model.addAttribute("ratesAndDeliveryMethods", new RatesAndDeliveryMethods(request));
-        /*model.addAttribute("selectedDeliveryMethodId", null);
-        model.addAttribute("rate", new Rate());
         List<DeliveryMethod> deliveryMethods = DeliveryMethodServiceUtil.getAllDeliveryMethods();
         List<Rate> rates = RateServiceUtil.getAllRatesByCarrierId(UserUtil.getCarrierId(request));
         for (Rate currentRate : rates) {
@@ -38,7 +35,11 @@ public class RateController {
                     .getDeliveryMethodById(currentRate.getDeliveryMethodId());
             deliveryMethods.remove(currentDeliveryMethod);
         }
-        model.addAttribute("deliveryMethods", deliveryMethods);*/
+        RatesAndDeliveryMethods ratesAndDeliveryMethods = new RatesAndDeliveryMethods(new Rate(),
+                null, deliveryMethods);
+
+        ratesAndDeliveryMethods.setDeliveryMethods(deliveryMethods);
+        model.addAttribute("ratesAndDeliveryMethods", ratesAndDeliveryMethods);
         return "rates";
     }
 
@@ -47,13 +48,13 @@ public class RateController {
         Constants.showMessageWithIndent("Calling getRates in CarrierController");
         response.setContentType("application/json");
         try {
-            response.getWriter().write(makeRateJson(request).toString());
+            response.getWriter().write(makeRateJSON(request).toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private JSONArray makeRateJson(HttpServletRequest request) {
+    private JSONArray makeRateJSON(HttpServletRequest request) {
         List<Rate> rates = RateServiceUtil.getAllRatesByCarrierId(UserUtil.getCarrierId(request));
         List<DeliveryMethod> deliveryMethodsByRates = new ArrayList<DeliveryMethod>();
         for (Rate currentRate : rates) {
@@ -93,7 +94,20 @@ public class RateController {
     @GetMapping("carrier/editRate/{rateId}")
     public String editRate(@PathVariable("rateId") int rateId, Model model, HttpServletRequest request) {
         Constants.showMessageWithIndent("Calling editRate in CarrierController");
-        RatesAndDeliveryMethods ratesAndDeliveryMethods = new RatesAndDeliveryMethods(rateId, request);
+        Rate rate = RateServiceUtil.getRateById(rateId);
+        Integer selectedDeliveryMethodId = rate.getDeliveryMethodId();
+        List<DeliveryMethod> deliveryMethods = DeliveryMethodServiceUtil.getAllDeliveryMethods();
+        List<Rate> rates = RateServiceUtil.getAllRatesByCarrierId(UserUtil.getCarrierId(request));
+        for (Rate currentRate : rates) {
+            DeliveryMethod currentDeliveryMethod = DeliveryMethodServiceUtil
+                    .getDeliveryMethodById(currentRate.getDeliveryMethodId());
+            if (currentDeliveryMethod.getDeliveryMethodId() != selectedDeliveryMethodId) {
+                deliveryMethods.remove(currentDeliveryMethod);
+            }
+        }
+
+        RatesAndDeliveryMethods ratesAndDeliveryMethods = new RatesAndDeliveryMethods(rate,
+                selectedDeliveryMethodId, deliveryMethods);
         model.addAttribute("ratesAndDeliveryMethods", ratesAndDeliveryMethods);
         return "rates";
     }

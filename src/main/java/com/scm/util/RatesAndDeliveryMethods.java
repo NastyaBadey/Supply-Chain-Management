@@ -10,40 +10,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RatesAndDeliveryMethods {
+    Rate rate;
     Integer selectedDeliveryMethodId;
     List<DeliveryMethod> deliveryMethods; //для выпадающего списка
-    Rate rate;
 
     public RatesAndDeliveryMethods() {
+        this.rate = new Rate();
         this.selectedDeliveryMethodId = null;
         this.deliveryMethods = new ArrayList<DeliveryMethod>();
-        this.rate = new Rate();
     }
 
-    public RatesAndDeliveryMethods(HttpServletRequest request) {
-        this.rate = new Rate();
-        this.selectedDeliveryMethodId = null;
-        this.deliveryMethods = DeliveryMethodServiceUtil.getAllDeliveryMethods();
-        List<Rate> rates = RateServiceUtil.getAllRatesByCarrierId(UserUtil.getCarrierId(request));
-        for (Rate currentRate : rates) {
-            DeliveryMethod currentDeliveryMethod = DeliveryMethodServiceUtil
-                    .getDeliveryMethodById(currentRate.getDeliveryMethodId());
-            this.deliveryMethods.remove(currentDeliveryMethod);
-        }
-    }
-
-    public RatesAndDeliveryMethods(int rateId, HttpServletRequest request) {
-        this.rate = RateServiceUtil.getRateById(rateId);
-        this.selectedDeliveryMethodId = this.rate.getDeliveryMethodId();
-        this.deliveryMethods = DeliveryMethodServiceUtil.getAllDeliveryMethods();
-        List<Rate> rates = RateServiceUtil.getAllRatesByCarrierId(UserUtil.getCarrierId(request));
-        for (Rate currentRate : rates) {
-            DeliveryMethod currentDeliveryMethod = DeliveryMethodServiceUtil
-                    .getDeliveryMethodById(currentRate.getDeliveryMethodId());
-            if (currentDeliveryMethod.getDeliveryMethodId() != selectedDeliveryMethodId) {
-                this.deliveryMethods.remove(currentDeliveryMethod);
-            }
-        }
+    public RatesAndDeliveryMethods(Rate rate, Integer selectedDeliveryMethodId, List<DeliveryMethod> deliveryMethods) {
+        this.rate = rate;
+        this.selectedDeliveryMethodId = selectedDeliveryMethodId;
+        this.deliveryMethods = deliveryMethods;
     }
 
     public Integer getSelectedDeliveryMethodId() {
